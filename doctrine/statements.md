@@ -47,6 +47,7 @@ Authorship
   I5.   Only the operator changes a state.
 
 Formal twin
+  Ref.  README.md, Formal twin.
   I1.   A definition, an assertion or a consequence may name its formal twin: a Lean declaration in a file given as a source.
   I2.   The assertion that the twin means the sentence is a separate, model-authored statement.
   I3.   That assertion is what the operator is asked to ratify.

@@ -85,12 +85,14 @@ Vetting
   V6.   The operator adds readers and never removes lenses.
 
 Lens
+  Ref.  README.md, Lens.
   Q1.   The matter's text describes what its sources contain and claim.
   Q2.   Nothing is undefined.
   Q3.   The blast radius is as stated.
   Q4.   Correspondence: every twin says what its sentence says.
 
 Correspondence reading
+  Ref.  README.md, Correspondence reading.
   I1.   For each twin in the matter's subject it records the reading, the sentence, the
         verdict (same or not same, with the reason), and the exclusion test.
   I2.   The reading is written from the Lean text alone, before the reader sees the
@@ -101,6 +103,7 @@ Correspondence reading
   I4.   The reader took no part in writing the twin or the sentence.
 
 Attempt
+  Ref.  README.md, Attempt.
   S1.   Gate: the seven checks of doctrine/statements.md over the subject's statements,
         by a program once one exists and until then by an agent that reads them and says
         so.
@@ -121,6 +124,7 @@ Attempt
         (errors/e0001).
 
 Finding
+  Ref.  README.md, Finding.
   I1.   A finding names the step, the lens if any, the location (a statement id, a twin
         name, or a file and line), what differs or fails, and the evidence.
   I2.   A reader's output is findings, or the word none; it is evidence, not a
@@ -160,6 +164,7 @@ Channel
   I6.   A pull request merges as a merge commit; its body is a one-line pointer.
 
 Evidence
+  Ref.  README.md, Evidence.
   I1.   runs/: one file per attempt, plus one per check run or reading it cites; never
         edited; a re-run is a new file.
   I2.   threads/: verbatim operator and agent turns, reasoning and tool traffic

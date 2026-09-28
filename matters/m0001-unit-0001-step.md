@@ -20,13 +20,14 @@ runs:
   - runs/m0001-attempt-2.md
   - runs/m0001-attempt-3.md
   - runs/m0001-attempt-4.md
+  - runs/m0001-attempt-5.md
   - runs/2026-09-27-unit-0001-kernel-check.md
   - runs/2026-09-28-unit-0001-kernel-check.md
   - runs/2026-09-28-unit-0001-kernel-check-revision-6.md
   - runs/2026-09-28-unit-0001-correspondence-reading.md
 generated:
   by: claude-code/2026-09-28
-  at: 2026-09-28T21:00:00Z
+  at: 2026-09-28T22:00:00Z
 ---
 
 # m0001 · unit 0001 · step
@@ -40,13 +41,14 @@ This matter carries the statements in the two sources it pins by hash in
 its header (doctrine/matters.md, Sources I3). The text the operator
 ratifies is this body and those two files at those hashes:
 
-- `units/0001-step/statements.md` — seven statements: def_1, the
-  definition, operator-authored and ratified on entry; ref_1, the Lean file
-  by path and hash, model-authored and proposed; attest_1 (the formal twin
-  means the definition), attest_2 (the first step is step 0) and attest_3
-  (no upper bound), model-authored and proposed, the claims this matter
-  asks the operator to ratify, each carrying the reading of its twin;
-  did_1 and did_2, records, model-authored.
+- `units/0001-step/statements.md` — the statements this matter asks the
+  operator to ratify: ref_1 (the Lean file by path and hash), attest_1
+  (the formal twin means the definition), attest_2 (the first step is
+  step 0) and attest_3 (no upper bound), all model-authored and proposed,
+  each assertion carrying the reading of its twin; def_1, the definition,
+  is operator-authored and ratified on entry. The file also holds records,
+  did_n, one per check run or attempt; they are evidence, they accrue with
+  every attempt, and this matter does not count them.
 - `units/0001-step/Step.lean` — sha256 `672c89d1266423a866752aac82ea662bd787c8eda47a2af367f822f8b026186e`.
 
 ## What it contradicts or supersedes
@@ -69,20 +71,28 @@ matter takes one reader per lens.
   step"); attest_1 kept, with the finding recorded in its note, because it
   describes the bridge itself: no checked Lean text states a denotation
   (the file's comments do, and comments are not checked).
-- Attempt 2 (runs/m0001-attempt-2.md): run on 2026-09-28 on the revised
-  statements under the structure. S1 pass, S2 pass, S3 fail: Q1 three
+- Attempt 2 (runs/m0001-attempt-2.md): S1 pass, S2 pass, S3 fail: Q1 three
   findings about this matter's own text, Q2 twelve findings of undefined
   or inconsistent rules and notation (eleven upheld), Q3 none, Q4 same on
-  all three pairs. Grade: fail. Answered by bootstrap revision 7, part 2:
-  this matter's text, the doctrine's definitions and the unit file's
-  format, as the log lists.
-- Attempt 3 (runs/m0001-attempt-3.md): run on 2026-09-28 after those
-  revisions. S1 pass, S2 pass, S3 fail: Q1 none, Q2 nine findings of
-  undefined words in the rules, Q3 none, Q4 same on all three pairs.
-  Grade: fail. Answered by bootstrap revision 7, part 3: scope and term
-  defined for the doctrine, and definitions for doctrine, bootstrap,
-  trusted list and MNC.
-- Attempt 4 (runs/m0001-attempt-4.md): run on 2026-09-28 after those
+  all three pairs. Grade: fail. Answered by the revision the log's last
+  section describes: this matter's text, the doctrine's definitions and
+  the unit file's format.
+- Attempt 3 (runs/m0001-attempt-3.md): S1 pass, S2 pass, S3 fail: Q1 none,
+  Q2 nine findings of undefined words in the rules, Q3 none, Q4 same on
+  all three pairs. Grade: fail. Answered by the revision the log's last
+  section describes: scope and term defined for the doctrine, and
+  definitions for doctrine, bootstrap, trusted list and MNC.
+- Attempt 4 (runs/m0001-attempt-4.md): S1 pass, S2 pass, S3 fail: Q1 one
+  finding (this matter counted the unit's records and the count had gone
+  stale), Q2 twenty-one findings (ten blocks without a definition, six
+  real gaps, and five ordinary-English uses of words that are also block
+  names, which followed from a rule that made every block name a term
+  everywhere), Q3 none, Q4 same on all three pairs. Grade: fail. Answered
+  by the revision the log describes: this matter no longer counts records;
+  every block has a Def. line or refers to the one in README.md; a block
+  name used in its ordinary sense is a plain word (doctrine/statements.md,
+  Term I2).
+- Attempt 5 (runs/m0001-attempt-5.md): run on 2026-09-28 after those
   revisions; result in the log.
 
 ## Ratification (pending)

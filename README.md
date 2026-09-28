@@ -49,6 +49,8 @@ Form
   I4.   Now. is a record: what exists today, dated.
   I5.   Ref. names the file holding the rules; it is a pointer, not a source statement,
         because it carries no hash.
+  I6.   A block in doctrine/ whose name is defined in README.md begins with a Ref. line
+        naming README.md instead of a second Def. line.
   Ref.  doctrine/statements.md, Term, for how a term is written in a block.
 ```
 
