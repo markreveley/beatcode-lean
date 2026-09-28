@@ -37,7 +37,7 @@ Notation: doctrine/statements.md. ⊢ marks ratified.
   {author: model · record · evidence: runs/2026-09-28-unit-0001-kernel-check-revision-6.md}
 
   [did_2](ref_1, attest_1, attest_2, attest_3) on 2026-09-28 a fresh reader, given ref_1 alone and then the sentences, read each twin, compared it with its sentence, and ran the exclusion test on each
-  {author: model · record · evidence: runs/2026-09-28-unit-0001-correspondence-reading.md · verdicts: VERDICTS_PENDING}
+  {author: model · record · evidence: runs/2026-09-28-unit-0001-correspondence-reading.md · verdicts: not same, not same, not same; under doctrine/matters.md V4 the matter returns for revision}
 
 ## What each check settled
 

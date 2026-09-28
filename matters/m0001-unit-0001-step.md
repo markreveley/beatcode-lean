@@ -55,7 +55,24 @@ matter takes one reader per lens.
 
 - Q4, correspondence: read on 2026-09-28 by a fresh reader who received the
   Lean file alone and then the sentences; readings, verdicts and exclusion
-  tests in `runs/2026-09-28-unit-0001-correspondence-reading.md`.
+  tests in `runs/2026-09-28-unit-0001-correspondence-reading.md`. All three
+  verdicts are **not same**; under doctrine/matters.md V4 the matter is in
+  revision. The findings, in the reader's terms:
+  1. attest_1 / `Step`: the abbrev fixes the carrier (whole numbers, from
+     zero, unbounded) but states no denotation; "naming a position in a
+     sequence" has no counterpart in the Lean and cannot have one, so it is
+     carried by the name alone and by the operator's act.
+  2. attest_2 / `step_first`: the twin states that 0 is at or below every
+     step; the sentence's clause "not step 1" is not stated by the twin.
+  3. attest_3 / `step_succ`: the twin states that every step has a later
+     step (no maximum); the sentence's "next step" claims an immediate
+     successor, which the twin does not state.
+  Resolutions proposed by the commissioning agent, not ruled: leave
+  attest_1 as it is, since the finding describes the bridge itself; reword
+  attest_2 to "the first *step* is step 0"; reword attest_3 to "a *step*
+  has no upper bound: for every step there is a later step", discreteness
+  being carried by def_1's "whole number". The alternative for 2 and 3 is
+  to strengthen the twins instead.
 - Q1, Q2, Q3: not yet read.
 
 ## Ratification (pending)

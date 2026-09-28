@@ -364,8 +364,10 @@ MNC
   records of the checker's run and the reader's run.
 - [units/0001-step/Step.lean](units/0001-step/Step.lean): the formal twin.
 - [matters/m0001-unit-0001-step.md](matters/m0001-unit-0001-step.md): the
-  matter, subject unit 0001, state **proposed**. Pending: the vetting pass
-  under every lens, then the operator's restatement.
+  matter, subject unit 0001, state **proposed**, in revision: the
+  correspondence reading found all three pairs not the same. Pending: the
+  operator's ruling on each finding, the remaining lenses, then the
+  operator's restatement.
 - [runs/2026-09-28-unit-0001-kernel-check-revision-6.md](runs/2026-09-28-unit-0001-kernel-check-revision-6.md):
   the checker accepted the twin; its two claims relied on no assumptions.
 - [runs/2026-09-28-unit-0001-correspondence-reading.md](runs/2026-09-28-unit-0001-correspondence-reading.md):

@@ -11,7 +11,8 @@
   restated so that each binds a step and says what its sentence says (the
   earlier twins held word for word for a type capped at 3); every
   statement that names a twin carries the twin's reading; a fresh reader's
-  correspondence reading is in `runs/`; the doctrine defines reader,
+  correspondence reading is in `runs/` and finds all three pairs not the
+  same, so m0001 is in revision; the doctrine defines reader,
   reading, lens, correspondence reading, exclusion test and restatement,
   makes every lens mandatory, fixes readers per lens by blast radius, adds
   gate checks C6 and C7, and states five premises; the README says what
@@ -28,14 +29,18 @@
 
 ## Pending operator acts
 
-1. Say whether the bootstrap is final. If not, give the next revision.
-2. Rule on the open questions below.
-3. Once final: have m0001 read under lenses Q1–Q3 (Q4 is done), then
+1. Rule on the correspondence reading's three findings (m0001, "Vetting"):
+   for each of attest_1, attest_2 and attest_3, keep the sentence, reword
+   it, or strengthen the twin. Until then m0001 is in revision (V4).
+2. Say whether the bootstrap is final. If not, give the next revision.
+3. Rule on the open questions below.
+4. Once final: have m0001 read under lenses Q1–Q3 (Q4 is done, with
+   findings), then
    perform the restate-to-ratify act on m0001 (doctrine/matters.md,
    "Ratification act"): read the matter and the unit's statements at a
    commit, with each twin's reading beside its sentence, write your
    restatement covering each reading, and a fresh agent verifies it.
-4. Confirm or overturn the bootstrap defaults listed in m0001.
+5. Confirm or overturn the bootstrap defaults listed in m0001.
 
 ## Open questions (raised in threads/2026-09-28-revision-6-session.md, not ruled)
 
