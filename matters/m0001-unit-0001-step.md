@@ -8,7 +8,7 @@ state: proposed
 tags: [unit-0001, rung-1, level-4]
 sources:
   - path: units/0001-step/statements.md
-    sha256: 75d94344ca5ceaffcfa3f36632d8cd98b57eec5d99a7c89b44c27754e397c531
+    sha256: 9c55433177e8f867462a5b283d31b2f2af088d152a3d56e3678095b552014376
   - path: units/0001-step/Step.lean
     sha256: 672c89d1266423a866752aac82ea662bd787c8eda47a2af367f822f8b026186e
 threads:
@@ -21,13 +21,14 @@ runs:
   - runs/m0001-attempt-3.md
   - runs/m0001-attempt-4.md
   - runs/m0001-attempt-5.md
+  - runs/m0001-attempt-6.md
   - runs/2026-09-27-unit-0001-kernel-check.md
   - runs/2026-09-28-unit-0001-kernel-check.md
   - runs/2026-09-28-unit-0001-kernel-check-revision-6.md
   - runs/2026-09-28-unit-0001-correspondence-reading.md
 generated:
   by: claude-code/2026-09-28
-  at: 2026-09-28T22:00:00Z
+  at: 2026-09-28T23:00:00Z
 ---
 
 # m0001 · unit 0001 · step
@@ -41,14 +42,14 @@ This matter carries the statements in the two sources it pins by hash in
 its header (doctrine/matters.md, Sources I3). The text the operator
 ratifies is this body and those two files at those hashes:
 
-- `units/0001-step/statements.md` — the statements this matter asks the
-  operator to ratify: ref_1 (the Lean file by path and hash), attest_1
-  (the formal twin means the definition), attest_2 (the first step is
-  step 0) and attest_3 (no upper bound), all model-authored and proposed,
-  each assertion carrying the reading of its twin; def_1, the definition,
-  is operator-authored and ratified on entry. The file also holds records,
-  did_n, one per check run or attempt; they are evidence, they accrue with
-  every attempt, and this matter does not count them.
+- `units/0001-step/statements.md` — six statements. def_1, the definition,
+  is operator-authored and ratified on entry. The five this matter asks the
+  operator to ratify, all model-authored and proposed: ref_1 (the Lean file
+  by path and hash); attest_1 (the formal twin means the definition),
+  attest_2 (the first step is step 0) and attest_3 (no upper bound), each
+  carrying the reading of its twin; and did_1, the record that the checker
+  accepted ref_1 with no assumptions, which the unit's level rests on.
+  Attempts are recorded in this matter and in runs/, not in the unit file.
 - `units/0001-step/Step.lean` — sha256 `672c89d1266423a866752aac82ea662bd787c8eda47a2af367f822f8b026186e`.
 
 ## What it contradicts or supersedes
@@ -92,7 +93,16 @@ matter takes one reader per lens.
   every block has a Def. line or refers to the one in README.md; a block
   name used in its ordinary sense is a plain word (doctrine/statements.md,
   Term I2).
-- Attempt 5 (runs/m0001-attempt-5.md): run on 2026-09-28 after those
+- Attempt 5 (runs/m0001-attempt-5.md): S1 pass, S2 pass, S3 fail: Q1 four
+  findings, all about records of attempts kept as statements in the unit
+  file (one record spanned two attempts, none existed for the latest, and
+  as proposed statements in a pinned source they would be ratified with
+  the rest); Q2 one finding (the README's shell-command block counted as
+  doctrine); Q3 none; Q4 same on all three pairs. Grade: fail. Answered
+  by the revision the log describes: attempt outcomes live in the matter
+  and in runs/ only, the unit file keeps the one record its level rests
+  on, and the doctrine is the blocks in the form, not every code block.
+- Attempt 6 (runs/m0001-attempt-6.md): run on 2026-09-28 after those
   revisions; result in the log.
 
 ## Ratification (pending)

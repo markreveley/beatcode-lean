@@ -4,7 +4,7 @@ title: step
 rung: 1 — a coined term resting only on standard mathematics
 level: 4 (proved) — the two claims about the term carry no assumptions at all; the definition itself is a term, not a claim
 checks: performed by reading, C1–C7 (no gate program exists yet; see doctrine/statements.md)
-attempts: runs/m0001-attempt-1.md (fail), runs/m0001-attempt-2.md (fail), runs/m0001-attempt-3.md (fail), runs/m0001-attempt-4.md (fail), runs/m0001-attempt-5.md
+attempts: runs/m0001-attempt-1.md (fail), runs/m0001-attempt-2.md (fail), runs/m0001-attempt-3.md (fail), runs/m0001-attempt-4.md (fail), runs/m0001-attempt-5.md (fail), runs/m0001-attempt-6.md
 ---
 
 # unit 0001 · step — statements
@@ -37,17 +37,11 @@ Notation: doctrine/statements.md. ⊢ marks ratified.
   [did_1](ref_1) on 2026-09-28 the checker (Lean 4.34.1) accepted ref_1; `step_first` and `step_succ` relied on no assumptions
   {author: model · proposed · evidence: runs/2026-09-28-unit-0001-kernel-check-revision-6.md}
 
-  [did_2](ref_1, attest_1, attest_2, attest_3) on 2026-09-28 attempt 1 of m0001 failed at step S3, lens Q4: three findings, one per assertion
-  {author: model · proposed · evidence: runs/m0001-attempt-1.md, citing runs/2026-09-28-unit-0001-correspondence-reading.md · answered by the revision of attest_2 and attest_3 above}
-
-  [did_3](ref_1, attest_1, attest_2, attest_3) on 2026-09-28 attempts 2 and 3 of m0001 failed at step S3: Q1 and Q2 found the matter's text and the doctrine's definitions wanting, while Q4 found every twin the same as its sentence
-  {author: model · proposed · evidence: runs/m0001-attempt-2.md, runs/m0001-attempt-3.md · answered by revisions of the matter and the doctrine, not of this unit's sentences}
-
 ## What each check settled
 
 | check | settled | not settled |
 |---|---|---|
 | reading against doctrine/statements.md | every dependency resolves; the one term used has a definition in scope; ref_1 carries a measured hash; C6: attest_3 quantifies and its twin binds s; C7: no twin is proved by rfl and constructors alone | whether anything is true |
 | the checker | ref_1 is well-formed; `step_first` and `step_succ` hold with no assumptions | whether `Step` means *step* |
-| the fresh reader (lens Q4) | each twin's reading; its verdict against the sentence; which wrong definition each twin rejects | ratification; the reading is proposed, like everything model-authored |
+| the fresh reader (lens Q4, in every attempt from the second) | each twin's reading; its verdict against the sentence; which wrong definition each twin rejects | ratification; the reading is proposed, like everything model-authored |
 | the operator | def_1, by authoring it | attest_1, attest_2, attest_3 — pending the act over a named commit |

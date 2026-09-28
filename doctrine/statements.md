@@ -66,6 +66,9 @@ Unit file
         revisions.
   I4.   The file ends with a table, "What each check settled": one row per check that
         ran, what it settled and what it did not.
+  I5.   A unit file's records are the check runs its level rests on; the outcome of an
+        attempt is recorded in the matter and in runs/, never as a statement in the
+        unit file.
 
 Gate
   Def.  The gate is the program that performs the checks below on a unit's statements.

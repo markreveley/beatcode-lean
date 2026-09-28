@@ -299,9 +299,10 @@ Eval
         either the agents became perfect or the operator no longer reads (P3).
 
 Doctrine
-  Def.  The doctrine is the binding text of this repository: the code blocks of
-        README.md and of the files in doctrine/.
-  I1.   Sentences outside those code blocks are commentary and bind nothing.
+  Def.  The doctrine is the binding text of this repository: every block in the form
+        inside the code blocks of README.md and of the files in doctrine/.
+  I1.   Text outside those blocks, including a code block that is not in the form, is
+        commentary and binds nothing.
 
 Evidence
   Def.  Evidence is a record that is written once and never edited.
