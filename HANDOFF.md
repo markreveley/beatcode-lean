@@ -5,32 +5,35 @@
 
 ## Observation
 
-- Bootstrap commit on `main` (this repository's rtr §14 exception): the
-  methodology, unit 0001, matter m0001 in `proposed`, one run record, one
-  thread export. Actor: claude-code/2026-09-27.
+- `main` carries the bootstrap in its second revision (2026-09-28): the
+  README rewritten as a self-contained present-tense description with every
+  term defined before use; the two doctrine documents extracted inline;
+  unit 0001, matter m0001 (`proposed`), two run records, one thread export.
+  The bootstrap is not final until the operator says so (doctrine/matters.md,
+  "The bootstrap"); until then revisions land on `main` directly.
+- Actor: claude-code/2026-09-28.
 
 ## Pending operator acts
 
-1. **Name the commit** at which you read `matters/m0001-unit-0001-step.md`
-   and `units/0001-step/statements.md`, and state ratification of m0001.
-   Your ratification of def_1's *text* is already on record
-   (threads/2026-09-27-ratification-of-step.md); the pin is what is
-   missing. On that act the recording agent writes `verified`,
-   `ratified_commit`, `ratified_sha256` and moves the state — via a
-   matter-prefixed branch and a PR merged as a merge commit.
-2. Confirm or overturn the four bootstrap defaults listed in m0001.
+1. Say whether the bootstrap is final. If not, give the next revision.
+2. Once final: read `matters/m0001-unit-0001-step.md` and
+   `units/0001-step/statements.md` at a commit, and state ratification of
+   m0001 naming that commit. The operator's ratification of def_1's text is
+   on record; the pin is what is missing.
+3. Confirm or overturn the bootstrap defaults listed in m0001.
 
 ## What the next agent may do
 
-- Prepare roadmap items 0a–0c and unit 0002 as `proposed` matters on
-  `m000N-` prefixed branches, each with its statements file, formal twin,
-  and run record.
-- Re-run `./check.sh` and append a new run record if anything changed.
+- Prepare roadmap items 0a, 0b and unit 0002 as `proposed` matters on
+  `m000N-` branches, each with statements, formal twins and a run record.
+- Re-run `./check.sh` and add a new run record if anything changed.
 
 ## What the next agent may not do
 
-- Ratify anything, or write `verified`/`ratified_*` fields without an
+- Ratify anything, or write `verified` / `ratified_*` fields without an
   operator act naming a commit.
 - Edit `threads/` or `runs/` after the fact.
-- Start any unit whose dependencies are not `executed`.
-- Change a unit's `label` upward without the evidence the label names.
+- Start a unit whose dependencies are not `executed`.
+- Raise a unit's label without the evidence the label names.
+- Cite any repository other than this one as a source of rules or
+  behaviour.

@@ -1,22 +1,22 @@
-# Roadmap — the next units, each with the obligation it introduces and the decision it forces
+# Roadmap
 
-Order is by rung on the ladder (README). A unit is not started until every
-unit it depends on is `executed`. Items marked 0 are process, not units.
+Units in ladder order. Each row names the new obligation the unit
+introduces and the decision the operator must make. A unit is not started
+until every unit it depends on is `executed`. Rows numbered 0 are process,
+not units. Terms are defined in [README.md](README.md).
 
-| # | unit | rung | new obligation | decision the operator must make | depends on |
+| # | unit | ladder rung | new obligation | operator decision | depends on |
 |---|---|---|---|---|---|
-| 0a | install the socrates harness; run the gate over `units/*/statements.md` in CI | process | the gate runs by machine, not by reading | whether hand-rendered notation is acceptable until then (m0001 default 2) | — |
-| 0b | CI rule: a `label: proved` unit prints only standard axioms; `leanchecker` on every `.olean`; matter hash equals ratified hash | process | labels are enforced, not declared | none | — |
-| 0c | socrates loadout edit, through use: optional formal-twin field on `infer`/`def`; a `did` shape for "kernel accepted with axioms Z" | process | the bridge is data the gate can check for existence | ratify the loadout edit in socrates' own collection | 0a |
-| 0002 | *period*: a whole number of steps, at least 1 | 1 | a second term; a constraint (≥ 1) that is a proposition, not a type | is period 0 excluded (recommended) or given a meaning | 0001 |
-| 0003 | *pulses*: step i pulses under period n when i mod n = 0; theorem: one period later, the same answer, for every i and n | 3 | the first "always"; the kernel's first real job | none new; this is beatcode's `clock` with the gate stripped | 0002 |
-| 0004 | *pulse count*: how many pulses have occurred by step i (i div n); theorem: it rises by exactly one every n steps | 3 | a second provable rule on the same terms | whether the count includes step 0's pulse | 0003 |
-| 0005 | the running counter: a sequencer state that increments; theorem: it produces the same pulses as the index | 4 | the first refinement proof — spec versus implementation | none; this is where code first becomes ephemeral | 0003 |
-| 0006 | *gate pattern*: a non-empty list of hit/rest that cycles; step i hits iff pattern[i mod length] is a hit | 3 | lists, and the "load-bearing idea" of beatcode (lanes cycling) | reuse 0003's period as the list length | 0003 |
-| 0007 | *beat*: an exact fraction of a whole note; steps are `clock × i` beats | 3 | exact rationals (core `Rat`); the first divergence family from v0.1's i64 rationals | unbounded fractions (recommended) or a width limit | 0001 |
-| 0008 | *period in seconds*: 60 / tempo; the first quantity that is not exact | 5 | the spectrum: this unit is `tested against a model`, not `proved`, unless tempo is kept rational | exact rational time (recommended) versus the reference's f64 pipeline — the decision the spike identified as the one beatcode-lean must make | 0007 |
+| 0a | a gate program that performs the five checks in doctrine/statements.md over every unit, run in CI | process | the statement checks run by machine instead of by reading | none | — |
+| 0b | a CI rule that a unit labelled *proved* prints only the three standard assumptions for every claim, and that a ratified matter's hash matches its text | process | labels are enforced, not declared | none | — |
+| 0002 | *period*: a whole number of steps, at least 1 | 1 | a second term, and a constraint ("at least 1") that is a claim rather than a type | whether a period of 0 is excluded (recommended) or given a meaning | 0001 |
+| 0003 | *pulses*: step i pulses under period n when i divided by n leaves no remainder; rule: one period later, the answer is the same, for every step and every period | 3 | the first rule with "always"; the checker's first real job | none | 0002 |
+| 0004 | *pulse count*: how many pulses have occurred by step i; rule: it rises by exactly one every n steps | 3 | a second rule on the same terms | whether step 0's pulse is counted | 0003 |
+| 0005 | a running counter: a sequencer state that increments once per step; rule: it produces the same pulses as the plain index | 4 | the first proof that two definitions agree; the first point at which code becomes replaceable without re-reading | none | 0003 |
+| 0006 | *pattern*: a non-empty list of hits and rests that repeats; step i hits when the entry at position (i divided by the length, remainder) is a hit | 3 | lists; the sequencer's central idea (patterns of different lengths drift against each other) | whether the pattern length is the period of 0002 | 0003 |
+| 0007 | *beat*: an exact fraction of a whole note; step i sits at (clock × i) beats | 3 | exact fractions | unbounded fractions (recommended) or a fixed width | 0001 |
+| 0008 | *period in seconds*: 60 divided by the tempo | 5 | the first quantity that is not exact; the first unit that lands on label 2 unless tempo is kept as an exact fraction | exact fractions for time (recommended) or binary floating point | 0007 |
 
-Beyond 0008 the reference implementation's remaining modules follow the
-spike's ranking: the straight-grid event compiler for `four.bc` (its golden
-is reproducible from exact fractions), then swing/humanize, then the
-renderer as a Lean-compiled binary labelled `tested against examples`.
+After 0008: the event list for a score with no timing adjustments; then
+swing and humanize; then the renderer, which is expected to land on label 3
+(checked against examples), with its structure on label 1.
