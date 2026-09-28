@@ -202,6 +202,8 @@ Attempt
         never edited.
   I4.   A failed attempt is answered by a revision of the matter and a new attempt from
         the first step.
+  I5.   An attempt whose reached steps all pass and whose next step is the operator's
+        is open; it passes or fails when the operator acts.
   Ref.  doctrine/matters.md
 
 Finding
