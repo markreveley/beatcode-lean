@@ -57,7 +57,7 @@ Formal twin
 Unit file
   Def.  A unit file is the file that holds a unit's statements.
   I1.   A unit's statements are one file, units/NNNN-name/statements.md, with a YAML
-        header: unit, title, rung, level, checks, attempts.
+        header: unit, title, rung, level, checks.
   I2.   Each statement is one line: ⊢ if ratified, then [id](deps), then the sentence.
   I3.   Each statement is followed by a brace block {author · state · notes}: author is
         operator or model; state is proposed or ratified; the notes may name an origin (a

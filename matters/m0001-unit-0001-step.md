@@ -8,7 +8,7 @@ state: proposed
 tags: [unit-0001, rung-1, level-4]
 sources:
   - path: units/0001-step/statements.md
-    sha256: 9c55433177e8f867462a5b283d31b2f2af088d152a3d56e3678095b552014376
+    sha256: 6eae7f0c4a3fe4a4fddcf2995d814fa464a0e9e3a7b8b2a7aeddbb89a74c928f
   - path: units/0001-step/Step.lean
     sha256: 672c89d1266423a866752aac82ea662bd787c8eda47a2af367f822f8b026186e
 threads:
@@ -22,13 +22,14 @@ runs:
   - runs/m0001-attempt-4.md
   - runs/m0001-attempt-5.md
   - runs/m0001-attempt-6.md
+  - runs/m0001-attempt-7.md
   - runs/2026-09-27-unit-0001-kernel-check.md
   - runs/2026-09-28-unit-0001-kernel-check.md
   - runs/2026-09-28-unit-0001-kernel-check-revision-6.md
   - runs/2026-09-28-unit-0001-correspondence-reading.md
 generated:
   by: claude-code/2026-09-28
-  at: 2026-09-28T23:00:00Z
+  at: 2026-09-29T00:00:00Z
 ---
 
 # m0001 · unit 0001 · step
@@ -102,7 +103,13 @@ matter takes one reader per lens.
   by the revision the log describes: attempt outcomes live in the matter
   and in runs/ only, the unit file keeps the one record its level rests
   on, and the doctrine is the blocks in the form, not every code block.
-- Attempt 6 (runs/m0001-attempt-6.md): run on 2026-09-28 after those
+- Attempt 6 (runs/m0001-attempt-6.md): S1 pass, S2 pass, S3 fail: Q1 two
+  findings (the unit file's header still listed the attempts and their
+  outcomes), Q2 one finding (README commentary still named a removed
+  record), Q3 none, Q4 same on all three pairs. Grade: fail.
+  Answered by the revision the log describes: the header field is gone
+  and the commentary corrected.
+- Attempt 7 (runs/m0001-attempt-7.md): run on 2026-09-28 after those
   revisions; result in the log.
 
 ## Ratification (pending)

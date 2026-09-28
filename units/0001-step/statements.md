@@ -4,7 +4,6 @@ title: step
 rung: 1 — a coined term resting only on standard mathematics
 level: 4 (proved) — the two claims about the term carry no assumptions at all; the definition itself is a term, not a claim
 checks: performed by reading, C1–C7 (no gate program exists yet; see doctrine/statements.md)
-attempts: runs/m0001-attempt-1.md (fail), runs/m0001-attempt-2.md (fail), runs/m0001-attempt-3.md (fail), runs/m0001-attempt-4.md (fail), runs/m0001-attempt-5.md (fail), runs/m0001-attempt-6.md
 ---
 
 # unit 0001 · step — statements

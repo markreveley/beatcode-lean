@@ -100,8 +100,7 @@ Unit 0001 walks the three layers. L1: "a whole number, counting from
 zero, naming a position in a sequence" (the operator's words). L2:
 `def_1` (that sentence as a definition), `ref_1` (the Lean file by hash),
 `attest_1` (the twin means the definition), `attest_2` and `attest_3`
-(the two decisions), `did_1` and `did_2` (the checker's run and the
-reader's run). L3: `abbrev Step := Nat`. The line that only the operator
+(the two decisions), `did_1` (the checker's run). L3: `abbrev Step := Nat`. The line that only the operator
 can ratify is `attest_1`.
 
 ## Vocabulary
@@ -416,7 +415,7 @@ MNC
   definition of *step*, written by the operator and therefore ratified;
   three assertions (the formal twin means it; steps start at zero; steps
   have no upper bound), proposed, each carrying its twin's reading; the
-  records of the checker's run and the reader's run.
+  record of the checker's run; the readers' runs are in the attempt logs.
 - [units/0001-step/Step.lean](units/0001-step/Step.lean): the formal twin.
 - [matters/m0001-unit-0001-step.md](matters/m0001-unit-0001-step.md): the
   matter, subject unit 0001, state **proposed**, in revision: the
