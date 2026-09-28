@@ -8,7 +8,7 @@ state: proposed
 tags: [unit-0001, rung-1, level-4]
 sources:
   - path: units/0001-step/statements.md
-    sha256: 37a1506ca2a948d24feb8618c4b5a7d36f3d8a698725827988eb880cddf2bdfd
+    sha256: dc10e22c90347da8298e3f2d51870490d5c2058a73ed851c188d9db65ea9083c
   - path: units/0001-step/Step.lean
     sha256: 672c89d1266423a866752aac82ea662bd787c8eda47a2af367f822f8b026186e
 threads:
@@ -19,13 +19,14 @@ runs:
   - runs/m0001-attempt-1.md
   - runs/m0001-attempt-2.md
   - runs/m0001-attempt-3.md
+  - runs/m0001-attempt-4.md
   - runs/2026-09-27-unit-0001-kernel-check.md
   - runs/2026-09-28-unit-0001-kernel-check.md
   - runs/2026-09-28-unit-0001-kernel-check-revision-6.md
   - runs/2026-09-28-unit-0001-correspondence-reading.md
 generated:
   by: claude-code/2026-09-28
-  at: 2026-09-28T20:00:00Z
+  at: 2026-09-28T21:00:00Z
 ---
 
 # m0001 · unit 0001 · step
@@ -76,6 +77,12 @@ matter takes one reader per lens.
   this matter's text, the doctrine's definitions and the unit file's
   format, as the log lists.
 - Attempt 3 (runs/m0001-attempt-3.md): run on 2026-09-28 after those
+  revisions. S1 pass, S2 pass, S3 fail: Q1 none, Q2 nine findings of
+  undefined words in the rules, Q3 none, Q4 same on all three pairs.
+  Grade: fail. Answered by bootstrap revision 7, part 3: scope and term
+  defined for the doctrine, and definitions for doctrine, bootstrap,
+  trusted list and MNC.
+- Attempt 4 (runs/m0001-attempt-4.md): run on 2026-09-28 after those
   revisions; result in the log.
 
 ## Ratification (pending)

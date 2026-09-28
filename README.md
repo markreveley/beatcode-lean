@@ -51,7 +51,8 @@ a record. `Aim.` is the one line that is not a statement. `Ref.` is a
 pointer, not a source statement: it names a file and carries no hash. A
 letter other than I before a number marks a numbered list of one kind, and
 each such line is an assertion: K kinds, C checks, T types, A steps of the
-ratification act, V vetting rules, Q lenses, L layers, R rungs, P premises.
+ratification act, V vetting rules, Q lenses, S steps of an attempt, L layers,
+R rungs, P premises.
 The doctrine is therefore checked and ratified the same way a unit is.
 Sentences outside the code blocks are commentary and bind nothing.
 
@@ -214,7 +215,7 @@ Finding
 Plain word
   Def.  A plain word is a word in a sentence that is not a *term*: ordinary language,
         read as the operator reads it.
-  I1.   Plain words are part of the trusted base, level 0: no check reads them.
+  I1.   Plain words are on the trusted list, level 0: no check reads them.
   I2.   A plain word becomes a term when a statement needs its precise meaning; the
         definition is then a new statement, and the sentence that used the word depends
         on it.
@@ -293,6 +294,11 @@ Eval
   I3.   A rejection rate that falls to zero is reported to the operator, because
         either the agents became perfect or the reading stopped (P3).
 
+Doctrine
+  Def.  The doctrine is the binding text of this repository: the code blocks of
+        README.md and of the files in doctrine/.
+  I1.   Sentences outside those code blocks are commentary and bind nothing.
+
 Evidence
   Def.  Evidence is a record that is written once and never edited.
   I1.   runs/ holds attempt logs and the records they cite: claim, environment,
@@ -316,6 +322,12 @@ Level
   I6.   The operator reads what holds the unit: the trusted list at level 0, the code at
         level 1, the examples and the sentence at level 2, the reference and the rule at
         level 3, the rule at level 4 (P5).
+
+Trusted list
+  Def.  The trusted list is what level 0 believes without a check: the three standard
+        assumptions, the checker, the Lean compiler and runtime, the operating system
+        and hardware, any library that arrives without proofs, and plain words.
+  I1.   The trusted list is written down so that what is believed is visible.
 ```
 
 **Level 0 — trusted.** Nothing checks it and no one reads it; it is believed.
@@ -383,6 +395,8 @@ Rung
 
 ```
 MNC
+  Def.  Minimum necessary complexity, MNC, is the rule that nothing enters the
+        repository beyond what its own statements need.
   I1.   One commit carries one matter.
   I2.   One matter carries the fewest statements that stand alone.
   I3.   A unit contains nothing its own statements do not need.

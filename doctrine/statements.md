@@ -20,9 +20,18 @@ Dependency
 
 Term
   Def.  A term is a word or phrase coined by a definition.
-  I1.   Inside a sentence, *word* is a use of a term and nothing else.
-  I2.   Every term used has a definition in scope.
-  I3.   Emphasis is never written with asterisks.
+  I1.   In a unit's statements a term is written between single asterisks, and a word so
+        written is a use of a term and nothing else.
+  I2.   In README.md and doctrine/ a term is the name of a block, used without asterisks.
+  I3.   Every term used has a definition in scope.
+  I4.   Emphasis is never written with asterisks.
+
+Scope
+  Def.  The scope of a text is the set of definitions it may use.
+  I1.   For a unit: its own definitions, those of the units it depends on, and those of
+        README.md.
+  I2.   For README.md and doctrine/: those of README.md, of doctrine/, and of every unit
+        that exists.
 
 Authorship
   I1.   Each statement records its author: operator or model.

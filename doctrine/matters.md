@@ -19,7 +19,7 @@ Type
   T1.   spec     normative text (statements, doctrine). Ratification needs the proposed
                  text and what it contradicts or supersedes.
   T2.   feature  new behaviour (a unit). Ratification needs the unit's statements and
-                 the plan for its formal twins and tests.
+                 the twins and tests it proposes.
   T3.   fix      defective behaviour or text. Ratification needs the diagnosis and the
                  proposed fix.
 
@@ -79,7 +79,7 @@ Vetting
   V6.   The operator adds readers and never removes lenses.
 
 Lens
-  Q1.   The plan does what the statements say.
+  Q1.   The matter's text describes what its sources contain and claim.
   Q2.   Nothing is undefined.
   Q3.   The blast radius is as stated.
   Q4.   Correspondence: every twin says what its sentence says.
@@ -167,6 +167,8 @@ Determinism
   I3.   Agents are reserved for judgement; ratification is the operator's alone.
 
 Bootstrap
+  Def.  The bootstrap is the period from the first commit until the operator says it is
+        complete, during which the doctrine is revised in place.
   I1.   The first commit cannot pass through this process, because the process is not
         in the repository until it lands.
   I2.   The bootstrap is complete when the operator says it is.
