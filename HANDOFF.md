@@ -5,7 +5,14 @@
 
 ## Observation
 
-- `main` carries the bootstrap in its fourth revision (2026-09-28). Since the third: every
+- `main` carries the bootstrap in its fifth revision (2026-09-28). Since the fourth: the
+  description is restored to "offline, deterministic music compiler and
+  renderer" with the four words defined; the readability claim is an
+  `Aim.` line, a new line kind that is not a claim; a "How it is built"
+  section and a "Three layers" section with the unit 0001 walk are added;
+  the doctrine lines are declared to be statements of the five kinds; the
+  three standard assumptions are named and glossed; the compiled-code
+  door is stated as three rules. Since the third: every
   definition and rule is written as one claim per line (Def / In / Now /
   Ref); the verification levels are numbered 0–4 from the ground, trusted
   being level 0; a matter names its subject; ROADMAP.md is PLAN.md, a list

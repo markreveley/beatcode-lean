@@ -2,13 +2,15 @@
 
 ## What this is
 
-beatcode-lean is a music sequencer and renderer, built so that every part of
-its behaviour is held in place by the strongest check that part admits, and
-so that a person can read what each part promises without reading its code.
+beatcode-lean is an offline, deterministic music compiler and renderer.
 
-**Now (2026-09-28).** One unit exists: the term *step*, with its definition,
-its formal twin, and the record of the act that accepted the definition.
-Nothing else exists. The paragraph below is aspiration.
+```
+beatcode-lean
+  Def.  beatcode-lean is an offline, deterministic music compiler and renderer.
+  Aim.  Every part is held by the highest level it can reach, and its statements say which.
+  Now.  One unit exists: the term *step*, with its definition, its formal twin, and the
+        record of the act that accepted the definition. Nothing else exists. (2026-09-28)
+```
 
 **Aspiration.** A plain-text score goes in: a tempo, a number of bars, and
 voices, each with a pattern of hits and rests that repeats at its own
@@ -16,7 +18,16 @@ length. Two things come out: a list of timed events (which voice, which
 step, at what time), and an audio file rendered from those events with a
 built-in set of sounds. The same score always produces exactly the same
 bytes on any machine, and the program prints a checksum of the output so
-that this can be verified. It runs offline with no dependencies.
+that this can be verified. It runs with no network and no dependencies.
+
+## How it is built
+
+Every part of the program enters this repository as **statements**: plain
+sentences, one claim each, typed and linked to what they rest on. Each
+definition or rule receives a **formal twin** in Lean where one is
+possible, and the **checker** decides whether the twin holds. Each **unit**
+declares the **level** of evidence that holds it. Nothing enters without an
+act of the **operator**. Each bold term is defined below.
 
 ## How to read this document
 
@@ -26,14 +37,56 @@ sense everywhere in this repository.
 ```
 Term
   Def.  what the term means — one sentence
-  In.   an invariant: something always true of it — one claim per line
+  I n.  an invariant: something always true of it — one claim per line
+  Aim.  an intention — not a claim, not checkable
   Now.  what exists today, dated
   Ref.  where the rules are
 ```
 
+These lines are statements in the sense defined below, written in a
+compact form: `Def.` is a definition, each `I n.` is an assertion, `Now.` is
+a record, `Ref.` is a source. `Aim.` is the one line that is not a
+statement. The doctrine is therefore checked and ratified the same way a
+unit is. Sentences outside the code blocks are commentary and bind nothing.
+
+## Three layers
+
+```
+Layer
+  Def.  A layer is one of the three forms a part of the program takes on its way
+        from intention to checked code.
+  L1.   The operator's sentence: intent in the operator's own words.
+  L2.   Statements: the sentence decomposed into claims of one kind each, typed and
+        linked; the layer a human ratifies one claim at a time.
+  L3.   The formal twin: the Lean declaration the checker checks.
+  I1.   One assertion in L2 connects L2 to L3: "this twin says exactly what this
+        sentence says". No program can judge it; only the operator ratifies it.
+  I2.   A unit is complete when all three layers exist and the connecting assertion
+        is ratified.
+```
+
+Unit 0001 walks the three layers. L1: "a whole number, counting from
+zero, naming a position in a sequence" (the operator's words). L2:
+`def_1` (that sentence as a definition), `ref_1` (the Lean file by hash),
+`attest_1` (the twin means the definition), `attest_2` and `attest_3`
+(the two decisions), `did_1` (the checker's run). L3: `abbrev Step := Nat`.
+The line that only the operator can ratify is `attest_1`.
+
 ## Vocabulary
 
 ```
+Offline
+  Def.  Offline means the program uses no network and no external service at run time.
+Deterministic
+  Def.  Deterministic means the same score produces exactly the same output bytes on
+        any machine.
+Compiler
+  Def.  The compiler is the part that takes score text in and produces the event list.
+Renderer
+  Def.  The renderer is the part that takes the event list in and produces the audio
+        file.
+  Now.  None of the four exists. (2026-09-28)
+
 Operator
   Def.  The operator is the one human who accepts or rejects what enters this repository.
   I1.   Agents draft, check and record; agents never accept.
@@ -68,11 +121,20 @@ Checker
         and a proposed proof and answers accepted or rejected.
   I1.   The checker cannot be argued with.
   I2.   On acceptance the checker prints the list of assumptions the proof relied on.
-  I3.   Three assumptions are standard mathematics and are always permitted.
-  I4.   Any other entry in the printed list means the claim was not fully checked by
-        the kernel; the usual cause is that Lean ran compiled code and took the
-        result on trust.
-  I5.   A claim with a non-standard entry in its list is not proved.
+  I3.   Three assumptions are always permitted; they are Lean's standard axioms, on
+        which all of Lean's mathematics rests:
+        propext — two statements that imply each other are the same statement;
+        Classical.choice — from "something with this property exists" one may pick one;
+        Quot.sound — two things declared equivalent may be treated as equal.
+  I4.   A proof whose list contains only those three is as trustworthy as Lean itself.
+  I5.   Lean provides a door for claims too large for the kernel to evaluate: it runs
+        compiled code and takes the result on trust, and stamps the claim with an
+        assumption whose name contains `_native`.
+  I6.   A claim stamped with a `_native` assumption is not proved: for that claim the
+        Lean compiler has moved from outside the proof to inside the trusted list.
+  I7.   Such a claim is at most level 3, with compiled code as the reference.
+  I8.   A level-4 unit containing such a claim fails the check (PLAN.md 0b); until
+        that rule exists, check.sh prints every list and the rule is applied by eye.
 
 Unit
   Def.  A unit is a thing: the smallest set of statements that stands on its own.
