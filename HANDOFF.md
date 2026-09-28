@@ -15,7 +15,7 @@
   are defined and separated; *unit* and *matter* are defined side by side;
   the doctrine absorbs the operator-approved process rules (restate-to-
   ratify as the ratification act, blast radius, declared sources, vetting
-  lenses, the error log, hash verification before execution); the roadmap
+  lenses, the error log, hash verification before execution); the plan
   names the gate and the rest of the statement harness as Lean units to be
   built here; the founding session is exported verbatim to `threads/`.
 - The bootstrap is not final until the operator says so; until then
@@ -35,7 +35,7 @@
 
 ## What the next agent may do
 
-- Prepare roadmap items 0a, 0b and unit 0002 as `proposed` matters on
+- Prepare PLAN.md items 0a, 0b and unit 0002 as `proposed` matters on
   `m000N-` branches, each with statements, formal twins and a run record.
 - Re-run `./check.sh` and add a new run record if anything changed.
 - Act as the fresh verifier of an operator restatement, if asked, provided

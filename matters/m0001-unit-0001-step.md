@@ -60,10 +60,10 @@ Adopted by the authoring agent without an operator ruling; confirmed or
 overturned by ratifying this matter:
 
 1. The statement checks of doctrine/statements.md are performed by reading,
-   because no gate program exists here yet (roadmap 0a).
+   because no gate program exists here yet (PLAN.md 0a).
 2. A matter of type `spec` is the vehicle for a unit's statements, and
    ratifying the matter ratifies the statements it carries.
 3. Each unit declares its rung and level in its statements file, and
-   `check.sh` is the only enforcement of the label (roadmap 0b).
+   `check.sh` is the only enforcement of the level (PLAN.md 0b).
 4. This repository names no other repository as a source of rules or
    behaviour; the doctrine documents are complete in themselves.
