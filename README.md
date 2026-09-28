@@ -56,24 +56,40 @@ allowed. Any other entry in that list means the claim was not fully checked
 by the kernel — most often because Lean was allowed to run compiled code and
 take the result on trust — and such a claim does not count as proved here.
 
-**Unit.** The smallest set of statements that can stand on its own: one or
-more definitions and the assertions and consequences about them, their
-formal twins, and the records of checks run on them. Units are numbered and
-each names the units it depends on. A unit is not started until every unit
-it depends on is finished.
+**Unit.** A *thing* in the system: one or more definitions together with
+the assertions and consequences about them, their formal twins, and the
+records of the checks run on them, kept in one directory `units/NNNN-name/`.
+Units are numbered, each names the units it depends on, and other units
+depend on them. A unit is *done* when the matter that introduced it is
+executed; a unit is not started until every unit it depends on is done.
+Example: unit 0001 is the term *step*; unit 0002 will be the term *period*
+and depends on 0001.
 
-**Matter.** One proposed change to this repository, kept as one file in
-`matters/`. Every change enters as a matter. A matter is `proposed`,
-`ratified` (the operator has accepted its exact text at a commit they name),
-`executed` (the change has landed and the record of what landed is written),
-or `rejected`. The operator ratifies a matter by reading it at a specific
-commit and stating ratification naming that commit; an agent then records
-the commit and a content hash of the matter. A ratified matter is never
-returned to proposed; if it is later disputed it is marked `challenged`, and
-everything that depends on it is on notice. The full rules are in
-[doctrine/matters.md](doctrine/matters.md). A matter carries statements; the
-operator's one act of ratifying the matter ratifies the statements it
-carries.
+**Matter.** An *event*: one proposed change to this repository, kept as one
+file `matters/mNNNN-slug.md`. Every change enters as a matter, is ratified
+once, is executed once, and is then closed. A matter usually introduces one
+unit, but a matter can also change the doctrine, or correct a unit that
+already exists, and a unit can be touched by several matters over its life.
+The difference in one line: a unit is a module; a matter is a pull request
+with the operator's signature on it. A matter is `proposed`, `ratified`,
+`executed`, `rejected`, or `challenged`; the states, the ratification act,
+and the rules are in [doctrine/matters.md](doctrine/matters.md). A matter
+carries statements; ratifying the matter ratifies the statements it carries.
+
+**Test.** A check of the *software*: a program runs an input through a unit
+and compares the output with an expectation. The expectation comes either
+from a reference definition (level 2 below) or from a recording (level 3).
+Tests run on every commit.
+
+**Eval.** A measurement of the *process*: a number computed over many events
+that says how the agents and the operator are doing. Examples: how often
+agent-written statements fail the gate; how often the operator rejects a
+proposed matter; the time between a matter being filed and being ratified.
+Evals do not check the software; they watch the people and programs that
+produce it. The one eval this repository commits to first is the
+**rejection rate**: if the operator's rejections fall to zero, either the
+agents have become perfect or the reading has stopped, and only one of
+those is plausible.
 
 **Evidence.** `runs/` holds records of checks that were run: the command,
 the environment, the observed output, the verdict, the date. `threads/`
@@ -82,31 +98,59 @@ are written once and never edited.
 
 ## The verification spectrum
 
-Every unit declares which of these four holds its behaviour in place. This
-declaration is the unit's **label**, and the aim of this repository is to
-push every part of the sequencer as far up the list as it will go.
+Every unit declares which of these five levels holds its behaviour in
+place. The declaration is the unit's **label**. Levels are ordered from
+strongest to weakest, and the aim of this repository is to push every part
+of the sequencer to the highest level it can reach, and to leave level 4 —
+which is where agent-written software normally sits — wherever possible.
 
 1. **Proved.** A rule is stated that covers every possible input, and the
    checker has accepted a proof of it with only the three standard
    assumptions in its printed list. The code is never run to establish the
    rule.
-2. **Checked against a reference.** A second, plain version of the same
-   behaviour is written to be read, and it is the definition of correct.
-   The real code and the reference are run on many generated inputs; any
-   difference is a bug in one of them, and the written rule decides which.
-   This is testing where the expected answers come from a definition.
-3. **Checked against examples.** A fixed list of inputs with expected
-   outputs, recorded once and frozen. This is ordinary software testing;
-   the expected answers come from a recording, so a program that memorises
-   the list passes it.
-4. **Trusted.** Nothing checks it. The list of trusted things (the Lean
-   compiler, the operating system, the audio player) is written down so
-   that what is being believed is visible.
+   *Example:* "one period later, a step pulses exactly when it did one
+   period earlier" — true for every step and every period, so no list of
+   examples could establish it; the checker does, once.
 
-Labels 2 and 3 are both **evals**. A unit on label 1 still keeps an eval,
-because the proof is about the definition and something must run the built
-program. Nothing here can be labelled higher than its evidence, and a check
-in `check.sh` prints the evidence for label 1.
+2. **Checked against a reference.** A second, plain version of the same
+   behaviour is written to be read rather than to be fast, and it is the
+   definition of correct. The real code and the reference are both run on
+   many generated inputs; any difference is a bug in one of them, and the
+   written rule decides which. This is a test whose expected answers come
+   from a definition. It is the standard way compilers and authorization
+   engines are tested, under the name differential testing.
+   *Example:* the renderer computes audio samples with a fast loop; the
+   reference computes the same samples one at a time from the formula; a
+   nightly run compares them on a thousand random scores.
+
+3. **Checked against examples.** A fixed list of inputs with expected
+   outputs, recorded once and frozen so that neither an agent nor a
+   program can alter them. This is a test whose expected answers come from
+   a recording; a program that memorises the list passes it.
+   *Example:* four scores whose exact event lists and output checksums are
+   stored in the repository and compared on every commit.
+
+4. **Reviewed.** An agent wrote it; a human read it and approved it;
+   nothing else checks it. This is the level ordinary pull-request review
+   provides. It is named so that it can be counted: a unit at this level
+   whose rejection rate is zero is the rejection-rate eval firing.
+   *Example:* a script that plays a rendered file through whatever audio
+   player the machine has.
+
+5. **Trusted.** Nothing checks it and no one reads it; it is believed. The
+   trusted list is written down so that what is being believed is
+   visible. It has tiers: the three standard mathematical assumptions every
+   Lean proof rests on; the checker itself; the Lean compiler and runtime
+   that turn a checked definition into a running program; the operating
+   system and hardware; and any library that arrives without proofs.
+   *Example:* the arithmetic of whole numbers in Lean's standard library
+   (proved, so it adds nothing); a C audio library (not proved, so it adds
+   itself to the list).
+
+Levels 2 and 3 are tests. A unit at level 1 still keeps a test at level 2
+or 3, because the proof is about the definition and something must run the
+built program. A unit is never labelled higher than its evidence, and
+`check.sh` prints the evidence for level 1.
 
 ## The ladder
 
@@ -121,7 +165,7 @@ Units are added in this order, each introducing one new kind of obligation:
    plain index). The first proof that two definitions agree. The first
    point at which code can be replaced without re-reading it.
 5. A quantity that is not exact (a period in seconds). The first unit that
-   lands on label 2 instead of label 1.
+   lands on level 2 instead of level 1.
 
 ## The rule of minimum necessary complexity
 
