@@ -10,8 +10,10 @@ a new repository as that repository's init commit (the operator, session
 of 2026-09-28, turn 1; the new repository is `beatcode-lean-2`, empty as
 of 2026-09-28). The operator has said there are no further actions from
 them in the founding sessions: every act that is theirs is listed under
-"Pending operator acts" and waits until they read. Everything else is the
-next agent's.
+"Pending operator acts" and waits until they read. The operator's ruling
+of 2026-09-29 governs everything else: no action without discussion. The
+next agent reads, says what it finds, and waits; it files nothing and
+runs nothing until the operator has discussed it.
 
 ## Observation
 
@@ -131,25 +133,31 @@ a candidate for PLAN.md item 0a.
   as a matter after the bootstrap once enough attempts exist to measure
   whether its votes track the operator's rulings, which is an eval.
 
-## What the next agent may do
+## What the next agent may propose, after discussion
 
-- Without any operator act: file PLAN.md item 0a as a `proposed` matter
-  on an `m0002-` branch, the gate as a Lean program performing C1 to C7
-  and checking that a matter's list of statements agrees with its unit
-  file; that check would have caught the slips behind attempts 4 to 7.
-  Every commit on that branch carries a `Matter: m0002` trailer.
-- Run the next attempt on m0001 from S1 if any file it reads changes,
-  with fresh readers and the prompts recorded in the latest attempt log,
-  and write the log. Otherwise m0001 waits at S4 and needs nothing.
-- Act as the fresh verifier of an operator restatement (S5), if asked,
-  provided it took no part in authoring the matter.
-- Prepare PLAN.md items 0a, 0b and unit 0002 as `proposed` matters on
-  `m000N-` branches, each with statements, formal twins, readings and an
-  attempt log.
-- Re-run `./check.sh` and add a new run record if anything changed.
+Nothing below is done until the operator has discussed it (the ruling of
+2026-09-29, threads/2026-09-29-handoff-ruling-2.md). These are the
+candidates, in the order the agent would raise them:
+
+- PLAN.md item 0a as a `proposed` matter on an `m0002-` branch: the gate
+  as a Lean program performing C1 to C7 and checking that a matter's list
+  of statements agrees with its unit file; that check would have caught
+  the slips behind attempts 4 to 7. Every commit on that branch would
+  carry a `Matter: m0002` trailer.
+- The next attempt on m0001 from S1, if any file it reads changes, with
+  fresh readers and the prompts recorded in the latest attempt log.
+  Otherwise m0001 waits at S4 and needs nothing.
+- Acting as the fresh verifier of an operator restatement (S5), when
+  asked, provided it took no part in authoring the matter.
+- PLAN.md items 0b and unit 0002 as `proposed` matters on `m000N-`
+  branches, each with statements, formal twins, readings and an attempt
+  log, once 0a is settled.
 
 ## What the next agent may not do
 
+- Take any action in the repository, including the candidates above,
+  without first discussing it with the operator (ruling of 2026-09-29).
+  Reading, and reporting what it reads, is not an action.
 - Ratify anything, or write `verified` / `ratified_*` fields without a
   passing verification of an operator restatement.
 - Edit `threads/`, `runs/` or `errors/` after the fact.
