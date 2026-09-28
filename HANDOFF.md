@@ -18,7 +18,8 @@ runs nothing until the operator has discussed it.
 Current focus (operator, 2026-09-28, after the merge): sketch and settle
 the process and doctrine. The unit will be run from scratch in the new
 repository. The attempts here are bootstrap history; their recorded
-passes do not replace that fresh run.
+passes do not replace that fresh run. The operator's words are exported
+in threads/2026-09-28-post-merge-handoff-session.md.
 
 ## Observation
 
@@ -28,6 +29,14 @@ passes do not replace that fresh run.
   current. That merge is complete; it does not declare the bootstrap
   final or ratify m0001. The bootstrap is not final until the operator
   says so (doctrine/matters.md, Bootstrap).
+- Commit `5fa1c46` carries this session's checker fix, handoff and
+  walkthrough corrections, error e0003, test evidence, and checker
+  discussion. At the closing review it was local and unpushed; the
+  operator then requested the remaining session export and publication
+  to `origin/main` (threads/2026-09-28-post-merge-handoff-session.md).
+  The next agent should verify the current Git state and read this
+  handoff before discussing further work. No bootstrap-final ruling or
+  new m0001 attempt was made in this session.
 - Revision 6: the two theorem twins of unit 0001 restated so that each
   binds a step and says what its sentence says (the earlier twins held
   word for word for a type capped at 3); reader, reading, lens,
