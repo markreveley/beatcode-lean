@@ -38,6 +38,18 @@ Formal twin
   I4.   A statement that names a twin carries the twin's reading, and names the correspondence reading in runs/ that produced it.
   I5.   The reading is written from the Lean text alone, before its writer sees the sentence, by a reader who took no part in writing the twin.
 
+File
+  I1.   A unit's statements are one file, units/NNNN-name/statements.md, with a YAML
+        header: unit, title, rung, level, checks, attempts.
+  I2.   Each statement is one line: ⊢ if ratified, then [id](deps), then the sentence.
+  I3.   Each statement is followed by a brace block {author · state · notes}: author is
+        operator or model; state is proposed or ratified; the notes may name a source (a
+        threads/ file), a formal twin (a declaration in a source file), a reading
+        (verbatim, with the attempt that produced it), evidence (a runs/ file), and
+        revisions.
+  I4.   The file ends with a table, "What each check settled": one row per check that
+        ran, what it settled and what it did not.
+
 Gate
   Def.  The gate is the program that performs the checks below on a unit's statements.
   C1.   Every id is of the form kind_n and unique in the unit.

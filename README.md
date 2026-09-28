@@ -259,12 +259,14 @@ Matter
   I4.   A matter is ratified at most once.
   I5.   A matter is executed at most once.
   I6.   A matter is in exactly one state: proposed, ratified, executed, rejected,
-        challenged.
+        challenged, superseded.
   I7.   Only the operator moves a matter between states.
   I8.   A matter lands through a pull request whose merge commit follows the
         operator's restatement.
-  I9.   A matter carries statements; ratifying the matter ratifies the statements
-        it carries.
+  I9.   A matter carries the statements in the sources it pins by hash; ratifying the
+        matter ratifies those statements at those hashes.
+  I10.  The pin is the pair ratified_commit and ratified_sha256, recorded after the
+        ratification act.
   Ref.  doctrine/matters.md
 
 Plan
@@ -321,20 +323,20 @@ The trusted list is written down so that what is being believed is visible.
 Its tiers: the three standard mathematical assumptions every Lean proof
 rests on; the checker itself; the Lean compiler and runtime that turn a
 checked definition into a running program; the operating system and
-hardware; any library that arrives without proofs. *Example:* the
+hardware; any library that arrives without proofs. Example: the
 arithmetic of whole numbers in Lean's standard library is proved and adds
 nothing to the list; a C audio library is not and adds itself.
 
 **Level 1 — reviewed.** An agent wrote it; a human read it and approved it;
 nothing else checks it. This is what ordinary pull-request review
 provides, and it is where agent-written software normally sits. It is a
-level so that it can be counted. *Example:* a script that plays a rendered
+level so that it can be counted. Example: a script that plays a rendered
 file through whatever audio player the machine has.
 
 **Level 2 — checked against examples.** A fixed list of inputs with
 expected outputs, recorded once and frozen so that neither an agent nor a
 program can alter them. A test whose expected answers come from a
-recording; a program that memorises the list passes it. *Example:* four
+recording; a program that memorises the list passes it. Example: four
 scores whose exact event lists and output checksums are stored and
 compared on every commit.
 
@@ -344,14 +346,14 @@ definition of correct. The real code and the reference run on many
 generated inputs; any difference is a bug in one of them, and the written
 rule decides which. A test whose expected answers come from a definition;
 the standard way compilers and authorization engines are tested, under the
-name differential testing. *Example:* the renderer computes samples with a
+name differential testing. Example: the renderer computes samples with a
 fast loop; the reference computes them one at a time from the formula; a
 nightly run compares them on a thousand random scores.
 
 **Level 4 — proved.** A rule is stated that covers every possible input,
 and the checker has accepted a proof of it with only the three standard
 assumptions in its printed list. The code is never run to establish the
-rule. *Example:* "one period later, a step pulses exactly when it did one
+rule. Example: "one period later, a step pulses exactly when it did one
 period earlier" is true for every step and every period; no list of
 examples could establish it; the checker does, once.
 
@@ -371,6 +373,10 @@ Ladder
   R5.   A quantity that is not exact; the first unit that lands on level 3 instead
         of level 4.
   Now.  Unit 0001 is on rung 1.
+
+Rung
+  Def.  A rung is one line of the ladder; a unit declares the rung of the newest
+        obligation it introduces.
 ```
 
 ## Minimum necessary complexity

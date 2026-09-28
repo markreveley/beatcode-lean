@@ -1,14 +1,16 @@
 ---
 type: spec
 title: "unit 0001 · step — the first coined term"
-description: "Enter the term *step* as the first commitment of this repository: one operator-authored definition, its formal twin, and the assertion that the two mean the same thing."
+description: "Enter the term *step* as the first commitment of this repository: one operator-authored definition, its formal twin, the assertion that the two mean the same thing, and two further assertions about the term, each with a twin."
 id: m0001
 subject: unit-0001
 state: proposed
 tags: [unit-0001, rung-1, level-4]
 sources:
-  - units/0001-step/statements.md
-  - units/0001-step/Step.lean
+  - path: units/0001-step/statements.md
+    sha256: 37a1506ca2a948d24feb8618c4b5a7d36f3d8a698725827988eb880cddf2bdfd
+  - path: units/0001-step/Step.lean
+    sha256: 672c89d1266423a866752aac82ea662bd787c8eda47a2af367f822f8b026186e
 threads:
   - threads/2026-09-27-ratification-of-step.md
   - threads/2026-09-28-founding-session.md
@@ -16,13 +18,14 @@ threads:
 runs:
   - runs/m0001-attempt-1.md
   - runs/m0001-attempt-2.md
+  - runs/m0001-attempt-3.md
   - runs/2026-09-27-unit-0001-kernel-check.md
   - runs/2026-09-28-unit-0001-kernel-check.md
   - runs/2026-09-28-unit-0001-kernel-check-revision-6.md
   - runs/2026-09-28-unit-0001-correspondence-reading.md
 generated:
   by: claude-code/2026-09-28
-  at: 2026-09-28T17:30:00Z
+  at: 2026-09-28T20:00:00Z
 ---
 
 # m0001 · unit 0001 · step
@@ -32,15 +35,17 @@ statements of unit 0001, and the review question is contradiction.
 
 ## Proposed text
 
-The ratified region of this matter is the two files below as they stand at
-the commit the operator names:
+This matter carries the statements in the two sources it pins by hash in
+its header (doctrine/matters.md, Sources I3). The text the operator
+ratifies is this body and those two files at those hashes:
 
-- `units/0001-step/statements.md` — seven statements. def_1 is
-  operator-authored and ratified on entry. attest_1 (the formal twin means
-  the definition), attest_2 (steps start at zero) and attest_3 (steps have
-  no upper bound) are the proposals this matter carries; each carries the
-  reading of its twin. did_1 and did_2 are records: the checker's run and
-  attempt 1.
+- `units/0001-step/statements.md` — seven statements: def_1, the
+  definition, operator-authored and ratified on entry; ref_1, the Lean file
+  by path and hash, model-authored and proposed; attest_1 (the formal twin
+  means the definition), attest_2 (the first step is step 0) and attest_3
+  (no upper bound), model-authored and proposed, the claims this matter
+  asks the operator to ratify, each carrying the reading of its twin;
+  did_1 and did_2, records, model-authored.
 - `units/0001-step/Step.lean` — sha256 `672c89d1266423a866752aac82ea662bd787c8eda47a2af367f822f8b026186e`.
 
 ## What it contradicts or supersedes
@@ -61,14 +66,23 @@ matter takes one reader per lens.
   S4, S5 not reached. Grade: fail. Answered by revising attest_2 (the
   clause "not step 1" dropped) and attest_3 ("a next step" became "a later
   step"); attest_1 kept, with the finding recorded in its note, because it
-  describes the bridge itself: no Lean text states a denotation.
+  describes the bridge itself: no checked Lean text states a denotation
+  (the file's comments do, and comments are not checked).
 - Attempt 2 (runs/m0001-attempt-2.md): run on 2026-09-28 on the revised
-  statements under the structure; result in the log.
+  statements under the structure. S1 pass, S2 pass, S3 fail: Q1 three
+  findings about this matter's own text, Q2 twelve findings of undefined
+  or inconsistent rules and notation (eleven upheld), Q3 none, Q4 same on
+  all three pairs. Grade: fail. Answered by bootstrap revision 7, part 2:
+  this matter's text, the doctrine's definitions and the unit file's
+  format, as the log lists.
+- Attempt 3 (runs/m0001-attempt-3.md): run on 2026-09-28 after those
+  revisions; result in the log.
 
 ## Ratification (pending)
 
 The operator stated ratification of def_1's text in the session before any
-commit existed (thread, operator turn 2). The ratification act
+commit existed (threads/2026-09-27-ratification-of-step.md, operator turn
+2). The ratification act
 (doctrine/matters.md, "Ratification act") is the operator's restatement of
 this matter, covering each twin's reading, committed under `## Restatement`
 as step S4 of an attempt whose steps S1 to S3 passed, and verified by a

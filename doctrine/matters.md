@@ -6,12 +6,14 @@ The rules for how changes enter this repository. Terms are defined in
 ```
 File
   I1.   A matter is one file, matters/mNNNN-slug.md, with a YAML header.
-  I2.   The header carries: type, title, description, id, subject, state, tags, sources,
-        threads, runs, generated; and once ratified: restatement, verified,
-        ratified_commit, ratified_sha256.
+  I2.   The header carries: type, title, description, id, subject, state, tags, sources
+        (each a path and its sha256), threads, runs, generated; and once ratified:
+        restatement, verified, ratified_commit, ratified_sha256.
   I3.   Ids are allocated in sequence and never reused.
   I4.   A matter may be filed as a single sentence; the sections ratification needs may
         be added over several rounds.
+  I5.   The body's sections ## Attempts, ## Restatement and ## Execution are excluded
+        from the hash in A6; every other section is part of the text ratified.
 
 Type
   T1.   spec     normative text (statements, doctrine). Ratification needs the proposed
@@ -33,13 +35,18 @@ Blast radius
         is empty, two when it is not.
 
 Sources
-  I1.   A matter lists in `sources` every file its reasoning rests on.
+  I1.   A matter lists in `sources` every file its reasoning rests on, each pinned by
+        its sha256.
   I2.   At ratification every listed source that is a statement or a matter is itself
         ratified.
+  I3.   A matter carries the statements in the sources it pins; ratifying the matter
+        ratifies those statements at those hashes, and the pins are covered by A6.
+  I4.   The pins are updated as the last write before S4, so the operator reads the
+        pinned text.
 
 State
   I1.   A matter is in exactly one state: proposed, ratified, executed, rejected,
-        challenged.
+        challenged, superseded.
   I2.   Transitions: proposed → ratified → executed; proposed → rejected;
         ratified → challenged → (ratified | superseded).
   I3.   proposed: filed; nothing may depend on it; its text is revised in place;
@@ -56,13 +63,16 @@ State
         for every check; it never returns to proposed, because other matters may
         depend on it; its dependents are on notice; it leaves by re-ratification over
         corrected text or by supersession.
-  I10.  Only the operator moves a matter between states.
+  I10.  superseded: a challenged matter replaced by a later ratified matter that names
+        it; the pointer is the record.
+  I11.  Only the operator moves a matter between states.
 
 Vetting
   V1.   Before ratification every matter is read under every lens, each lens by a reader
         that took no part in authoring the matter.
   V2.   A reader takes one lens and receives the matter, not other readings.
-  V3.   Each reading is written to runs/; a reading under Q4 is a correspondence reading.
+  V3.   Each reader's output is written to runs/ as findings or the word none; under Q4
+        it is a correspondence reading.
   V4.   A finding under any lens sends the matter back for revision; after revision every
         lens is read again.
   V5.   A matter is ratifiable only after a pass in which no lens found anything.
@@ -106,8 +116,8 @@ Attempt
 Finding
   I1.   A finding names the step, the lens if any, the location (a statement id, a twin
         name, or a file and line), what differs or fails, and the evidence.
-  I2.   A reader's output is findings, or the word none; it is a record, not a statement,
-        and is never rewritten in the language of statements.
+  I2.   A reader's output is findings, or the word none; it is evidence, not a
+        statement, and is never rewritten in the language of statements.
 
 Ratification act (restate to ratify)
   A1.   The operator reads the matter at a commit, with each twin's reading beside its
@@ -123,11 +133,12 @@ Ratification act (restate to ratify)
   A5.   A restatement that fails is revised by the operator, or the matter is revised;
         A1–A4 repeat.
   A6.   On a pass, the recording agent writes verified (who, when), ratified_commit
-        (the commit named in A2), and ratified_sha256 (the hash of the body minus the
-        header and minus ## Vetting, ## Restatement, ## Execution), and moves the
-        state to ratified.
-  A7.   The restatement is the artifact that shows the operator read the text; the pin
-        is recorded after the act, never offered before it.
+        (the commit named in A2), and ratified_sha256 (the hash of the header's
+        sources list and the body minus ## Attempts, ## Restatement, ## Execution),
+        and moves the state to ratified.
+  A7.   The restatement is the artifact that shows the operator read the text; the pin,
+        the pair ratified_commit and ratified_sha256, is recorded after the act, never
+        offered before it.
 
 Channel
   I1.   The operator's channel is the repository: a committed edit, or a session
