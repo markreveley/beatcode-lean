@@ -54,7 +54,9 @@ author and a state; the sentence is the only part written for a person.
   Proposed. Twin: `step_first`.
 - `attest_3` (def_1): a *step* has no upper bound: for every step there
   is a later step. Assertion. Model. Proposed. Twin: `step_succ`.
-- `did_1`, `did_2`: records of what was run. Model.
+- `did_1` (ref_1): the record that the checker accepted the Lean file
+  and both theorems relied on no assumptions. Model. Proposed. Attempt
+  outcomes live in the matter and in runs/, not in the unit's statements.
 
 Words in a sentence that are not marked *like this* are plain words:
 ordinary language, part of the trusted base. "Position" and "sequence"

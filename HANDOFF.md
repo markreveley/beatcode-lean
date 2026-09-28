@@ -15,14 +15,19 @@ of 2026-09-29 governs everything else: no action without discussion. The
 next agent reads, says what it finds, and waits; it files nothing and
 runs nothing until the operator has discussed it.
 
+Current focus (operator, 2026-09-28, after the merge): sketch and settle
+the process and doctrine. The unit will be run from scratch in the new
+repository. The attempts here are bootstrap history; their recorded
+passes do not replace that fresh run.
+
 ## Observation
 
-- `main` carries the bootstrap in its fifth revision. The sixth and
-  seventh are on the branch `claude/gifted-brahmagupta-k12wgh`, in parts,
-  awaiting the operator's merge (2026-09-28). The bootstrap is not final
-  until the operator says so (doctrine/matters.md, Bootstrap); the
-  revisions sit on a branch because the agent's session was confined to
-  it, so the operator merges or asks for a direct push.
+- `main` carries bootstrap revisions 6 and 7: pull request #1 merged
+  `claude/gifted-brahmagupta-k12wgh` at `76c7b72` on 2026-09-28.
+  A pull from `origin/main` on 2026-09-28 confirmed this checkout is
+  current. That merge is complete; it does not declare the bootstrap
+  final or ratify m0001. The bootstrap is not final until the operator
+  says so (doctrine/matters.md, Bootstrap).
 - Revision 6: the two theorem twins of unit 0001 restated so that each
   binds a step and says what its sentence says (the earlier twins held
   word for word for a type capped at 3); reader, reading, lens,
@@ -35,16 +40,21 @@ runs nothing until the operator has discussed it.
   bounded rule for what counts as a term; the round-trip document; the
   error log's first entry; and seven attempts on m0001, each failing
   attempt answered by a revision, as the matter's Attempts section
-  summarises and the table below shows; attempt 8 passed every step
-  before the operator's and is open at S4.
+  summarises and the table below shows; attempt 8 records passes through
+  S3 and is recorded as open at S4. The later inspection below identifies
+  a defect in how its Q4 reading was obtained.
 - The operator turns that directed revisions 4 and 5 were not exported;
   threads/2026-09-28-founding-session.md ends before them. Agent turns
   after threads/2026-09-28-revision-7-session.md are summarised in
   threads/2026-09-28-revision-7-session-2.md; the operator's closing
   ruling is threads/2026-09-29-handoff-ruling.md.
-- Actor: claude-code/2026-09-28.
+- Founding actor: claude-code/2026-09-28. Post-merge inspection and these
+  handoff corrections: Codex/2026-09-28, at the operator's request.
 
 ## Where the attempts stand
+
+These are the outcomes as recorded in the existing logs, not a fresh
+verification of those outcomes.
 
 | attempt | S1 | S2 | Q1 | Q2 | Q3 | Q4 | grade |
 |---|---|---|---|---|---|---|---|
@@ -57,10 +67,11 @@ runs nothing until the operator has discussed it.
 | 7 | pass | pass | 1 | none | none | same | fail |
 | 8 | pass | pass | none | none | none | same | open at S4 |
 
-What the sequence shows. The unit's own layers, S1, S2, Q3 and Q4, have
-been stable since attempt 2: the twins say what the sentences say, and
-every fresh reader has confirmed it with the checker. Every failure since
-has been in the matter's text or in the doctrine's definitions. Q2 found
+What the sequence records. S1, S2, Q3 and Q4 have recorded passes since
+attempt 2. That history does not establish that the Q4 readings were
+obtained without exposure to the sentences; see the inspection below.
+Every recorded failure since attempt 2 has been in the matter's text or
+in the doctrine's definitions. Q2 found
 twelve, nine, twenty-one and then one: the twenty-one came from a rule
 that made every block name a term everywhere, which has no fixed point
 over an English text, and the count fell to one once that rule was
@@ -70,6 +81,29 @@ step; the answer was to stop recording attempt outcomes in the unit file
 at all (Unit file I5). A gate check that compares the matter's list of
 statements with the unit file's ids would make that mechanical, and is
 a candidate for PLAN.md item 0a.
+
+## Post-merge inspection (for discussion)
+
+- Attempt 8's Q4 step-1 prompt includes the plain-language definition
+  and theorem descriptions in the Lean file's comments
+  (runs/m0001-attempt-8.md, Q4 step 1). The instruction to ignore those
+  comments does not meet Reading I1's requirement that the reading be
+  written before its writer sees the sentence. The recorded pass is
+  therefore not evidence of a reading obtained under that requirement.
+  This observation concerns the reading procedure; it does not identify
+  a false theorem. Preserve the original log. For the fresh run, the
+  recommended procedure is to give the reader declarations and needed
+  formal context with sentence-revealing comments removed, record that
+  exact input and the reading, and only then provide the sentences.
+- `check.sh` previously captured and printed each Lean exit code without
+  using it to fail the script. At the operator's request it now reports
+  the first failed file and exits with that failure code before checking
+  another file. Real Lean 4.34.1 tests reproduced the old defect and
+  verified the corrected all-success, first-failure and later-failure
+  paths (runs/2026-09-28-checker-stop-on-failure.md). The agent's initial
+  recommendation to continue checking was corrected by the operator;
+  errors/e0003-continued-checking-recommended.md records that error and
+  cites the conversation. This wrapper test was not a new m0001 attempt.
 
 ## Pending operator acts
 
@@ -83,15 +117,15 @@ a candidate for PLAN.md item 0a.
    precise meaning (Plain word I2); the doctrine is the blocks in the
    form, and text outside them binds nothing (Doctrine).
 3. Rule on the open questions below.
-4. Once the bootstrap is final: perform S4 on m0001, the restatement
-   (doctrine/matters.md, Ratification act A1 and A2; doctrine/round-trip.md
-   walks it with an example). Attempt 8 is open there: every check and
-   every lens passed, and the readings sit beside the sentences in
-   units/0001-step/statements.md. A fresh agent then performs S5.
-5. Merge the branch into main, or ask for a direct push.
-6. Rule on the two evidence questions under "Open questions": whether
+4. For the unit's fresh run in the new repository: perform S4, the
+   restatement, after fresh S1 to S3 pass (doctrine/matters.md,
+   Ratification act A1 and A2; doctrine/round-trip.md walks the shape
+   with an example). A fresh agent then performs S5. In this repository,
+   m0001 remains proposed and attempt 8 remains recorded as open at S4;
+   the inspection above qualifies its evidence without rewriting its log.
+5. Rule on the two evidence questions under "Open questions": whether
    agents' full transcripts are kept, and where.
-7. When the bootstrap is final: name the tag for the lock and say which
+6. When the bootstrap is final: name the tag for the lock and say which
    runs and threads travel to the init of `beatcode-lean-2`; the next
    agent then tags, ports the final tree, and reports the init commit.
 
@@ -144,9 +178,10 @@ candidates, in the order the agent would raise them:
   of statements agrees with its unit file; that check would have caught
   the slips behind attempts 4 to 7. Every commit on that branch would
   carry a `Matter: m0002` trailer.
-- The next attempt on m0001 from S1, if any file it reads changes, with
-  fresh readers and the prompts recorded in the latest attempt log.
-  Otherwise m0001 waits at S4 and needs nothing.
+- The unit's fresh run in the new repository, beginning at S1, with
+  fresh readers and every prompt recorded in a new attempt log. Resolve
+  the reading procedure noted above before that run; the old recorded
+  passes do not carry it through any step.
 - Acting as the fresh verifier of an operator restatement (S5), when
   asked, provided it took no part in authoring the matter.
 - PLAN.md items 0b and unit 0002 as `proposed` matters on `m000N-`
@@ -165,6 +200,8 @@ candidates, in the order the agent would raise them:
 - Record an attempt's outcome as a statement in a unit file.
 - Claim that a check catches a case without running the check on it
   (errors/e0001).
+- Recommend behavior that contradicts a stated rule without identifying
+  the conflict and asking the operator to rule on it (errors/e0003).
 - Write several files from one script without verifying every edit
   first, or run a commit in the same command as an edit that can fail
   (errors/e0002).
