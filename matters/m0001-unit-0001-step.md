@@ -8,7 +8,7 @@ state: proposed
 tags: [unit-0001, rung-1, level-4]
 sources:
   - path: units/0001-step/statements.md
-    sha256: dc10e22c90347da8298e3f2d51870490d5c2058a73ed851c188d9db65ea9083c
+    sha256: 75d94344ca5ceaffcfa3f36632d8cd98b57eec5d99a7c89b44c27754e397c531
   - path: units/0001-step/Step.lean
     sha256: 672c89d1266423a866752aac82ea662bd787c8eda47a2af367f822f8b026186e
 threads:

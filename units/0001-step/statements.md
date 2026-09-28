@@ -4,7 +4,7 @@ title: step
 rung: 1 — a coined term resting only on standard mathematics
 level: 4 (proved) — the two claims about the term carry no assumptions at all; the definition itself is a term, not a claim
 checks: performed by reading, C1–C7 (no gate program exists yet; see doctrine/statements.md)
-attempts: runs/m0001-attempt-1.md (fail), runs/m0001-attempt-2.md (fail), runs/m0001-attempt-3.md (fail), runs/m0001-attempt-4.md
+attempts: runs/m0001-attempt-1.md (fail), runs/m0001-attempt-2.md (fail), runs/m0001-attempt-3.md (fail), runs/m0001-attempt-4.md (fail), runs/m0001-attempt-5.md
 ---
 
 # unit 0001 · step — statements
@@ -12,7 +12,7 @@ attempts: runs/m0001-attempt-1.md (fail), runs/m0001-attempt-2.md (fail), runs/m
 Notation: doctrine/statements.md. ⊢ marks ratified.
 
 ⊢ [def_1] *step*: a whole number, counting from zero, naming a position in a sequence
-  {author: operator · ratified on entry · source: threads/2026-09-27-ratification-of-step.md · formal twin: `Step` in ref_1}
+  {author: operator · ratified on entry · origin: threads/2026-09-27-ratification-of-step.md · formal twin: `Step` in ref_1}
 
   [ref_1] file units/0001-step/Step.lean · sha256 672c89d1266423a866752aac82ea662bd787c8eda47a2af367f822f8b026186e
   {author: model · proposed}

@@ -4,11 +4,12 @@ The rules for how changes enter this repository. Terms are defined in
 [README.md](../README.md).
 
 ```
-File
+Matter file
+  Def.  A matter file is the file that holds a matter.
   I1.   A matter is one file, matters/mNNNN-slug.md, with a YAML header.
   I2.   The header carries: type, title, description, id, subject, state, tags, sources
-        (each a path and its sha256), threads, runs, generated; and once ratified:
-        restatement, verified, ratified_commit, ratified_sha256.
+        (each a path and its sha256), threads, runs, generated (by, at); and once
+        ratified: restatement, verified, ratified_commit, ratified_sha256.
   I3.   Ids are allocated in sequence and never reused.
   I4.   A matter may be filed as a single sentence; the sections ratification needs may
         be added over several rounds.
@@ -16,6 +17,7 @@ File
         from the hash in A6; every other section is part of the text ratified.
 
 Type
+  Def.  A type is what a matter changes: normative text, behaviour, or a defect.
   T1.   spec     normative text (statements, doctrine). Ratification needs the proposed
                  text and what it contradicts or supersedes.
   T2.   feature  new behaviour (a unit). Ratification needs the unit's statements and
@@ -24,6 +26,7 @@ Type
                  proposed fix.
 
 Subject
+  Def.  The subject of a matter is the one unit, or the doctrine, it changes.
   I1.   A matter names one subject: a unit (unit-NNNN) or the doctrine.
   I2.   A matter that would change two subjects is two matters.
 
@@ -35,6 +38,7 @@ Blast radius
         is empty, two when it is not.
 
 Sources
+  Def.  The sources of a matter are the files its reasoning rests on.
   I1.   A matter lists in `sources` every file its reasoning rests on, each pinned by
         its sha256.
   I2.   At ratification every listed source that is a statement or a matter is itself
@@ -45,6 +49,7 @@ Sources
         pinned text.
 
 State
+  Def.  The state of a matter is the one stage of its life it is in.
   I1.   A matter is in exactly one state: proposed, ratified, executed, rejected,
         challenged, superseded.
   I2.   Transitions: proposed → ratified → executed; proposed → rejected;
@@ -68,6 +73,7 @@ State
   I11.  Only the operator moves a matter between states.
 
 Vetting
+  Def.  Vetting is the reading of a matter under every lens before ratification.
   V1.   Before ratification every matter is read under every lens, each lens by a reader
         that took no part in authoring the matter.
   V2.   A reader takes one lens and receives the matter, not other readings.
@@ -96,7 +102,8 @@ Correspondence reading
 
 Attempt
   S1.   Gate: the seven checks of doctrine/statements.md over the subject's statements,
-        by a program once one exists and until then by an agent reading, who says so.
+        by a program once one exists and until then by an agent that reads them and says
+        so.
   S2.   Checker: check.sh over the subject's Lean files; pass when every file is accepted
         and every level-4 claim's assumption list holds only the three standard
         assumptions.
@@ -119,7 +126,9 @@ Finding
   I2.   A reader's output is findings, or the word none; it is evidence, not a
         statement, and is never rewritten in the language of statements.
 
-Ratification act (restate to ratify)
+Ratification act
+  Def.  The ratification act is the sequence A1 to A7 by which the operator ratifies a
+        matter by restating it.
   A1.   The operator reads the matter at a commit, with each twin's reading beside its
         sentence and the correspondence reading open.
   A2.   The operator writes a restatement of the matter in their own words — what it
@@ -141,6 +150,7 @@ Ratification act (restate to ratify)
         offered before it.
 
 Channel
+  Def.  The channel is the way the operator's rulings reach the repository.
   I1.   The operator's channel is the repository: a committed edit, or a session
         exchange exported verbatim into threads/.
   I2.   Platform comments are not rulings.
@@ -158,11 +168,12 @@ Evidence
         traceable, the guard added; never edited.
 
 Determinism
+  Def.  Determinism is the rule that whatever a program can check, a program checks.
   I1.   Anything a program can check is checked by a program once one exists: the
         header schema, id uniqueness, transitions, links, hashes, the checker's
         assumption lists, the sources rule, the seven statement checks, the presence
         of a reading and a correspondence reading for every twin.
-  I2.   Until the program exists, an agent checks by reading and says so in the run
+  I2.   Until the program exists, an agent performs the check and says so in the run
         record.
   I3.   Agents are reserved for judgement; ratification is the operator's alone.
 

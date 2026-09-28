@@ -37,24 +37,24 @@ Every term is defined once, in the form below, and used in exactly that
 sense everywhere in this repository.
 
 ```
-Term
-  Def.  what the term means — one sentence
-  I n.  an invariant: something always true of it — one claim per line
-  Aim.  an intention — not a claim, not checkable
-  Now.  what exists today, dated
-  Ref.  the file holding the rules
+Form
+  Def.  The form is the shape of every block in the doctrine, a name followed by
+        labelled lines; this block is its template.
+  I1.   Def. gives what the name means in one sentence; it is a definition.
+  I2.   A line labelled with a letter and a number is an assertion: I an invariant, K a
+        kind, C a check, T a type, A a step of the ratification act, V a vetting rule,
+        Q a lens, S a step of an attempt, L a layer, R a rung, P a premise.
+  I3.   Aim. is an intention: not a claim, not checkable, the one line that is not a
+        statement.
+  I4.   Now. is a record: what exists today, dated.
+  I5.   Ref. names the file holding the rules; it is a pointer, not a source statement,
+        because it carries no hash.
+  Ref.  doctrine/statements.md, Term, for how a term is written in a block.
 ```
 
-These lines are statements in the sense defined below, written in a
-compact form: `Def.` is a definition, each `I n.` is an assertion, `Now.` is
-a record. `Aim.` is the one line that is not a statement. `Ref.` is a
-pointer, not a source statement: it names a file and carries no hash. A
-letter other than I before a number marks a numbered list of one kind, and
-each such line is an assertion: K kinds, C checks, T types, A steps of the
-ratification act, V vetting rules, Q lenses, S steps of an attempt, L layers,
-R rungs, P premises.
-The doctrine is therefore checked and ratified the same way a unit is.
-Sentences outside the code blocks are commentary and bind nothing.
+Every block below follows the form, so the doctrine is checked and ratified
+the same way a unit is. Sentences outside the code blocks are commentary and
+bind nothing.
 
 ## Premises
 
@@ -129,7 +129,7 @@ Agent
         part in authoring the matter.
 
 Reader
-  Def.  A reader is an agent, or the operator, reading a matter under one lens.
+  Def.  A reader is an agent, or the operator, who reads a matter under one lens.
   I1.   A reader is fresh when it shares no context with the matter's author (P2).
 
 Statement
@@ -157,7 +157,7 @@ Formal twin
         which it would be false.
   I4.   A twin is smaller than its sentence when the sentence rejects a wrong definition
         that the twin lets through.
-  I5.   A twin is a test that runs against every future definition of the term.
+  I5.   A twin is a check that runs against every future definition of the term.
   I6.   Every statement that names a twin carries a reading, and none is ratified before
         its correspondence reading exists.
 
@@ -168,7 +168,7 @@ Reading
   I2.   A reading is written by a reader who took no part in writing the twin.
 
 Lens
-  Def.  A lens is the one question a reader is assigned before reading a matter.
+  Def.  A lens is the one question a reader is assigned before they read a matter.
   I1.   Every matter is read under every lens before it is ratified.
   Ref.  doctrine/matters.md
 
@@ -188,13 +188,13 @@ Restatement
         naming the commit read.
   I1.   A restatement covers every commitment in the matter and every reading it carries,
         and claims nothing the matter does not.
-  I2.   A restatement is evidence that a reading happened, not a source of truth; written
-        in the operator's words, it cannot be satisfied by copying.
+  I2.   A restatement shows that the operator read the matter and is not a source of
+        truth; written in the operator's words, it cannot be satisfied by copying.
   Ref.  doctrine/matters.md
 
 Attempt
   Def.  An attempt is one pass of a matter through the check sequence, in order, at one
-        state of the files.
+        version of the files.
   I1.   An attempt runs the steps in order and stops at the first failure.
   I2.   Every step records pass, fail or not reached; the attempt passes only when every
         step passes.
@@ -229,7 +229,7 @@ Checker
   I2.   On acceptance the checker prints the list of assumptions the proof relied on.
   I3.   Three assumptions are always permitted; they are Lean's standard axioms, on
         which all of Lean's mathematics rests:
-        propext — two statements that imply each other are the same statement;
+        propext — two propositions that imply each other are the same proposition;
         Classical.choice — from "something with this property exists" one may pick one;
         Quot.sound — two things declared equivalent may be treated as equal.
   I4.   A proof whose list contains only those three is as trustworthy as Lean itself.
@@ -251,7 +251,7 @@ Unit
   I4.   A unit is done when the matter that introduced it is executed.
   I5.   A unit is not started until every unit it depends on is done.
   I6.   A unit may be the subject of several matters over its life.
-  I7.   A unit declares its level (0–4) and is never labelled above its evidence.
+  I7.   A unit declares its level (0–4) and is never labelled above what holds it.
   Now.  One unit exists, 0001 (step); its matter m0001 is proposed.
 
 Matter
@@ -294,7 +294,7 @@ Eval
   I2.   The first eval this repository commits to is the rejection rate: the share
         of proposed matters the operator rejects.
   I3.   A rejection rate that falls to zero is reported to the operator, because
-        either the agents became perfect or the reading stopped (P3).
+        either the agents became perfect or the operator no longer reads (P3).
 
 Doctrine
   Def.  The doctrine is the binding text of this repository: the code blocks of
@@ -313,8 +313,8 @@ Evidence
 
 ```
 Level
-  Def.  A level is the kind of evidence that holds a unit's behaviour in place.
-  I1.   Levels are numbered 0–4 from the ground up; a higher level is stronger evidence.
+  Def.  A level is the strength of what holds a unit's behaviour in place.
+  I1.   Levels are numbered 0–4 from the ground up; a higher level holds more strongly.
   I2.   Level 0 is the ground every other level rests on and is not a goal.
   I3.   Every unit declares one level.
   I4.   A unit at level 4 also keeps a test at level 2 or 3, because the proof is about
@@ -376,7 +376,7 @@ examples could establish it; the checker does, once.
 ```
 Ladder
   Def.  The ladder is the order in which units are added, each introducing one new
-        kind of obligation.
+        sort of obligation.
   R1.   A coined term resting only on standard mathematics; the operator's judgement
         is the only check.
   R2.   A term whose formal twin must be judged against it; the first "this name
