@@ -23,13 +23,14 @@ runs:
   - runs/m0001-attempt-5.md
   - runs/m0001-attempt-6.md
   - runs/m0001-attempt-7.md
+  - runs/m0001-attempt-8.md
   - runs/2026-09-27-unit-0001-kernel-check.md
   - runs/2026-09-28-unit-0001-kernel-check.md
   - runs/2026-09-28-unit-0001-kernel-check-revision-6.md
   - runs/2026-09-28-unit-0001-correspondence-reading.md
 generated:
   by: claude-code/2026-09-28
-  at: 2026-09-29T00:00:00Z
+  at: 2026-09-29T01:00:00Z
 ---
 
 # m0001 · unit 0001 · step
@@ -109,8 +110,13 @@ matter takes one reader per lens.
   record), Q3 none, Q4 same on all three pairs. Grade: fail.
   Answered by the revision the log describes: the header field is gone
   and the commentary corrected.
-- Attempt 7 (runs/m0001-attempt-7.md): run on 2026-09-28 after those
-  revisions; result in the log.
+- Attempt 7 (runs/m0001-attempt-7.md): S1 pass, S2 pass, S3 fail: Q1 one
+  finding (a qualifier in the unit file's check table contradicted this
+  matter's record of attempt 1), Q2 none, for the first time, Q3 none,
+  Q4 same on all three pairs. Grade: fail. Answered by deleting the
+  qualifier.
+- Attempt 8 (runs/m0001-attempt-8.md): run on 2026-09-28 after that
+  revision; result in the log.
 
 ## Ratification (pending)
 
