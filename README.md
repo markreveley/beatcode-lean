@@ -141,6 +141,8 @@ Statement
   I3.   A statement written by the operator is ratified by being written.
   I4.   A statement written by an agent is proposed until the matter carrying it is ratified.
   I5.   Every *term* used in a statement has a definition in scope.
+  I6.   A statement is typed: its kind, id, dependencies, author and state are data the
+        gate checks; its sentence is the only part written for a person.
   Ref.  doctrine/statements.md
 
 Formal twin
@@ -188,6 +190,34 @@ Restatement
   I2.   A restatement is evidence that a reading happened, not a source of truth; written
         in the operator's words, it cannot be satisfied by copying.
   Ref.  doctrine/matters.md
+
+Attempt
+  Def.  An attempt is one pass of a matter through the check sequence, in order, at one
+        state of the files.
+  I1.   An attempt runs the steps in order and stops at the first failure.
+  I2.   Every step records pass, fail or not reached; the attempt passes only when every
+        step passes.
+  I3.   An attempt is recorded whether it passes or fails, as one file in runs/, and is
+        never edited.
+  I4.   A failed attempt is answered by a revision of the matter and a new attempt from
+        the first step.
+  Ref.  doctrine/matters.md
+
+Finding
+  Def.  A finding is a report that a step of an attempt failed: where, what differs or
+        fails, and the evidence.
+  I1.   A finding has a fixed shape and lives in the attempt log; it is not a statement,
+        and nothing depends on it.
+  I2.   A finding is answered by a revision, never by argument in the log.
+  Ref.  doctrine/matters.md
+
+Plain word
+  Def.  A plain word is a word in a sentence that is not a *term*: ordinary language,
+        read as the operator reads it.
+  I1.   Plain words are part of the trusted base, level 0: no check reads them.
+  I2.   A plain word becomes a term when a statement needs its precise meaning; the
+        definition is then a new statement, and the sentence that used the word depends
+        on it.
 
 Checker
   Def.  The checker is Lean 4's kernel: a small program that takes a formal claim
@@ -263,8 +293,8 @@ Eval
 
 Evidence
   Def.  Evidence is a record that is written once and never edited.
-  I1.   runs/ holds records of checks and readings: claim, environment, command,
-        observed output, verdict, date, actor.
+  I1.   runs/ holds attempt logs and the records they cite: claim, environment,
+        command, observed output, verdict, date, actor.
   I2.   threads/ holds the operator's rulings as spoken or written, verbatim.
   I3.   errors/ holds agent errors: what happened, why, and the guard added.
 ```
@@ -379,6 +409,8 @@ MNC
 
 ## Next
 
+[doctrine/round-trip.md](doctrine/round-trip.md) — one matter's whole path, step by
+step, with unit 0001 as the walk and a worked restatement.
 [PLAN.md](PLAN.md) — the matters not yet filed, in ladder order.
 [HANDOFF.md](HANDOFF.md) — what the next agent may and may not do.
 

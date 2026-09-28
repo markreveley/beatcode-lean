@@ -84,6 +84,31 @@ Correspondence reading
         wrong definition, its output is the evidence.
   I4.   The reader took no part in writing the twin or the sentence.
 
+Attempt
+  S1.   Gate: the seven checks of doctrine/statements.md over the subject's statements,
+        by a program once one exists and until then by an agent reading, who says so.
+  S2.   Checker: check.sh over the subject's Lean files; pass when every file is accepted
+        and every level-4 claim's assumption list holds only the three standard
+        assumptions.
+  S3.   Lenses: Q1 to Q4, each by a fresh reader, readers per lens by blast radius; pass
+        when no reader reports a finding.
+  S4.   Restatement: the operator writes the restatement (A1, A2); not reached until S1
+        to S3 pass.
+  S5.   Verification: a fresh agent verifies the restatement (A3, A4); on a pass the
+        matter is ratified (A6).
+  I1.   The log is one file, runs/mNNNN-attempt-K.md: the hashes of the files read, then
+        each step in order with actor, status, evidence and any findings, then the grade.
+  I2.   Every prompt given to a reader is recorded in the log verbatim.
+  I3.   K counts from 1 per matter and never repeats.
+  I4.   A claim that a check catches a case is accompanied by the check run on that case
+        (errors/e0001).
+
+Finding
+  I1.   A finding names the step, the lens if any, the location (a statement id, a twin
+        name, or a file and line), what differs or fails, and the evidence.
+  I2.   A reader's output is findings, or the word none; it is a record, not a statement,
+        and is never rewritten in the language of statements.
+
 Ratification act (restate to ratify)
   A1.   The operator reads the matter at a commit, with each twin's reading beside its
         sentence and the correspondence reading open.
@@ -114,7 +139,8 @@ Channel
   I6.   A pull request merges as a merge commit; its body is a one-line pointer.
 
 Evidence
-  I1.   runs/: one file per check run or reading; never edited; a re-run is a new file.
+  I1.   runs/: one file per attempt, plus one per check run or reading it cites; never
+        edited; a re-run is a new file.
   I2.   threads/: verbatim operator and agent turns, reasoning and tool traffic
         omitted; never edited.
   I3.   errors/: one file per agent error, id eNNNN; what happened, why as far as
