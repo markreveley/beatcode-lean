@@ -7,7 +7,7 @@ expected to reach. Terms are defined in [README.md](README.md).
 
 | # | subject | what | level | new obligation | operator decision | depends on |
 |---|---|---|---|---|---|---|
-| 0a | process | the gate: a Lean program performing the seven checks of doctrine/statements.md over every unit, in CI | 4 | statement checks run by machine; the gate is itself a unit | none | — |
+| 0a | process | the gate: a Lean program performing the seven checks of doctrine/statements.md over every unit, and checking that a matter's list of statements agrees with its unit file, in CI | 4 | statement checks run by machine; the gate is itself a unit | none | — |
 | 0b | process | CI rules: a level-4 unit prints only the three standard assumptions; a ratified matter's hash matches its text; every declared source is ratified; every twin has a correspondence reading | — | levels and sources are enforced, not declared | none | — |
 | 0c | process | the journal: an append-only record of every statement event, from which the unit files are derived | 4 | one source of truth for state | whether markdown stays authoritative until then | 0a |
 | 0d | process | intake: an agent decomposes a sentence into statements under a fixed schema; the gate checks; a repair loop re-runs on rejection | 1 | the one generative door is bounded | repair rounds before a loud failure | 0a |

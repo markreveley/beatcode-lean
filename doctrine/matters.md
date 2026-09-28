@@ -171,6 +171,8 @@ Evidence
         omitted; never edited.
   I3.   errors/: one file per agent error, id eNNNN; what happened, why as far as
         traceable, the guard added; never edited.
+  I4.   An error record cites the run or the thread that shows the error; a failed
+        command's text and output are recorded as a run, like any other check.
 
 Determinism
   Def.  Determinism is the rule that whatever a program can check, a program checks.

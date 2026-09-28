@@ -3,6 +3,16 @@
 > Advisory, not normative. Verify repository state before acting; the
 > matters supply scope. Nothing `proposed` governs.
 
+## The goal, in the operator's words
+
+Lock this repository at the final bootstrap, then port its last state to
+a new repository as that repository's init commit (the operator, session
+of 2026-09-28, turn 1; the new repository is `beatcode-lean-2`, empty as
+of 2026-09-28). The operator has said there are no further actions from
+them in the founding sessions: every act that is theirs is listed under
+"Pending operator acts" and waits until they read. Everything else is the
+next agent's.
+
 ## Observation
 
 - `main` carries the bootstrap in its fifth revision. The sixth and
@@ -27,9 +37,9 @@
   before the operator's and is open at S4.
 - The operator turns that directed revisions 4 and 5 were not exported;
   threads/2026-09-28-founding-session.md ends before them. Agent turns
-  after threads/2026-09-28-revision-7-session.md are in
-  threads/2026-09-28-revision-7-session-2.md; no operator turn followed
-  them in that session.
+  after threads/2026-09-28-revision-7-session.md are summarised in
+  threads/2026-09-28-revision-7-session-2.md; the operator's closing
+  ruling is threads/2026-09-29-handoff-ruling.md.
 - Actor: claude-code/2026-09-28.
 
 ## Where the attempts stand
@@ -77,6 +87,11 @@ a candidate for PLAN.md item 0a.
    every lens passed, and the readings sit beside the sentences in
    units/0001-step/statements.md. A fresh agent then performs S5.
 5. Merge the branch into main, or ask for a direct push.
+6. Rule on the two evidence questions under "Open questions": whether
+   agents' full transcripts are kept, and where.
+7. When the bootstrap is final: name the tag for the lock and say which
+   runs and threads travel to the init of `beatcode-lean-2`; the next
+   agent then tags, ports the final tree, and reports the init commit.
 
 ## Open questions (raised in the exported sessions, not ruled)
 
@@ -88,6 +103,22 @@ a candidate for PLAN.md item 0a.
   consequences (infer_1, infer_2), or leave them as assertions.
 - Which runs and threads travel to the init of the next repository, and
   under what name the final commit here is tagged.
+- Evidence beyond prompts and reports. Every attempt log holds each
+  reader's prompt and report verbatim, and each reader's evidence section
+  holds the commands it ran and their output verbatim; that is the
+  boundary the doctrine records (Evidence I1, I4). The readers' full
+  transcripts, their internal steps between prompt and report, exist only
+  in the founding session's container and are lost when it is reclaimed;
+  nothing in the repository cites them. The operator asked whether traces
+  and tool calls should be persisted for error records, and whether such
+  material belongs in another repository. The agent's recommendation:
+  keep the boundary as it is for attempts and errors, since an error
+  record already cites the run or thread that shows it (Evidence I4), and
+  record a failed command as a run; if full transcripts are wanted, keep
+  them in a separate evidence store referenced from the log by sha256,
+  never as a source of rules or behaviour, so this repository stays small
+  enough to read (MNC) and the reference cannot drift. Not ruled; until
+  it is, no transcript is kept.
 - jev, which the operator proposed as a reader. What the agent found: a
   decision-model service that returns a choice, a score and a confidence
   from a bounded answer set, whose own page says it is unsuitable for
@@ -102,9 +133,14 @@ a candidate for PLAN.md item 0a.
 
 ## What the next agent may do
 
-- Run the next attempt on m0001 from S1 after any revision, with fresh
-  readers and the prompts recorded in the latest attempt log, and write
-  the log.
+- Without any operator act: file PLAN.md item 0a as a `proposed` matter
+  on an `m0002-` branch, the gate as a Lean program performing C1 to C7
+  and checking that a matter's list of statements agrees with its unit
+  file; that check would have caught the slips behind attempts 4 to 7.
+  Every commit on that branch carries a `Matter: m0002` trailer.
+- Run the next attempt on m0001 from S1 if any file it reads changes,
+  with fresh readers and the prompts recorded in the latest attempt log,
+  and write the log. Otherwise m0001 waits at S4 and needs nothing.
 - Act as the fresh verifier of an operator restatement (S5), if asked,
   provided it took no part in authoring the matter.
 - Prepare PLAN.md items 0a, 0b and unit 0002 as `proposed` matters on
@@ -119,7 +155,11 @@ a candidate for PLAN.md item 0a.
 - Edit `threads/`, `runs/` or `errors/` after the fact.
 - Write a reading after seeing the sentence, or for a twin it wrote.
 - Record an attempt's outcome as a statement in a unit file.
-- Claim that a check catches a case without running the check on it.
+- Claim that a check catches a case without running the check on it
+  (errors/e0001).
+- Write several files from one script without verifying every edit
+  first, or run a commit in the same command as an edit that can fail
+  (errors/e0002).
 - Start a unit whose dependencies are not `executed`.
 - Raise a unit's level without the evidence the level names.
 - Cite any repository other than this one as a source of rules or
