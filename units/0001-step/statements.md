@@ -42,5 +42,5 @@ Notation: doctrine/statements.md. ⊢ marks ratified.
 |---|---|---|
 | reading against doctrine/statements.md | every dependency resolves; the one term used has a definition in scope; ref_1 carries a measured hash; C6: attest_3 quantifies and its twin binds s; C7: no twin is proved by rfl and constructors alone | whether anything is true |
 | the checker | ref_1 is well-formed; `step_first` and `step_succ` hold with no assumptions | whether `Step` means *step* |
-| the fresh reader (lens Q4, in every attempt from the second) | each twin's reading; its verdict against the sentence; which wrong definition each twin rejects | ratification; the reading is proposed, like everything model-authored |
+| the fresh reader (lens Q4, in every attempt) | each twin's reading; its verdict against the sentence; which wrong definition each twin rejects | ratification; the reading is proposed, like everything model-authored |
 | the operator | def_1, by authoring it | attest_1, attest_2, attest_3 — pending the act over a named commit |
