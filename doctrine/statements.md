@@ -1,51 +1,48 @@
 # Statements
 
-The rules for the plain-language layer. Every unit's `statements.md` follows
-them. A program that checks these rules mechanically (the *gate*) does not
-exist in this repository yet; until it does, the checks are performed by
-reading, and the matter carrying a unit says so.
+The rules for the plain-language layer. Terms are defined in
+[README.md](../README.md).
 
-## Kinds
+```
+Kind
+  Def.  A kind is what a statement does. There are five.
+  K1.   definition  [def_n]     coins a term written *term*; carries the defining sentence.
+  K2.   source      [ref_n]     points at a file; carries its path in this repository and its sha256.
+  K3.   assertion   [attest_n]  says something holds; carries the sentence.
+  K4.   consequence [infer_n]   says something follows from its dependencies; carries the sentence and at least one dependency.
+  K5.   record      [did_n]     says something was done; carries what, when, and where the evidence is.
 
-| kind | notation | what it does | what it must carry |
-|---|---|---|---|
-| definition | `[def_n]` | coins a term | the term, written `*term*`; the sentence defining it |
-| source | `[ref_n]` | points at a file | the path in this repository and the file's sha256 |
-| assertion | `[attest_n]` | says something holds | the sentence |
-| consequence | `[infer_n]` | says something follows from its dependencies | the sentence; at least one dependency |
-| record | `[did_n]` | says something was done | what, when, and where the evidence is |
+Dependency
+  Def.  A dependency is a statement another statement rests on.
+  I1.   Dependencies are written as ids in parentheses after the statement's id: [attest_1](def_1, ref_1).
+  I2.   Every listed id exists in the same unit or in a ratified unit this unit depends on.
+  I3.   Dependencies form no cycles.
 
-## Dependencies
+Term
+  Def.  A term is a word or phrase coined by a definition.
+  I1.   Inside a sentence, *word* is a use of a term and nothing else.
+  I2.   Every term used has a definition in scope.
+  I3.   Emphasis is never written with asterisks.
 
-A statement lists the ids of the statements it rests on, in parentheses
-after its id: `[attest_1](def_1, ref_1)`. Every listed id must exist in the
-same unit or in a ratified unit this unit depends on. Dependencies form no
-cycles.
+Authorship
+  I1.   Each statement records its author: operator or model.
+  I2.   Each statement records its state: proposed or ratified.
+  I3.   An operator-authored statement is ratified on entry.
+  I4.   A model-authored statement is proposed until the matter carrying it is ratified.
+  I5.   Only the operator changes a state.
 
-## Terms
+Formal twin
+  I1.   A definition or a consequence may name its formal twin: a Lean declaration in a file given as a source.
+  I2.   The assertion that the twin means the sentence is a separate, model-authored statement.
+  I3.   That assertion is what the operator is asked to ratify.
 
-Inside a sentence, `*word*` is a use of a coined term and nothing else. Every
-term used must have a definition in scope. Emphasis is never written with
-asterisks.
-
-## Authorship and state
-
-Each statement records its author, `operator` or `model`, and its state,
-`proposed` or `ratified`. An operator-authored statement is ratified on
-entry. A model-authored statement is proposed until the operator ratifies
-the matter that carries it. Only the operator changes a state.
-
-## Formal twins
-
-A definition or a consequence may name its formal twin: a Lean declaration
-in a file in this repository, given as a source statement. The assertion
-that the twin means the sentence is a separate statement, model-authored,
-and is the thing the operator is asked to ratify.
-
-## The checks (performed by reading until a gate exists)
-
-1. every id is of the form `kind_n` and unique in the unit;
-2. every dependency resolves;
-3. every `*term*` has a definition in scope;
-4. every source carries a hash that matches the file;
-5. no model-authored statement is marked ratified.
+Gate
+  Def.  The gate is the program that performs the five checks below on a unit's statements.
+  C1.   Every id is of the form kind_n and unique in the unit.
+  C2.   Every dependency resolves.
+  C3.   Every *term* has a definition in scope.
+  C4.   Every source carries a hash that matches the file.
+  C5.   No model-authored statement is marked ratified.
+  Now.  No gate program exists. The checks are performed by reading, and the matter
+        carrying the unit says so. Building the gate is PLAN.md item 0a.
+```

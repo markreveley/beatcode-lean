@@ -2,7 +2,7 @@
 unit: 0001
 title: step
 rung: 1 — a coined term resting only on standard mathematics
-label: proved — the two claims about the term carry no assumptions at all; the definition itself is a term, not a claim
+level: 4 (proved) — the two claims about the term carry no assumptions at all; the definition itself is a term, not a claim
 checks: performed by reading (no gate program exists yet; see doctrine/statements.md)
 ---
 

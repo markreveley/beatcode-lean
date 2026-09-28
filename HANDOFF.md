@@ -5,7 +5,11 @@
 
 ## Observation
 
-- `main` carries the bootstrap in its third revision (2026-09-28). Since the
+- `main` carries the bootstrap in its fourth revision (2026-09-28). Since the third: every
+  definition and rule is written as one claim per line (Def / In / Now /
+  Ref); the verification levels are numbered 0–4 from the ground, trusted
+  being level 0; a matter names its subject; ROADMAP.md is PLAN.md, a list
+  of matters not yet filed. Since the
   second: the verification spectrum has five numbered levels with an example
   each, and *reviewed* is a level so it can be counted; *test* and *eval*
   are defined and separated; *unit* and *matter* are defined side by side;

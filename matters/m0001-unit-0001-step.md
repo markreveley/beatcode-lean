@@ -3,9 +3,10 @@ type: spec
 title: "unit 0001 · step — the first coined term"
 description: "Enter the term *step* as the first commitment of this repository: one operator-authored definition, its formal twin, and the assertion that the two mean the same thing."
 id: m0001
+subject: unit-0001
 state: proposed
 status: draft
-tags: [unit-0001, rung-1, label-proved]
+tags: [unit-0001, rung-1, level-4]
 sources:
   - units/0001-step/statements.md
   - units/0001-step/Step.lean
@@ -39,14 +40,19 @@ the commit the operator names:
 
 Nothing. No other matter exists.
 
+## Blast radius
+
+Every later unit depends on *step*; this is the largest radius the
+repository will have.
+
 ## Ratification (pending)
 
 The operator stated ratification of def_1's text in the session before any
-commit existed (thread, operator turn 2). The pin follows the act and names
-a commit the operator read, so the record is incomplete until the operator
-names one. On that act the recording agent writes `verified`,
-`ratified_commit` and `ratified_sha256` and the state moves to
-`ratified`. Nothing may depend on unit 0001 until then.
+commit existed (thread, operator turn 2). The ratification act
+(doctrine/matters.md, "Ratification act") is the operator's restatement of
+this matter committed under `## Restatement`, verified by a fresh agent;
+until it is performed the state stays `proposed` and nothing may depend on
+unit 0001.
 
 ## Bootstrap defaults (recorded, not ruled)
 
@@ -57,7 +63,7 @@ overturned by ratifying this matter:
    because no gate program exists here yet (roadmap 0a).
 2. A matter of type `spec` is the vehicle for a unit's statements, and
    ratifying the matter ratifies the statements it carries.
-3. Each unit declares its rung and label in its statements file, and
+3. Each unit declares its rung and level in its statements file, and
    `check.sh` is the only enforcement of the label (roadmap 0b).
 4. This repository names no other repository as a source of rules or
    behaviour; the doctrine documents are complete in themselves.
