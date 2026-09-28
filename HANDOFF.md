@@ -23,7 +23,8 @@
   bounded rule for what counts as a term; the round-trip document; the
   error log's first entry; and seven attempts on m0001, each failing
   attempt answered by a revision, as the matter's Attempts section
-  summarises and the table below shows.
+  summarises and the table below shows; attempt 8 passed every step
+  before the operator's and is open at S4.
 - The operator turns that directed revisions 4 and 5 were not exported;
   threads/2026-09-28-founding-session.md ends before them. Agent turns
   after threads/2026-09-28-revision-7-session.md are in
@@ -41,7 +42,8 @@
 | 4 | pass | pass | 1 | 21 | none | same | fail |
 | 5 | pass | pass | 4 | 1 | none | same | fail |
 | 6 | pass | pass | 2 | 1 | none | same | fail |
-| 7 | pass | pass | running | running | none | running | running |
+| 7 | pass | pass | 1 | none | none | same | fail |
+| 8 | pass | pass | none | none | none | same | open at S4 |
 
 What the sequence shows. The unit's own layers, S1, S2, Q3 and Q4, have
 been stable since attempt 2: the twins say what the sentences say, and
@@ -69,7 +71,11 @@ a candidate for PLAN.md item 0a.
    precise meaning (Plain word I2); the doctrine is the blocks in the
    form, and text outside them binds nothing (Doctrine).
 3. Rule on the open questions below.
-4. Read the result of attempt 7 in its log and act as it says: S4, the restatement, if it is open there; otherwise the next attempt after the revision it describes.
+4. Once the bootstrap is final: perform S4 on m0001, the restatement
+   (doctrine/matters.md, Ratification act A1 and A2; doctrine/round-trip.md
+   walks it with an example). Attempt 8 is open there: every check and
+   every lens passed, and the readings sit beside the sentences in
+   units/0001-step/statements.md. A fresh agent then performs S5.
 5. Merge the branch into main, or ask for a direct push.
 
 ## Open questions (raised in the exported sessions, not ruled)

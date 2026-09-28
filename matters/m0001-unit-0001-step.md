@@ -115,8 +115,9 @@ matter takes one reader per lens.
   matter's record of attempt 1), Q2 none, for the first time, Q3 none,
   Q4 same on all three pairs. Grade: fail. Answered by deleting the
   qualifier.
-- Attempt 8 (runs/m0001-attempt-8.md): run on 2026-09-28 after that
-  revision; result in the log.
+- Attempt 8 (runs/m0001-attempt-8.md): S1 pass, S2 pass, S3 pass under
+  every lens: Q1 none, Q2 none, Q3 none, Q4 same on all three pairs.
+  Grade: open at S4. The next step is the operator's restatement.
 
 ## Ratification (pending)
 

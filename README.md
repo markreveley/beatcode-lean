@@ -8,9 +8,10 @@ beatcode-lean is an offline, deterministic music compiler and renderer.
 beatcode-lean
   Def.  beatcode-lean is an offline, deterministic music compiler and renderer.
   Aim.  Every part is held by the highest level it can reach, and its statements say which.
-  Now.  One unit exists: the term *step*, with its definition, its formal twin, a fresh
-        reader's reading of that twin, and the record of the act that accepted the
-        definition. Nothing else exists. (2026-09-28)
+  Now.  One unit exists: the term *step*, with its definition, its formal twin, fresh
+        readers' readings of that twin, and the record of the act that accepted the
+        definition; its matter has passed every check and every lens and waits on the
+        operator's restatement. Nothing else exists. (2026-09-29)
 ```
 
 **Aspiration.** A plain-text score goes in: a tempo, a number of bars, and
@@ -418,15 +419,14 @@ MNC
   record of the checker's run; the readers' runs are in the attempt logs.
 - [units/0001-step/Step.lean](units/0001-step/Step.lean): the formal twin.
 - [matters/m0001-unit-0001-step.md](matters/m0001-unit-0001-step.md): the
-  matter, subject unit 0001, state **proposed**, in revision: the
-  correspondence reading found all three pairs not the same. Pending: the
-  operator's ruling on each finding, the remaining lenses, then the
-  operator's restatement.
+  matter, subject unit 0001, state **proposed**. Attempt 8
+  (runs/m0001-attempt-8.md) passed the gate, the checker and all four
+  lenses and is open at S4: the operator's restatement is the next step.
 - [runs/2026-09-28-unit-0001-kernel-check-revision-6.md](runs/2026-09-28-unit-0001-kernel-check-revision-6.md):
   the checker accepted the twin; its two claims relied on no assumptions.
-- [runs/2026-09-28-unit-0001-correspondence-reading.md](runs/2026-09-28-unit-0001-correspondence-reading.md):
-  a fresh reader's reading of each twin, the verdict against its sentence,
-  and the exclusion test.
+- [runs/m0001-attempt-8.md](runs/m0001-attempt-8.md): the open attempt,
+  with every reader's prompt and report verbatim; attempts 1 to 7 are
+  beside it, each a fail answered by a revision.
 - [threads/2026-09-27-ratification-of-step.md](threads/2026-09-27-ratification-of-step.md):
   the operator's words accepting the definition, before the process
   existed.
