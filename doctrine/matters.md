@@ -29,7 +29,8 @@ Blast radius
   Def.  The blast radius of a matter is the set of units and matters that depend on
         what it changes.
   I1.   A matter states its blast radius, found by following dependencies.
-  I2.   Review rigour follows blast radius, not type.
+  I2.   Readers per lens follow blast radius, not type: one reader when the blast radius
+        is empty, two when it is not.
 
 Sources
   I1.   A matter lists in `sources` every file its reasoning rests on.
@@ -57,15 +58,43 @@ State
         corrected text or by supersession.
   I10.  Only the operator moves a matter between states.
 
+Vetting
+  V1.   Before ratification every matter is read under every lens, each lens by a reader
+        that took no part in authoring the matter.
+  V2.   A reader takes one lens and receives the matter, not other readings.
+  V3.   Each reading is written to runs/; a reading under Q4 is a correspondence reading.
+  V4.   A finding under any lens sends the matter back for revision; after revision every
+        lens is read again.
+  V5.   A matter is ratifiable only after a pass in which no lens found anything.
+  V6.   The operator adds readers and never removes lenses.
+
+Lens
+  Q1.   The plan does what the statements say.
+  Q2.   Nothing is undefined.
+  Q3.   The blast radius is as stated.
+  Q4.   Correspondence: every twin says what its sentence says.
+
+Correspondence reading
+  I1.   For each twin in the matter's subject it records the reading, the sentence, the
+        verdict (same or not same, with the reason), and the exclusion test.
+  I2.   The reading is written from the Lean text alone, before the reader sees the
+        sentence.
+  I3.   The exclusion test names a wrong definition of the term that the sentence rules
+        out and says whether the twin rejects it; where the checker can be run on the
+        wrong definition, its output is the evidence.
+  I4.   The reader took no part in writing the twin or the sentence.
+
 Ratification act (restate to ratify)
-  A1.   The operator reads the matter at a commit.
+  A1.   The operator reads the matter at a commit, with each twin's reading beside its
+        sentence and the correspondence reading open.
   A2.   The operator writes a restatement of the matter in their own words — what it
-        changes, what it commits the repository to, what they are accepting — into the
-        matter under ## Restatement, naming that commit, and commits it.
+        changes, what it commits the repository to, what they are accepting, and what
+        each twin says — into the matter under ## Restatement, naming that commit, and
+        commits it.
   A3.   A fresh agent, one that took no part in authoring the matter, verifies the
         restatement against the matter's text and writes the verification to runs/.
-  A4.   A restatement passes when every commitment in the matter is present in it and
-        it claims nothing the matter does not.
+  A4.   A restatement passes when every commitment in the matter, and every reading it
+        carries, is present in it and it claims nothing the matter does not.
   A5.   A restatement that fails is revised by the operator, or the matter is revised;
         A1–A4 repeat.
   A6.   On a pass, the recording agent writes verified (who, when), ratified_commit
@@ -74,14 +103,6 @@ Ratification act (restate to ratify)
         state to ratified.
   A7.   The restatement is the artifact that shows the operator read the text; the pin
         is recorded after the act, never offered before it.
-
-Vetting
-  V1.   Before ratification a matter may be reviewed by fresh agents in rounds.
-  V2.   Each reviewer takes one declared lens (the plan does what the statements say;
-        nothing is undefined; the blast radius is as stated).
-  V3.   Reviewers receive the matter, not earlier reviews.
-  V4.   Vetting stops when two consecutive rounds surface nothing new.
-  V5.   The operator may ratify at any round.
 
 Channel
   I1.   The operator's channel is the repository: a committed edit, or a session
@@ -93,7 +114,7 @@ Channel
   I6.   A pull request merges as a merge commit; its body is a one-line pointer.
 
 Evidence
-  I1.   runs/: one file per check run; never edited; a re-run is a new file.
+  I1.   runs/: one file per check run or reading; never edited; a re-run is a new file.
   I2.   threads/: verbatim operator and agent turns, reasoning and tool traffic
         omitted; never edited.
   I3.   errors/: one file per agent error, id eNNNN; what happened, why as far as
@@ -102,7 +123,8 @@ Evidence
 Determinism
   I1.   Anything a program can check is checked by a program once one exists: the
         header schema, id uniqueness, transitions, links, hashes, the checker's
-        assumption lists, the sources rule, the five statement checks.
+        assumption lists, the sources rule, the seven statement checks, the presence
+        of a reading and a correspondence reading for every twin.
   I2.   Until the program exists, an agent checks by reading and says so in the run
         record.
   I3.   Agents are reserved for judgement; ratification is the operator's alone.

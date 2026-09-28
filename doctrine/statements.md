@@ -32,17 +32,21 @@ Authorship
   I5.   Only the operator changes a state.
 
 Formal twin
-  I1.   A definition or a consequence may name its formal twin: a Lean declaration in a file given as a source.
+  I1.   A definition, an assertion or a consequence may name its formal twin: a Lean declaration in a file given as a source.
   I2.   The assertion that the twin means the sentence is a separate, model-authored statement.
   I3.   That assertion is what the operator is asked to ratify.
+  I4.   A statement that names a twin carries the twin's reading, and names the correspondence reading in runs/ that produced it.
+  I5.   The reading is written from the Lean text alone, before its writer sees the sentence, by a reader who took no part in writing the twin.
 
 Gate
-  Def.  The gate is the program that performs the five checks below on a unit's statements.
+  Def.  The gate is the program that performs the checks below on a unit's statements.
   C1.   Every id is of the form kind_n and unique in the unit.
   C2.   Every dependency resolves.
   C3.   Every *term* has a definition in scope.
   C4.   Every source carries a hash that matches the file.
   C5.   No model-authored statement is marked ratified.
-  Now.  No gate program exists. The checks are performed by reading, and the matter
+  C6.   If a statement's sentence quantifies (every, any, all, each, no, always, never) and it names a twin, the twin's statement binds at least one variable.
+  C7.   A twin whose proof uses nothing but rfl and constructor applications is flagged for the correspondence reading, not rejected: such a proof is right for a specific computed value and empty for a rule.
+  Now.  No gate program exists. The seven checks are performed by reading, and the matter
         carrying the unit says so. Building the gate is PLAN.md item 0a.
 ```

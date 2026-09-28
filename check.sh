@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Kernel check for every unit. Needs a Lean 4.34.x toolchain (set LEAN_BIN or have lean on PATH).
-# Prints, per unit file: exit code, wall time, and the #print axioms lines — the trust marker.
-# A unit labelled "proved" must show only [propext, Classical.choice, Quot.sound] or fewer.
+# Prints, per unit file: exit code, wall time, the #print axioms lines (the assumption list), and the file's sha256.
+# A level-4 unit must show only [propext, Classical.choice, Quot.sound] or fewer (README.md, Checker I3-I8).
 set -euo pipefail
 cd "$(dirname "$0")"
 LEAN_BIN="${LEAN_BIN:-$(dirname "$(command -v lean)")}"

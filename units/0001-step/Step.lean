@@ -18,11 +18,11 @@ Two decisions the definition carries, each made checkable below:
 /-- A position in a sequence: a natural number, counting from zero. -/
 abbrev Step := Nat
 
-/-- The first step exists and is zero. -/
-theorem step_first : (0 : Step) = 0 := rfl
+/-- The first step is step 0: no step comes before it. -/
+theorem step_first (s : Step) : 0 ≤ s := Nat.zero_le s
 
-/-- Every step has a next step: there is no upper bound. -/
-theorem step_succ (s : Step) : ∃ t : Step, t = s + 1 := ⟨s + 1, rfl⟩
+/-- Every step has a later step: there is no upper bound. -/
+theorem step_succ (s : Step) : ∃ t : Step, s < t := ⟨s + 1, Nat.lt_succ_self s⟩
 
 #print axioms step_first
 #print axioms step_succ

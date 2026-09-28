@@ -5,45 +5,58 @@
 
 ## Observation
 
-- `main` carries the bootstrap in its fifth revision (2026-09-28). Since the fourth: the
-  description is restored to "offline, deterministic music compiler and
-  renderer" with the four words defined; the readability claim is an
-  `Aim.` line, a new line kind that is not a claim; a "How it is built"
-  section and a "Three layers" section with the unit 0001 walk are added;
-  the doctrine lines are declared to be statements of the five kinds; the
-  three standard assumptions are named and glossed; the compiled-code
-  door is stated as three rules. Since the third: every
-  definition and rule is written as one claim per line (Def / In / Now /
-  Ref); the verification levels are numbered 0–4 from the ground, trusted
-  being level 0; a matter names its subject; ROADMAP.md is PLAN.md, a list
-  of matters not yet filed. Since the
-  second: the verification spectrum has five numbered levels with an example
-  each, and *reviewed* is a level so it can be counted; *test* and *eval*
-  are defined and separated; *unit* and *matter* are defined side by side;
-  the doctrine absorbs the operator-approved process rules (restate-to-
-  ratify as the ratification act, blast radius, declared sources, vetting
-  lenses, the error log, hash verification before execution); the plan
-  names the gate and the rest of the statement harness as Lean units to be
-  built here; the founding session is exported verbatim to `threads/`.
+- `main` carries the bootstrap in its fifth revision; the sixth is on the
+  branch `claude/gifted-brahmagupta-k12wgh`, awaiting the operator's merge
+  (2026-09-28). The sixth revision: the two theorem twins of unit 0001 are
+  restated so that each binds a step and says what its sentence says (the
+  earlier twins held word for word for a type capped at 3); every
+  statement that names a twin carries the twin's reading; a fresh reader's
+  correspondence reading is in `runs/`; the doctrine defines reader,
+  reading, lens, correspondence reading, exclusion test and restatement,
+  makes every lens mandatory, fixes readers per lens by blast radius, adds
+  gate checks C6 and C7, and states five premises; the README says what
+  the operator reads at each level; the session that ruled these changes
+  is exported to `threads/`.
 - The bootstrap is not final until the operator says so; until then
-  revisions land on `main` directly (doctrine/matters.md, "The bootstrap").
+  revisions land on `main` directly (doctrine/matters.md, "Bootstrap").
+  This revision sits on a branch because the agent's session was confined
+  to it; the operator merges it or asks for a direct push.
+- The operator turns that directed revisions 4 and 5 were not exported;
+  `threads/2026-09-28-founding-session.md` ends before them. Only the
+  session that holds them can export them.
 - Actor: claude-code/2026-09-28.
 
 ## Pending operator acts
 
 1. Say whether the bootstrap is final. If not, give the next revision.
-2. Once final: perform the restate-to-ratify act on m0001 (doctrine/matters.md,
-   "The ratification act"): read `matters/m0001-unit-0001-step.md` and
-   `units/0001-step/statements.md` at a commit, write your restatement into
-   the matter naming that commit, and a fresh agent verifies it. The
-   operator's ratification of def_1's text is already on record; the
-   restatement and the pin are what is missing.
-3. Confirm or overturn the bootstrap defaults listed in m0001.
+2. Rule on the open questions below.
+3. Once final: have m0001 read under lenses Q1–Q3 (Q4 is done), then
+   perform the restate-to-ratify act on m0001 (doctrine/matters.md,
+   "Ratification act"): read the matter and the unit's statements at a
+   commit, with each twin's reading beside its sentence, write your
+   restatement covering each reading, and a fresh agent verifies it.
+4. Confirm or overturn the bootstrap defaults listed in m0001.
+
+## Open questions (raised in threads/2026-09-28-revision-6-session.md, not ruled)
+
+- Rungs 1 and 2 of the ladder: unit 0001 carries rung 2's obligation
+  (attest_1) while labelled rung 1. Merge the rungs, or relabel the unit.
+- Level I4 requires a level-4 unit to keep a test; unit 0001 has nothing
+  to run. Qualify I4, or give a bare term no level.
+- attest_2 and attest_3 follow from def_1's wording. Reclassify them as
+  consequences (infer_1, infer_2), or leave them as assertions.
+- Which runs and threads travel to the init of the next repository, and
+  under what name the final commit here is tagged.
+- The operator named a system, "jev", as a possible reader; the agent
+  could not find it and asked what it is.
 
 ## What the next agent may do
 
+- Read m0001 under lenses Q1–Q3 as a fresh reader and write each reading
+  to `runs/`, provided it took no part in authoring the matter.
 - Prepare PLAN.md items 0a, 0b and unit 0002 as `proposed` matters on
-  `m000N-` branches, each with statements, formal twins and a run record.
+  `m000N-` branches, each with statements, formal twins, readings and run
+  records.
 - Re-run `./check.sh` and add a new run record if anything changed.
 - Act as the fresh verifier of an operator restatement, if asked, provided
   it took no part in authoring the matter.
@@ -53,6 +66,7 @@
 - Ratify anything, or write `verified` / `ratified_*` fields without a
   passing verification of an operator restatement.
 - Edit `threads/`, `runs/` or `errors/` after the fact.
+- Write a reading after seeing the sentence, or for a twin it wrote.
 - Start a unit whose dependencies are not `executed`.
 - Raise a unit's level without the evidence the level names.
 - Cite any repository other than this one as a source of rules or

@@ -8,8 +8,9 @@ beatcode-lean is an offline, deterministic music compiler and renderer.
 beatcode-lean
   Def.  beatcode-lean is an offline, deterministic music compiler and renderer.
   Aim.  Every part is held by the highest level it can reach, and its statements say which.
-  Now.  One unit exists: the term *step*, with its definition, its formal twin, and the
-        record of the act that accepted the definition. Nothing else exists. (2026-09-28)
+  Now.  One unit exists: the term *step*, with its definition, its formal twin, a fresh
+        reader's reading of that twin, and the record of the act that accepted the
+        definition. Nothing else exists. (2026-09-28)
 ```
 
 **Aspiration.** A plain-text score goes in: a tempo, a number of bars, and
@@ -25,9 +26,10 @@ that this can be verified. It runs with no network and no dependencies.
 Every part of the program enters this repository as **statements**: plain
 sentences, one claim each, typed and linked to what they rest on. Each
 definition or rule receives a **formal twin** in Lean where one is
-possible, and the **checker** decides whether the twin holds. Each **unit**
-declares the **level** of evidence that holds it. Nothing enters without an
-act of the **operator**. Each bold term is defined below.
+possible; the **checker** decides whether the twin holds, and a fresh
+**reader** writes down what the twin says. Each **unit** declares the
+**level** of evidence that holds it. Nothing enters without an act of the
+**operator**. Each bold term is defined below.
 
 ## How to read this document
 
@@ -40,14 +42,39 @@ Term
   I n.  an invariant: something always true of it — one claim per line
   Aim.  an intention — not a claim, not checkable
   Now.  what exists today, dated
-  Ref.  where the rules are
+  Ref.  the file holding the rules
 ```
 
 These lines are statements in the sense defined below, written in a
 compact form: `Def.` is a definition, each `I n.` is an assertion, `Now.` is
-a record, `Ref.` is a source. `Aim.` is the one line that is not a
-statement. The doctrine is therefore checked and ratified the same way a
-unit is. Sentences outside the code blocks are commentary and bind nothing.
+a record. `Aim.` is the one line that is not a statement. `Ref.` is a
+pointer, not a source statement: it names a file and carries no hash. A
+letter other than I before a number marks a numbered list of one kind, and
+each such line is an assertion: K kinds, C checks, T types, A steps of the
+ratification act, V vetting rules, Q lenses, L layers, R rungs, P premises.
+The doctrine is therefore checked and ratified the same way a unit is.
+Sentences outside the code blocks are commentary and bind nothing.
+
+## Premises
+
+The rules below rest on beliefs about agents and operators. They are
+written down so that a rule can be traced to the belief it serves, and so
+that the belief itself can be rejected.
+
+```
+Premise
+  Def.  A premise is a belief about agents and operators that a rule of this repository
+        rests on; it is asserted, not checked.
+  P1.   A statement that other statements depend on needs an owner who can be held to it;
+        ratification names that owner, and the owner is always the operator.
+  P2.   Agent readers share blind spots with agent authors; a reading is fresh only when
+        the reader shares no context with the author.
+  P3.   The rejection rate measures nothing unless the last reader can reject.
+  P4.   A council that stamps and an operator who stamps the council are two layers of
+        the same failure.
+  P5.   The code the operator still reads is exactly the code that could not be raised to
+        a higher level.
+```
 
 ## Three layers
 
@@ -60,7 +87,8 @@ Layer
         linked; the layer a human ratifies one claim at a time.
   L3.   The formal twin: the Lean declaration the checker checks.
   I1.   One assertion in L2 connects L2 to L3: "this twin says exactly what this
-        sentence says". No program can judge it; only the operator ratifies it.
+        sentence says". No deterministic check decides it; a reader reads for it; only
+        the operator ratifies it.
   I2.   A unit is complete when all three layers exist and the connecting assertion
         is ratified.
 ```
@@ -69,8 +97,9 @@ Unit 0001 walks the three layers. L1: "a whole number, counting from
 zero, naming a position in a sequence" (the operator's words). L2:
 `def_1` (that sentence as a definition), `ref_1` (the Lean file by hash),
 `attest_1` (the twin means the definition), `attest_2` and `attest_3`
-(the two decisions), `did_1` (the checker's run). L3: `abbrev Step := Nat`.
-The line that only the operator can ratify is `attest_1`.
+(the two decisions), `did_1` and `did_2` (the checker's run and the
+reader's run). L3: `abbrev Step := Nat`. The line that only the operator
+can ratify is `attest_1`.
 
 ## Vocabulary
 
@@ -85,7 +114,7 @@ Compiler
 Renderer
   Def.  The renderer is the part that takes the event list in and produces the audio
         file.
-  Now.  None of the four exists. (2026-09-28)
+  Now.  Neither the compiler nor the renderer exists. (2026-09-28)
 
 Operator
   Def.  The operator is the one human who accepts or rejects what enters this repository.
@@ -95,7 +124,12 @@ Operator
 Agent
   Def.  An agent is a language-model program acting in this repository.
   I1.   Everything an agent writes is proposed until the operator ratifies it.
-  I2.   An agent that verifies a restatement took no part in authoring the matter.
+  I2.   An agent that reads a matter under a lens, or verifies a restatement, took no
+        part in authoring the matter.
+
+Reader
+  Def.  A reader is an agent, or the operator, reading a matter under one lens.
+  I1.   A reader is fresh when it shares no context with the matter's author (P2).
 
 Statement
   Def.  A statement is one sentence in plain language, of one of five kinds:
@@ -111,10 +145,49 @@ Statement
 
 Formal twin
   Def.  A formal twin is a Lean 4 declaration in this repository that corresponds to
-        a definition or a consequence.
+        a definition, an assertion or a consequence.
   I1.   The claim "this twin says exactly what this sentence says" is itself an
         assertion, written by an agent, ratified only by the operator.
-  I2.   No program can judge I1; the checker judges only the twin.
+  I2.   No deterministic check decides I1: the checker judges only the twin and the
+        gate only the form. A reader reads for I1; only the operator's act binds it.
+  I3.   A twin's content is what it excludes: the wrong definitions of the term under
+        which it would be false.
+  I4.   A twin is smaller than its sentence when the sentence rejects a wrong definition
+        that the twin lets through.
+  I5.   A twin is a test that runs against every future definition of the term.
+  I6.   Every statement that names a twin carries a reading, and none is ratified before
+        its correspondence reading exists.
+
+Reading
+  Def.  A reading is a formal twin rendered into plain language from the Lean text alone.
+  I1.   A reading is written before its writer sees the sentence the twin is claimed to
+        express.
+  I2.   A reading is written by a reader who took no part in writing the twin.
+
+Lens
+  Def.  A lens is the one question a reader is assigned before reading a matter.
+  I1.   Every matter is read under every lens before it is ratified.
+  Ref.  doctrine/matters.md
+
+Correspondence reading
+  Def.  A correspondence reading is the record a reader produces under the correspondence
+        lens: for each twin in the matter's subject, its reading, its sentence, the
+        verdict, and the exclusion test.
+  Ref.  doctrine/matters.md
+
+Exclusion test
+  Def.  The exclusion test names a wrong definition of a term that the sentence rules out
+        and says whether the twin rejects it.
+  I1.   A twin that rejects no wrong definition is empty, whatever the checker says of it.
+
+Restatement
+  Def.  A restatement is the operator's own account of a matter, written into the matter
+        naming the commit read.
+  I1.   A restatement covers every commitment in the matter and every reading it carries,
+        and claims nothing the matter does not.
+  I2.   A restatement is evidence that a reading happened, not a source of truth; written
+        in the operator's words, it cannot be satisfied by copying.
+  Ref.  doctrine/matters.md
 
 Checker
   Def.  The checker is Lean 4's kernel: a small program that takes a formal claim
@@ -176,7 +249,8 @@ Test
         and compares the output with an expectation.
   I1.   The expectation comes from a reference definition (level 3) or from a
         recording (level 2).
-  I2.   Tests run on every commit.
+  Aim.  Tests run on every commit.
+  Now.  Nothing runs on any commit; the rule is PLAN.md 0b. (2026-09-28)
 
 Eval
   Def.  An eval is a measurement of the process: a number computed over many events
@@ -185,12 +259,12 @@ Eval
   I2.   The first eval this repository commits to is the rejection rate: the share
         of proposed matters the operator rejects.
   I3.   A rejection rate that falls to zero is reported to the operator, because
-        either the agents became perfect or the reading stopped.
+        either the agents became perfect or the reading stopped (P3).
 
 Evidence
   Def.  Evidence is a record that is written once and never edited.
-  I1.   runs/ holds records of checks: claim, environment, command, observed output,
-        verdict, date, actor.
+  I1.   runs/ holds records of checks and readings: claim, environment, command,
+        observed output, verdict, date, actor.
   I2.   threads/ holds the operator's rulings as spoken or written, verbatim.
   I3.   errors/ holds agent errors: what happened, why, and the guard added.
 ```
@@ -207,6 +281,9 @@ Level
         the definition and something must run the built program.
   I5.   The aim is to raise every unit to the highest level it can reach and to leave
         level 1 wherever possible.
+  I6.   The operator reads what holds the unit: the trusted list at level 0, the code at
+        level 1, the examples and the sentence at level 2, the reference and the rule at
+        level 3, the rule at level 4 (P5).
 ```
 
 **Level 0 — trusted.** Nothing checks it and no one reads it; it is believed.
@@ -283,13 +360,17 @@ MNC
 - [units/0001-step/statements.md](units/0001-step/statements.md): the
   definition of *step*, written by the operator and therefore ratified;
   three assertions (the formal twin means it; steps start at zero; steps
-  have no upper bound), proposed; the record of the checker's run.
+  have no upper bound), proposed, each carrying its twin's reading; the
+  records of the checker's run and the reader's run.
 - [units/0001-step/Step.lean](units/0001-step/Step.lean): the formal twin.
 - [matters/m0001-unit-0001-step.md](matters/m0001-unit-0001-step.md): the
-  matter, subject unit 0001, state **proposed**. Pending: the operator's
-  restatement.
-- [runs/2026-09-28-unit-0001-kernel-check.md](runs/2026-09-28-unit-0001-kernel-check.md):
+  matter, subject unit 0001, state **proposed**. Pending: the vetting pass
+  under every lens, then the operator's restatement.
+- [runs/2026-09-28-unit-0001-kernel-check-revision-6.md](runs/2026-09-28-unit-0001-kernel-check-revision-6.md):
   the checker accepted the twin; its two claims relied on no assumptions.
+- [runs/2026-09-28-unit-0001-correspondence-reading.md](runs/2026-09-28-unit-0001-correspondence-reading.md):
+  a fresh reader's reading of each twin, the verdict against its sentence,
+  and the exclusion test.
 - [threads/2026-09-27-ratification-of-step.md](threads/2026-09-27-ratification-of-step.md):
   the operator's words accepting the definition, before the process
   existed.
