@@ -11,11 +11,12 @@ exported as
 then instructed the commit. It is commit `ea3fa36` on branch
 `claude/eager-dijkstra-titub3`, whose parent is `eea63b4`, the head of
 `origin/main` at the time, followed by one commit that adds the export
-of the turns after it. The branch is pushed; `main` is untouched. The
-operator compares the commit with its parent and rules; landing it on
-`main` is the operator's act under Bootstrap I3, or the agent's on
-instruction. The commit was made in a separate command from every edit
-(errors/e0002).
+of the turns after it. On the operator's instruction "push to main",
+the branch was merged with `b86770e`, which had landed on `main` in the
+meantime, and pushed to `main`, so `main` now stands at this revision
+(Bootstrap I3). The operator's rulings on the text remain open; a ruling
+that changes the text is a further revision. Every commit was made in a
+separate command from every edit (errors/e0002).
 
 What the revision changes:
 
@@ -49,7 +50,7 @@ What is needed from the operator:
    blocks and Fidelity I6, and rule: keep, reword, or strike each line.
 2. Say whether the gen~ documentation pages are admitted to the reference
    boundary as drafted, or only the reference pages without the tutorials.
-3. Land the revision on `main`, or instruct the agent to push it there.
+3. Nothing further for publication: the revision is on `main`.
 
 ## Current direction
 
