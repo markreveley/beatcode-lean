@@ -54,6 +54,8 @@ Sources
         proposal or its sources after the attempt begins requires a new attempt.
   I5.   Ratifying a matter does not ratify every utterance in its cited threads or
         make an external reference a governing specification.
+  I6.   A library a source imports (README.md, Library) is pinned in `sources` by name,
+        version and hash, and the readings of the declarations used are cited in `runs`.
 
 State
   Def.  The state of a matter is the one stage of its life it is in.
@@ -141,6 +143,7 @@ Attempt
   I6.   The ratification cycle is this attempt, ending in pass or fail; changes to
         L1 or L2 return to discussion outside that cycle, and additional scope
         requires a new matter.
+  I7.   The log records the Lean toolchain the checker ran (README.md, Arithmetic I5).
 
 Finding
   Ref.  README.md, Finding.

@@ -3,82 +3,79 @@
 > Advisory, not normative. Verify repository state before acting; the
 > matters supply scope. Nothing `proposed` governs.
 
-## Completed revision and publication
+## This revision
 
-Commit `339d68a` records the agreed bootstrap revision: the revised
-layers and authorship rule, explicit L3 audit, fidelity doctrine,
-discussion provenance, and sample-frame-only m0001. It also updates the
-walkthrough and removes the old step-based sequence from the active plan.
-The working tree was clean after that commit.
+The operator authorized drafting a bootstrap revision in the session
+exported as
+[threads/2026-09-29-direction-arithmetic-session.md](threads/2026-09-29-direction-arithmetic-session.md),
+then instructed the commit. It is one commit on branch
+`claude/eager-dijkstra-titub3`, whose parent is `eea63b4`, the head of
+`origin/main` at the time. The branch is pushed; `main` is untouched. The
+operator compares the commit with its parent and rules; landing it on
+`main` is the operator's act under Bootstrap I3, or the agent's on
+instruction. The commit was made in a separate command from every edit
+(errors/e0002).
 
-Document-maintenance checks passed before committing: all 27 local
-Markdown links in the ten current documents resolved; m0001's source
-hash matched its unit file; the unit contained exactly one proposed
-definition with no Lean file or ratification fields; all eight L3 audit
-criteria had record-template rows and explicit failure handling; and all
-25 pre-existing evidence files were byte-for-byte unchanged.
-`git diff --check` and the staged whitespace check also passed. These
-checks were not an m0001 attempt, correspondence reading or L3 audit.
+What the revision changes:
 
-The operator then requested: "update handoff, commit, and push". This
-handoff update accompanies publication of both the revision and this
-follow-up commit to `origin/main` at
-`https://github.com/markreveley/beatcode-lean.git`. Verify local and remote
-Git state when resuming. The next substantive work remains discussion of
-the smallest suitable Lean representation; publication does not ratify
-m0001 or complete the bootstrap.
+- README.md: a Direction paragraph; Trusted list I2; two new blocks,
+  Arithmetic and Library; the Now lines of the top block and the Ladder.
+- doctrine/fidelity.md: Fidelity I6; the reference boundary names the book
+  repository and the gen~ documentation pages read.
+- doctrine/matters.md: Sources I6 and Attempt I7.
+- PLAN.md: unit candidates in the reference's order, and process
+  candidates 0f and 0g; nothing adopted.
+- errors/e0004-toolchain-capability-asserted-from-memory.md: a new error
+  record.
+- threads/2026-09-29-direction-arithmetic-session.md: the session export.
+- This file.
+
+Unchanged: the unit file, the matter, check.sh, lean-toolchain, and every
+existing file in runs/, threads/ and errors/. The matter's source hash
+still matches the unit file.
+
+Checks run before the commit (2026-09-29): every local Markdown link in
+the current documents resolves; the matter's source hash matches its unit
+file; `git diff --check` passes; the 26 pre-existing evidence files are
+byte-for-byte unchanged; every code block in README.md and doctrine/ is
+closed. These are document-maintenance checks, not an attempt.
+
+What is needed from the operator:
+
+1. Compare the commit with `eea63b4`, in particular the two new README
+   blocks and Fidelity I6, and rule: keep, reword, or strike each line.
+2. Say whether the gen~ documentation pages are admitted to the reference
+   boundary as drafted, or only the reference pages without the tutorials.
+3. Land the revision on `main`, or instruct the agent to push it there.
 
 ## Current direction
 
-The operator authorized this bootstrap revision after discussing book
-grounding, the first definition, the three layers and ratification. The
-selected session export is
-[threads/2026-09-28-book-grounding-and-layers.md](threads/2026-09-28-book-grounding-and-layers.md).
-It contains the operator's turns verbatim and identifies the included
-agent excerpts and omissions. The latest ruling permits these agreed
-changes; it does not authorize choosing the next formal representation
-without discussion.
+The reference's model of computation is what this repository formalizes.
+The session export above records the discussion. In short: a patch is a
+wiring diagram with no loops; every sample frame the whole diagram is
+evaluated once; a value crosses to the next sample frame only through an
+explicit memory operator; every value is one kind of number. gen~ is
+tested by use and trusted, never proved; it is a reference under
+doctrine/fidelity.md, and agreement with it is evidence at level 3 at
+most (Fidelity I6). The framework is bespoke; the signal processing is
+not. The book's order of components is the candidate order of units in
+PLAN.md, none adopted.
 
-The bootstrap remains open. The earlier goal is to lock the final
+Two arithmetic rules are now doctrine (README.md, Arithmetic): counting is
+exact and integer; floats go only through the operations Lean's logical
+float model defines, with no platform math library. The reason is in the
+export: Lean 4.33.0 (2026-08-10) gave Float a model the kernel reads,
+which the pinned toolchain 4.34.1 carries, and the operations the model
+does not define are exactly the ones whose results differ across
+machines. Floor, rounding and the transcendental functions are not
+modeled yet. The Lean reference manual's own statement of the trust
+assumption is recorded as Trusted list I2.
+
+The bootstrap remains open. The earlier goal is still to lock the final
 bootstrap and port its final state as the initial commit of
 `beatcode-lean-2`. No final-bootstrap declaration, tag choice or evidence
-migration decision is recorded by this revision. The prior instruction
-to discuss new work before acting still applies beyond the work now
-agreed. Reading and reporting are permitted.
-
-## What this revision changes
-
-- Discussion is provenance. L1 is typed prose synthesized through that
-  discussion; L2 is its Lean definitions and theorems; L3 is the
-  operator's independent account of the final proposal, retained as an
-  acceptance record. There is no additional authoritative initial
-  natural-language specification.
-- Every statement enters as proposed, regardless of authorship.
-  Adoption of agent wording does not change its author. Discussion
-  agreement and committing a proposal do not ratify it.
-- The L3 audit has eight explicit questions in
-  [doctrine/matters.md](doctrine/matters.md), with exact passage and
-  evidence requirements, complete coverage mappings, and a record
-  template. Continuity is traced from settled discussion through L1 and
-  L2 into L3. This is a fixed review procedure, not a machine proof of
-  prose meaning or a claim to inspect private cognition.
-- L3 adds no scope. A failed audit closes its attempt. Additional scope
-  is removed from a later account or pursued in a new matter; corrected
-  accounts start a new attempt at S1. An audit failure is not itself an
-  operator rejection of the matter.
-- [doctrine/fidelity.md](doctrine/fidelity.md) separates the required
-  relation to the reference from evidence strength. Conceptual,
-  observable-behaviour, numerical and representation agreement are
-  selected for the component's purpose, with departures and limits
-  recorded. Beatcode's own determinism is a separate obligation.
-- The intended runtime direction is to compile the same computational
-  Lean definitions that the proofs concern for use by Rust. Compiler,
-  runtime and foreign-code boundaries remain explicit trust assumptions.
-  No runtime core or integration is implemented here.
-
-The doctrine is revised in place under the bootstrap rule. This is a
-process and proposal revision, not a ratification attempt or a fresh
-reader's audit.
+migration decision is recorded. Discuss new work before acting; reading
+and reporting are permitted.
 
 ## Unit 0001 now
 
@@ -87,78 +84,74 @@ reader's audit.
 
 > A sample frame is one discrete update of the signal-processing system.
 
-Codex proposed the wording; the operator agreed to it. The matter pins
-that L1 file and traces its provenance. L2, the correspondence reading,
-the connecting assertion, rung and evidence level are unresolved. L3
-has not been reached. No Lean check, correspondence reading or
-ratification attempt has run on this revision.
+Codex proposed the wording; the operator agreed to it. L2, the
+correspondence reading, the connecting assertion, rung and evidence level
+are unresolved. L3 has not been reached. No Lean check, correspondence
+reading or ratification attempt has run on this revision.
 
-The next substantive discussion is to propose and examine the smallest
-formal representation of that meaning. Do not silently substitute a
-frame index or a Nat alias. Definitions are read in full, including their
-bodies, fields or constructors. Theorems serve actual stated claims or
-necessary proof obligations; additional claims are not introduced merely
-to produce more proofs.
+The documentation read this session gives the sentence a candidate reading
+to discuss, not a representation: one synchronous evaluation of the
+loop-free patch, with history values advancing. The book uses the term in
+three further senses the sentence does not carry: a division of time with
+a rate, a count of elapsed frames, and a successor relation between
+frames. The session export records the passages. Do not silently
+substitute a frame index or a Nat alias; the choice is the next
+discussion.
 
-The external grounding is Wakefield and Taylor's *Generating Sound &
-Organizing Time*, Thinking with gen~ — Book 1, Chapter 1, printed pages
-2–18 in `../../books/book-generating_time`. Page 4 is the current
-conceptual reference. Later chapters are outside the supplied boundary.
-The repository states adopted commitments in full; the book supplies
-provenance, not additional normative requirements.
+The book is Wakefield and Taylor's *Generating Sound & Organizing Time*,
+Thinking with gen~ — Book 1. Chapter 1, printed pages 2–18, is in the
+repository `markreveley/gen-time-sound` at commit
+`addd12d5bbf50402399dc122272e2a3f7aa33ebd`, as photographs with OCR
+transcriptions and a manifest of photo hashes. Page 4 is the current
+conceptual reference; its transcription was checked against the page
+image this session. Page 1 and the page 4 footnotes are not in the
+archive. The operator intends to add the remaining chapters; each enters
+the boundary when discussed.
 
 ## Historical evidence
 
-The previous baseline is commit
-`431709fcccaa12f2379f331cacbef8b4c07634be`. It retains the former
+Commit `339d68a` recorded the previous bootstrap revision: the revised
+layers and authorship rule, the explicit L3 audit, the fidelity doctrine,
+discussion provenance, and the sample-frame-only m0001; `eea63b4` recorded
+its publication. The baseline before that is
+`431709fcccaa12f2379f331cacbef8b4c07634be`, which retains the former
 `matters/m0001-unit-0001-step.md`, `units/0001-step/`, the old roadmap,
 and the longer handoff with the founding-session history. Replacing the
-still-proposed subject does not transfer its earlier statements or
-passes to sample frame.
+still-proposed subject did not transfer its earlier statements or passes
+to sample frame.
 
 Existing `threads/`, `runs/` and `errors/` records remain unchanged.
 Attempts 1–7 record failures. Attempt 8 is recorded as open at S4; its
-Q4 first input contained the prose in Lean comments. Telling the reader
-to ignore that prose did not meet the requirement to obtain a reading
-before exposing the sentence. Preserve the log as recorded; its pass
-is not evidence of a blind reading. The doctrine now explicitly requires
-removing sentence-revealing comments from the first input.
+Q4 first input contained the prose in Lean comments, so its pass is not
+evidence of a blind reading. Preserve the log as recorded. No new attempt
+has been made; if one is run here, its number is 9 and it begins at S1
+after the proposal is ready.
 
-No new attempt has been made. If one is run here, its number is 9 and
-it begins at S1 after the proposal is ready. The operator's earlier
-intention was to run the unit from scratch in the new repository; old
-passes cannot replace that run.
-
-`check.sh` retains the earlier fix to stop on the first Lean failure.
-[runs/2026-09-28-checker-stop-on-failure.md](runs/2026-09-28-checker-stop-on-failure.md)
-records that wrapper test, not a new matter attempt. The wrapper has
-not been run on this prose-only draft, which has no Lean file. Axiom
-policy still requires inspection and no gate program exists.
+`check.sh` retains the fix to stop on the first Lean failure
+([runs/2026-09-28-checker-stop-on-failure.md](runs/2026-09-28-checker-stop-on-failure.md)).
+It prints the Lean version, which Attempt I7 now requires the log to
+carry. Lean is not installed in every session; the wrapper has not been
+run on this prose-only draft, which has no Lean file.
 
 ## Decisions still open
 
-- Examine the sample-frame formal representation and any ambiguity it
-  reveals, then decide its appropriate rung and evidence classification.
-  The old step theorem-classification questions no longer concern the
-  current unit. The general ladder and runtime-test requirements remain
-  to be considered where applicable; no level is claimed prematurely.
-- Before final bootstrap, review any remaining founding defaults not
-  explicitly resolved: readers per lens by blast radius, the bounded
-  rule for terms versus plain words, placement of attempt outcomes, and
-  the boundary between doctrine blocks and commentary. The current
-  doctrine states the defaults; this revision is not a blanket
-  ratification of all founding decisions.
-- Decide whether full agent transcripts beyond the required prompts,
-  reports and cited evidence are retained, and where. The existing
-  records and selected session exports are not full transcripts.
-- When declaring the bootstrap final, name its tag and decide which
-  runs and threads travel to the new repository. No port is authorized
-  by the current revision alone.
-
-The previous suggestions for a gate, CI, journal, additional units and
-jev are historical proposals, not authority to start them. Process
-candidates remain in [PLAN.md](PLAN.md); the immediate work is the first
-term's representation.
+- The formal representation of sample frame, and any ambiguity it reveals;
+  then its rung and evidence classification.
+- Whether the tutorials among the documentation pages stay in the
+  reference boundary or only the reference pages do.
+- The toolchain upgrade policy: Lean releases monthly and the float model
+  grows with each release; an upgrade changes what the checker reads and
+  is a recorded event, never a silent bump.
+- Whether and when a proved float library (FloatSpec, FloatLib) is adopted
+  under README.md, Library; not before a unit needs a theorem about
+  closeness to a real-number function.
+- The founding defaults not yet resolved: readers per lens by blast
+  radius, the bounded rule for terms versus plain words, placement of
+  attempt outcomes, the boundary between doctrine blocks and commentary.
+- Whether full agent transcripts beyond the required prompts, reports and
+  cited evidence are retained, and where.
+- The final-bootstrap tag and which runs and threads travel to the new
+  repository.
 
 ## Guardrails for the next agent
 
@@ -174,8 +167,14 @@ term's representation.
 - Do not claim a check catches a case without running it on that case
   (errors/e0001). Do not contradict a stated rule without identifying
   the conflict for resolution (errors/e0003).
+- Do not assert what the pinned toolchain can or cannot do from memory;
+  cite that version's documentation or run it (errors/e0004).
 - Verify edits before committing; do not combine a fallible edit and
   a commit in one shell command (errors/e0002).
+- No definition calls the platform's math library, and no float claim is
+  closed by native evaluation (README.md, Arithmetic).
+- A library's declarations get readings before anything depends on them
+  (README.md, Library).
 - Start no dependent unit before its dependencies are executed, and
   raise no evidence level without the evidence it requires.
 - External material may ground discussion under the fidelity doctrine;

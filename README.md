@@ -10,7 +10,8 @@ beatcode-lean
   Aim.  Every part is held by the highest level it can reach, and its statements say which.
   Now.  One unit is being drafted: *sample frame*, with one proposed definition
         agreed in discussion; its formal twin is unresolved and no attempt has run
-        on this revision. Earlier step attempts are bootstrap history. (2026-09-28)
+        on this revision. The Arithmetic and Library blocks below are new; earlier
+        step attempts are bootstrap history. (2026-09-29)
 ```
 
 **Aspiration.** A plain-text score goes in: a tempo, a number of bars, and
@@ -112,10 +113,21 @@ and its attempts remain historical evidence; their passes do not apply to
 this revision.
 
 The first reference is Wakefield and Taylor's *Generating Sound &
-Organizing Time*, Chapter 1, in the supplied archive of pages 2–18.
-Adopted commitments are stated here in full. The relation we seek to the
-book or gen~ is chosen per component under [fidelity](doctrine/fidelity.md);
-closer reproduction is not automatically better.
+Organizing Time*, Chapter 1, printed pages 2–18, held in the repository
+named in [fidelity](doctrine/fidelity.md) together with the gen~
+documentation pages read. Adopted commitments are stated here in full. The
+relation we seek to the book or gen~ is chosen per component under that
+doctrine; closer reproduction is not automatically better.
+
+**Direction.** The reference's way of computing is the model this
+repository formalizes: a patch is a wiring diagram with no loops; every
+sample frame the whole diagram is evaluated once; a value crosses from one
+sample frame to the next only through an explicit memory operator; every
+value is one kind of number. gen~ itself is tested by use and trusted,
+never proved. It is a reference, and agreement with it is evidence at
+level 3 at most. What is bespoke here is the formal framework, not the
+signal processing; the book's order of components is the candidate order
+of units in [PLAN.md](PLAN.md), none adopted.
 
 ## Vocabulary
 
@@ -379,6 +391,9 @@ Trusted list
         boundary, the operating system and hardware, any library that arrives without
         proofs, and plain words.
   I1.   The trusted list is written down so that what is believed is visible.
+  I2.   The list also holds the agreement of Lean's compiled float operations with the
+        logical model the checker reads: the Lean maintainers test it empirically, and
+        it holds only while no foreign code changes the floating-point environment.
 
 Compiled implementation
   Def.  A compiled implementation is executable code produced from the definitions
@@ -390,6 +405,37 @@ Compiled implementation
   I3.   A separate implementation receives only the evidence connecting it to the
         proved definitions; similarity of source text transfers no proof.
   Now.  No computational core or Rust integration exists. (2026-09-28)
+
+Arithmetic
+  Def.  Arithmetic is the set of number types and operations a unit's definitions may
+        use.
+  I1.   Counting is exact: a count of sample frames, a step, or an index is an integer,
+        and a float never stands for one.
+  I2.   A float is Lean's 64-bit Float, read through the logical model the checker can
+        reduce; a definition uses only the operations that model defines.
+  I3.   No definition calls the platform's math library; a function the model does not
+        define, such as sine or exponential, is built here from the operations it does.
+  I4.   A float claim closed by native evaluation is not proved (Checker I6, I7).
+  I5.   The toolchain named in lean-toolchain is part of every attempt's record; a
+        different toolchain is a different attempt.
+  Now.  The model defines addition, subtraction, multiplication, division, square root,
+        negation, absolute value, comparison and conversion; not floor, rounding or any
+        transcendental function. (Lean 4.34.1, 2026-09-29)
+
+Library
+  Def.  A library is Lean code from outside this repository that a unit's source
+        imports.
+  I1.   A library that arrives without proofs is on the trusted list; one that arrives
+        with proofs adds nothing to it, because the checker checks its proofs when it
+        is built.
+  I2.   A library is pinned as a source by name, version and the hash of what was
+        fetched.
+  I3.   Each declaration a unit uses from a library receives a reading before a
+        statement depends on it: a proved theorem about the wrong thing proves nothing
+        here.
+  I4.   A library theorem a statement depends on is listed as a dependency, as a
+        ratified statement of another unit is.
+  Ref.  doctrine/matters.md, Sources.
 ```
 
 **Level 0 — trusted.** Nothing checks it and no one reads it; it is believed.
@@ -446,8 +492,8 @@ Ladder
         definitions agree; the first point at which code can be replaced unread.
   R5.   A quantity that is not exact; the first unit that lands on level 3 instead
         of level 4.
-  Now.  The earlier step-based ordering is under reconsideration; sample frame's
-        rung is pending while its formal representation is discussed. (2026-09-28)
+  Now.  Sample frame's rung is pending while its formal representation is discussed;
+        PLAN.md lists candidate units in the reference's order, none adopted. (2026-09-29)
 
 Rung
   Def.  A rung is one line of the ladder; a unit declares the rung of the newest
