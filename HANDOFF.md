@@ -8,9 +8,10 @@
 The operator authorized drafting a bootstrap revision in the session
 exported as
 [threads/2026-09-29-direction-arithmetic-session.md](threads/2026-09-29-direction-arithmetic-session.md),
-then instructed the commit. It is one commit on branch
+then instructed the commit. It is commit `ea3fa36` on branch
 `claude/eager-dijkstra-titub3`, whose parent is `eea63b4`, the head of
-`origin/main` at the time. The branch is pushed; `main` is untouched. The
+`origin/main` at the time, followed by one commit that adds the export
+of the turns after it. The branch is pushed; `main` is untouched. The
 operator compares the commit with its parent and rules; landing it on
 `main` is the operator's act under Bootstrap I3, or the agent's on
 instruction. The commit was made in a separate command from every edit
@@ -28,6 +29,8 @@ What the revision changes:
 - errors/e0004-toolchain-capability-asserted-from-memory.md: a new error
   record.
 - threads/2026-09-29-direction-arithmetic-session.md: the session export.
+- threads/2026-09-29-direction-arithmetic-session-2.md: the turns after
+  the commit, added in the second commit.
 - This file.
 
 Unchanged: the unit file, the matter, check.sh, lean-toolchain, and every
