@@ -20,13 +20,15 @@ criteria had record-template rows and explicit failure handling; and all
 `git diff --check` and the staged whitespace check also passed. These
 checks were not an m0001 attempt, correspondence reading or L3 audit.
 
-The operator then requested: "update handoff, commit, and push". This
-handoff update accompanies publication of both the revision and this
-follow-up commit to `origin/main` at
-`https://github.com/markreveley/beatcode-lean.git`. Verify local and remote
-Git state when resuming. The next substantive work remains discussion of
-the smallest suitable Lean representation; publication does not ratify
-m0001 or complete the bootstrap.
+The operator then requested: "update handoff, commit, and push". The
+handoff update was committed as `eea63b4`. After explicit confirmation of
+the destination, both commits were pushed to `origin/main` at
+`https://github.com/markreveley/beatcode-lean.git`. The closing exchange is
+preserved in
+[threads/2026-09-29-publication-close.md](threads/2026-09-29-publication-close.md).
+Verify local and remote Git state when resuming. The next substantive
+work remains discussion of the smallest suitable Lean representation;
+publication does not ratify m0001 or complete the bootstrap.
 
 ## Current direction
 
