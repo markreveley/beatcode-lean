@@ -15,6 +15,8 @@ Matter file
         be added over several rounds.
   I5.   The body's sections ## Attempts, ## Restatement and ## Execution are excluded
         from the hash in A6; every other section is part of the text ratified.
+  I6.   The proposed text identifies its L1 commitments and their provenance; no
+        separate initial natural-language specification is required.
 
 Type
   Def.  A type is what a matter changes: normative text, behaviour, or a defect.
@@ -38,15 +40,20 @@ Blast radius
         is empty, two when it is not.
 
 Sources
-  Def.  The sources of a matter are the files its reasoning rests on.
-  I1.   A matter lists in `sources` every file its reasoning rests on, each pinned by
-        its sha256.
-  I2.   At ratification every listed source that is a statement or a matter is itself
-        ratified.
+  Def.  The sources of a matter are the repository files carrying its proposed
+        specification, formal twins and normative dependencies.
+  I1.   A matter lists these files in `sources`, each pinned by its sha256;
+        discussion is cited in `threads`, check evidence in `runs`, and external
+        inspiration under the fidelity rules, without becoming additional scope.
+  I2.   At ratification every normative dependency outside the statements introduced
+        by this matter is already ratified; this matter's own statements remain
+        proposed until its act passes.
   I3.   A matter carries the statements in the sources it pins; ratifying the matter
         ratifies those statements at those hashes, and the pins are covered by A6.
-  I4.   The pins are updated as the last write before S4, so the operator reads the
-        pinned text.
+  I4.   The pins are fixed before S1 and verified again before S4; changing the
+        proposal or its sources after the attempt begins requires a new attempt.
+  I5.   Ratifying a matter does not ratify every utterance in its cited threads or
+        make an external reference a governing specification.
 
 State
   Def.  The state of a matter is the one stage of its life it is in.
@@ -86,7 +93,8 @@ Vetting
 
 Lens
   Ref.  README.md, Lens.
-  Q1.   The matter's text describes what its sources contain and claim.
+  Q1.   The matter's text describes what its sources contain and claim, and records
+        how its L1 commitments express the settled discussion cited as provenance.
   Q2.   Nothing is undefined.
   Q3.   The blast radius is as stated.
   Q4.   Correspondence: every twin says what its sentence says.
@@ -101,6 +109,11 @@ Correspondence reading
         out and says whether the twin rejects it; where the checker can be run on the
         wrong definition, its output is the evidence.
   I4.   The reader took no part in writing the twin or the sentence.
+  I5.   Step 1 input contains the complete relevant declarations and needed formal
+        context, with sentence-revealing comments removed; that exact input and the
+        reading are recorded before step 2 supplies the L1 sentences.
+  I6.   Agreement requires matching meaning, not merely absence of contradiction;
+        names, dependencies and unrelated true theorems do not fill omissions.
 
 Attempt
   Ref.  README.md, Attempt.
@@ -109,19 +122,25 @@ Attempt
         so.
   S2.   Checker: check.sh over the subject's Lean files; pass when every file is accepted
         and every level-4 claim's assumption list holds only the three standard
-        assumptions.
+        assumptions; a unit whose required formal representation is unresolved
+        cannot pass by having no Lean file.
   S3.   Lenses: Q1 to Q4, each by a fresh reader, readers per lens by blast radius; pass
         when no reader reports a finding.
   S4.   Restatement: the operator writes the restatement (A1, A2); not reached until S1
         to S3 pass.
-  S5.   Verification: a fresh agent verifies the restatement (A3, A4); on a pass the
-        matter is ratified (A6).
+  S5.   Verification: a fresh agent performs every criterion of the Restatement
+        audit (A3, A4); on a pass the matter is ratified (A6).
   I1.   The log is one file, runs/mNNNN-attempt-K.md: the hashes of the files read, then
         each step in order with actor, status, evidence and any findings, then the grade.
   I2.   Every prompt given to a reader is recorded in the log verbatim.
   I3.   K counts from 1 per matter and never repeats.
   I4.   A claim that a check catches a case is accompanied by the check run on that case
         (errors/e0001).
+  I5.   An S5 failure closes the attempt as fail; corrections start a new numbered
+        attempt at S1 and never reopen the failed log or resume it at S4.
+  I6.   The ratification cycle is this attempt, ending in pass or fail; changes to
+        L1 or L2 return to discussion outside that cycle, and additional scope
+        requires a new matter.
 
 Finding
   Ref.  README.md, Finding.
@@ -133,18 +152,20 @@ Finding
 Ratification act
   Def.  The ratification act is the sequence A1 to A7 by which the operator ratifies a
         matter by restating it.
-  A1.   The operator reads the matter at a commit, with each twin's reading beside its
-        sentence and the correspondence reading open.
-  A2.   The operator writes a restatement of the matter in their own words — what it
-        changes, what it commits the repository to, what they are accepting, and what
-        each twin says — into the matter under ## Restatement, naming that commit, and
-        commits it.
+  A1.   After S1 to S3 pass, the operator reads the fixed proposal at a commit, with
+        each twin's reading beside its sentence, its correspondence reading and its
+        discussion provenance available.
+  A2.   The operator writes an independent account of the final proposal in their
+        own words under ## Restatement, naming that commit, and commits it; the
+        account covers its commitments, formal meanings, limits and acceptance.
   A3.   A fresh agent, one that took no part in authoring the matter, verifies the
         restatement against the matter's text and writes the verification to runs/.
-  A4.   A restatement passes when every commitment in the matter, and every reading it
-        carries, is present in it and it claims nothing the matter does not.
-  A5.   A restatement that fails is revised by the operator, or the matter is revised;
-        A1–A4 repeat.
+  A4.   A restatement passes only when every criterion of the Restatement audit
+        passes with the required evidence; an overall impression is insufficient.
+  A5.   A failure ends the attempt without ratification; out-of-scope content must
+        be removed or pursued in a new matter, never incorporated into the current
+        cycle; a corrected account of the existing scope requires a new attempt
+        from S1.
   A6.   On a pass, the recording agent writes verified (who, when), ratified_commit
         (the commit named in A2), and ratified_sha256 (the hash of the header's
         sources list and the body minus ## Attempts, ## Restatement, ## Execution),
@@ -152,6 +173,50 @@ Ratification act
   A7.   The restatement is the artifact that shows the operator read the text; the pin,
         the pair ratified_commit and ratified_sha256, is recorded after the act, never
         offered before it.
+
+Restatement audit
+  Def.  The restatement audit is the fixed, criterion-by-criterion examination of
+        L3 against the final proposal and its evidence.
+  C1.   Version: does L3 name the commit examined, and do its L1, L2 and source pins
+        match the proposal that passed S1 to S3 without a subsequent scope change?
+  C2.   Coverage: does L3 account for every L1 commitment and every commitment in
+        the matter, including their conditions, dependencies and limits?
+  C3.   Formal meaning: does L3 accurately account for every twin and its reading,
+        distinguishing a defining body from a theorem's proposition and proof?
+  C4.   Calibration: does L3 distinguish proved claims, tested observations and
+        human interpretations, preserving the assumptions and limits of each?
+  C5.   Correspondence: does L3 account for the correspondence verdicts and
+        exclusion tests, including meaning carried by the operator's interpretation
+        rather than expressed by the Lean declaration?
+  C6.   Continuity: does the meaning settled through workshopping survive through
+        the committed L1 and L2 into L3, with relevant discussion passages traced
+        to their adopted statements and unresolved differences reported?
+  C7.   Independent account: is L3 the operator's own account of the final proposal,
+        with evidence of authorship and explanation beyond copying supplied text?
+  C8.   Acceptance and scope: does L3 say what the operator accepts, and does every
+        substantive claim it makes map to the fixed proposal or its evidence,
+        without adding a requirement, definition, exception or promise of work?
+  I1.   The verifier records C1 to C8 in order, with pass, fail or not reached for
+        each; it stops at the first failure and leaves the others not reached.
+  I2.   Each reached criterion records the exact L3 passages, the compared statement
+        ids or matter sections, the relevant source or evidence locations, and the
+        reason for its verdict; missing coverage names the missing commitment.
+  I3.   C2 includes a complete commitment-to-L3 mapping; C3 and C5 map every twin
+        and reading; C6 includes discussion-to-L1-to-L2-to-L3 traces; C8 maps L3 claims
+        back to the fixed proposal or evidence.
+  I4.   A pass requires all eight passes; there is no score, averaging, silent waiver
+        or replacement by a general assurance; an unresolved comparison is a fail.
+  I5.   Where a criterion has no instances, the verifier states why none are
+        required and gives the evidence; an unresolved required twin is not absence
+        of an obligation and cannot be treated this way.
+  I6.   C6 uses threads as provenance to detect loss or alteration of understanding;
+        it does not adopt uncommitted thread content as scope, and any unresolved
+        discrepancy fails rather than expanding the current cycle.
+  I7.   C7 judges the expressed account and its provenance, not private cognition;
+        necessary quotations are allowed but cannot alone satisfy the account.
+  I8.   The criterion text is part of the doctrine version used by the attempt;
+        changing the audit rules during S5 requires a new attempt.
+  Ref.  README.md, Restatement; the record template below.
 
 Channel
   Def.  The channel is the way the operator's rulings reach the repository.
@@ -162,6 +227,9 @@ Channel
   I4.   Every commit after the bootstrap carries a `Matter: mNNNN` trailer.
   I5.   Branch names and pull-request titles are prefixed with the matter id.
   I6.   A pull request merges as a merge commit; its body is a one-line pointer.
+  I7.   Thread provenance preserves operator instructions and agreed drafting
+        decisions but is not a separate program specification; L1 records the
+        commitments offered for acceptance, and L3 cannot add to them.
 
 Evidence
   Ref.  README.md, Evidence.
@@ -194,3 +262,42 @@ Bootstrap
         so in HANDOFF.md.
   I4.   After the bootstrap, everything enters as a matter.
 ```
+
+## S5 record template
+
+Use this shape inside the attempt log, with supporting mappings below the
+table. The criteria above are binding; this template displays the required
+record. These are explicit review criteria, not a claim that prose
+correspondence is mechanically decidable.
+
+```text
+S5 restatement audit
+Matter / attempt:
+Candidate commit / source hashes:
+Doctrine commit / hash:
+Restatement commit / location:
+Verifier / date:
+Freshness: evidence that the verifier did not author the matter
+
+criterion | status                | L3 passages | comparison evidence | reason / finding
+C1        | pass/fail/not reached |             |                     |
+C2        | pass/fail/not reached |             |                     |
+C3        | pass/fail/not reached |             |                     |
+C4        | pass/fail/not reached |             |                     |
+C5        | pass/fail/not reached |             |                     |
+C6        | pass/fail/not reached |             |                     |
+C7        | pass/fail/not reached |             |                     |
+C8        | pass/fail/not reached |             |                     |
+
+Commitment coverage: every L1 id and matter commitment -> L3 passage
+Twin coverage: every twin and reading -> L3 passage
+Continuity: settled discussion passage -> L1 id / L2 reading -> L3 passage
+Scope: every substantive L3 claim -> fixed proposal or evidence
+Grade: pass only if C1–C8 all pass; otherwise fail
+Findings: the Finding shape, including failed criterion and evidence
+```
+
+A failed audit is retained as written. Deleting extra scope from a later
+restatement does not turn that failed attempt into a pass. The corrected
+account begins a new attempt at S1; filing a separate matter for the extra
+scope also does not repair the failed attempt.

@@ -3,218 +3,155 @@
 > Advisory, not normative. Verify repository state before acting; the
 > matters supply scope. Nothing `proposed` governs.
 
-## The goal, in the operator's words
+## Current direction
 
-Lock this repository at the final bootstrap, then port its last state to
-a new repository as that repository's init commit (the operator, session
-of 2026-09-28, turn 1; the new repository is `beatcode-lean-2`, empty as
-of 2026-09-28). The operator has said there are no further actions from
-them in the founding sessions: every act that is theirs is listed under
-"Pending operator acts" and waits until they read. The operator's ruling
-of 2026-09-29 governs everything else: no action without discussion. The
-next agent reads, says what it finds, and waits; it files nothing and
-runs nothing until the operator has discussed it.
+The operator authorized this bootstrap revision after discussing book
+grounding, the first definition, the three layers and ratification. The
+selected session export is
+[threads/2026-09-28-book-grounding-and-layers.md](threads/2026-09-28-book-grounding-and-layers.md).
+It contains the operator's turns verbatim and identifies the included
+agent excerpts and omissions. The latest ruling permits these agreed
+changes; it does not authorize choosing the next formal representation
+without discussion.
 
-Current focus (operator, 2026-09-28, after the merge): sketch and settle
-the process and doctrine. The unit will be run from scratch in the new
-repository. The attempts here are bootstrap history; their recorded
-passes do not replace that fresh run. The operator's words are exported
-in threads/2026-09-28-post-merge-handoff-session.md.
+The bootstrap remains open. The earlier goal is to lock the final
+bootstrap and port its final state as the initial commit of
+`beatcode-lean-2`. No final-bootstrap declaration, tag choice or evidence
+migration decision is recorded by this revision. The prior instruction
+to discuss new work before acting still applies beyond the work now
+agreed. Reading and reporting are permitted.
 
-## Observation
+## What this revision changes
 
-- `main` carries bootstrap revisions 6 and 7: pull request #1 merged
-  `claude/gifted-brahmagupta-k12wgh` at `76c7b72` on 2026-09-28.
-  A pull from `origin/main` on 2026-09-28 confirmed this checkout is
-  current. That merge is complete; it does not declare the bootstrap
-  final or ratify m0001. The bootstrap is not final until the operator
-  says so (doctrine/matters.md, Bootstrap).
-- Commit `5fa1c46` carries this session's checker fix, handoff and
-  walkthrough corrections, error e0003, test evidence, and checker
-  discussion. At the closing review it was local and unpushed; the
-  operator then requested the remaining session export and publication
-  to `origin/main` (threads/2026-09-28-post-merge-handoff-session.md).
-  The next agent should verify the current Git state and read this
-  handoff before discussing further work. No bootstrap-final ruling or
-  new m0001 attempt was made in this session.
-- Revision 6: the two theorem twins of unit 0001 restated so that each
-  binds a step and says what its sentence says (the earlier twins held
-  word for word for a type capped at 3); reader, reading, lens,
-  correspondence reading, exclusion test and restatement defined; every
-  lens mandatory; gate checks C6 and C7; five premises; the session
-  exported.
-- Revision 7: the attempt, steps S1 to S5 with one log per attempt in
-  runs/, pass or fail, committed either way, every reader's prompt
-  recorded verbatim; findings as a fixed shape; plain words and scope; a
-  bounded rule for what counts as a term; the round-trip document; the
-  error log's first entry; and seven attempts on m0001, each failing
-  attempt answered by a revision, as the matter's Attempts section
-  summarises and the table below shows; attempt 8 records passes through
-  S3 and is recorded as open at S4. The later inspection below identifies
-  a defect in how its Q4 reading was obtained.
-- The operator turns that directed revisions 4 and 5 were not exported;
-  threads/2026-09-28-founding-session.md ends before them. Agent turns
-  after threads/2026-09-28-revision-7-session.md are summarised in
-  threads/2026-09-28-revision-7-session-2.md; the operator's closing
-  ruling is threads/2026-09-29-handoff-ruling.md.
-- Founding actor: claude-code/2026-09-28. Post-merge inspection and these
-  handoff corrections: Codex/2026-09-28, at the operator's request.
+- Discussion is provenance. L1 is typed prose synthesized through that
+  discussion; L2 is its Lean definitions and theorems; L3 is the
+  operator's independent account of the final proposal, retained as an
+  acceptance record. There is no additional authoritative initial
+  natural-language specification.
+- Every statement enters as proposed, regardless of authorship.
+  Adoption of agent wording does not change its author. Discussion
+  agreement and committing a proposal do not ratify it.
+- The L3 audit has eight explicit questions in
+  [doctrine/matters.md](doctrine/matters.md), with exact passage and
+  evidence requirements, complete coverage mappings, and a record
+  template. Continuity is traced from settled discussion through L1 and
+  L2 into L3. This is a fixed review procedure, not a machine proof of
+  prose meaning or a claim to inspect private cognition.
+- L3 adds no scope. A failed audit closes its attempt. Additional scope
+  is removed from a later account or pursued in a new matter; corrected
+  accounts start a new attempt at S1. An audit failure is not itself an
+  operator rejection of the matter.
+- [doctrine/fidelity.md](doctrine/fidelity.md) separates the required
+  relation to the reference from evidence strength. Conceptual,
+  observable-behaviour, numerical and representation agreement are
+  selected for the component's purpose, with departures and limits
+  recorded. Beatcode's own determinism is a separate obligation.
+- The intended runtime direction is to compile the same computational
+  Lean definitions that the proofs concern for use by Rust. Compiler,
+  runtime and foreign-code boundaries remain explicit trust assumptions.
+  No runtime core or integration is implemented here.
 
-## Where the attempts stand
+The doctrine is revised in place under the bootstrap rule. This is a
+process and proposal revision, not a ratification attempt or a fresh
+reader's audit.
 
-These are the outcomes as recorded in the existing logs, not a fresh
-verification of those outcomes.
+## Unit 0001 now
 
-| attempt | S1 | S2 | Q1 | Q2 | Q3 | Q4 | grade |
-|---|---|---|---|---|---|---|---|
-| 1 | pass | pass | not run | not run | not run | 3 findings | fail |
-| 2 | pass | pass | 3 | 12 | none | same | fail |
-| 3 | pass | pass | none | 9 | none | same | fail |
-| 4 | pass | pass | 1 | 21 | none | same | fail |
-| 5 | pass | pass | 4 | 1 | none | same | fail |
-| 6 | pass | pass | 2 | 1 | none | same | fail |
-| 7 | pass | pass | 1 | none | none | same | fail |
-| 8 | pass | pass | none | none | none | same | open at S4 |
+[m0001](matters/m0001-unit-0001-sample-frame.md) is still proposed. Its
+[unit](units/0001-sample-frame/statements.md) has one proposed statement:
 
-What the sequence records. S1, S2, Q3 and Q4 have recorded passes since
-attempt 2. That history does not establish that the Q4 readings were
-obtained without exposure to the sentences; see the inspection below.
-Every recorded failure since attempt 2 has been in the matter's text or
-in the doctrine's definitions. Q2 found
-twelve, nine, twenty-one and then one: the twenty-one came from a rule
-that made every block name a term everywhere, which has no fixed point
-over an English text, and the count fell to one once that rule was
-bounded (doctrine/statements.md, Term I2). Q1's findings from attempt 4
-on were the agent's own slips keeping the matter and the unit file in
-step; the answer was to stop recording attempt outcomes in the unit file
-at all (Unit file I5). A gate check that compares the matter's list of
-statements with the unit file's ids would make that mechanical, and is
-a candidate for PLAN.md item 0a.
+> A sample frame is one discrete update of the signal-processing system.
 
-## Post-merge inspection (for discussion)
+Codex proposed the wording; the operator agreed to it. The matter pins
+that L1 file and traces its provenance. L2, the correspondence reading,
+the connecting assertion, rung and evidence level are unresolved. L3
+has not been reached. No Lean check, correspondence reading or
+ratification attempt has run on this revision.
 
-- Attempt 8's Q4 step-1 prompt includes the plain-language definition
-  and theorem descriptions in the Lean file's comments
-  (runs/m0001-attempt-8.md, Q4 step 1). The instruction to ignore those
-  comments does not meet Reading I1's requirement that the reading be
-  written before its writer sees the sentence. The recorded pass is
-  therefore not evidence of a reading obtained under that requirement.
-  This observation concerns the reading procedure; it does not identify
-  a false theorem. Preserve the original log. For the fresh run, the
-  recommended procedure is to give the reader declarations and needed
-  formal context with sentence-revealing comments removed, record that
-  exact input and the reading, and only then provide the sentences.
-- `check.sh` previously captured and printed each Lean exit code without
-  using it to fail the script. At the operator's request it now reports
-  the first failed file and exits with that failure code before checking
-  another file. Real Lean 4.34.1 tests reproduced the old defect and
-  verified the corrected all-success, first-failure and later-failure
-  paths (runs/2026-09-28-checker-stop-on-failure.md). The agent's initial
-  recommendation to continue checking was corrected by the operator;
-  errors/e0003-continued-checking-recommended.md records that error and
-  cites the conversation. This wrapper test was not a new m0001 attempt.
+The next substantive discussion is to propose and examine the smallest
+formal representation of that meaning. Do not silently substitute a
+frame index or a Nat alias. Definitions are read in full, including their
+bodies, fields or constructors. Theorems serve actual stated claims or
+necessary proof obligations; additional claims are not introduced merely
+to produce more proofs.
 
-## Pending operator acts
+The external grounding is Wakefield and Taylor's *Generating Sound &
+Organizing Time*, Thinking with gen~ — Book 1, Chapter 1, printed pages
+2–18 in `../../books/book-generating_time`. Page 4 is the current
+conceptual reference. Later chapters are outside the supplied boundary.
+The repository states adopted commitments in full; the book supplies
+provenance, not additional normative requirements.
 
-1. Say whether the bootstrap is final. If not, give the next revision.
-2. Confirm or overturn the defaults adopted without a ruling in
-   revisions 6 and 7, all recorded in the doctrine: readers per lens by
-   blast radius, one or two (Blast radius I2); a block name used in its
-   ordinary sense is a plain word (Term I2); attempt outcomes live in the
-   matter and runs/, never in the unit file (Unit file I5); "position"
-   and "sequence" stay plain words in def_1 until a statement needs their
-   precise meaning (Plain word I2); the doctrine is the blocks in the
-   form, and text outside them binds nothing (Doctrine).
-3. Rule on the open questions below.
-4. For the unit's fresh run in the new repository: perform S4, the
-   restatement, after fresh S1 to S3 pass (doctrine/matters.md,
-   Ratification act A1 and A2; doctrine/round-trip.md walks the shape
-   with an example). A fresh agent then performs S5. In this repository,
-   m0001 remains proposed and attempt 8 remains recorded as open at S4;
-   the inspection above qualifies its evidence without rewriting its log.
-5. Rule on the two evidence questions under "Open questions": whether
-   agents' full transcripts are kept, and where.
-6. When the bootstrap is final: name the tag for the lock and say which
-   runs and threads travel to the init of `beatcode-lean-2`; the next
-   agent then tags, ports the final tree, and reports the init commit.
+## Historical evidence
 
-## Open questions (raised in the exported sessions, not ruled)
+The previous baseline is commit
+`431709fcccaa12f2379f331cacbef8b4c07634be`. It retains the former
+`matters/m0001-unit-0001-step.md`, `units/0001-step/`, the old roadmap,
+and the longer handoff with the founding-session history. Replacing the
+still-proposed subject does not transfer its earlier statements or
+passes to sample frame.
 
-- Rungs 1 and 2 of the ladder: unit 0001 carries rung 2's obligation
-  (attest_1) while labelled rung 1. Merge the rungs, or relabel.
-- Level I4 requires a level-4 unit to keep a test; unit 0001 has nothing
-  to run. Qualify I4, or give a bare term no level.
-- attest_2 and attest_3 follow from def_1's wording. Reclassify them as
-  consequences (infer_1, infer_2), or leave them as assertions.
-- Which runs and threads travel to the init of the next repository, and
-  under what name the final commit here is tagged.
-- Evidence beyond prompts and reports. Every attempt log holds each
-  reader's prompt and report verbatim, and each reader's evidence section
-  holds the commands it ran and their output verbatim; that is the
-  boundary the doctrine records (Evidence I1, I4). The readers' full
-  transcripts, their internal steps between prompt and report, exist only
-  in the founding session's container and are lost when it is reclaimed;
-  nothing in the repository cites them. The operator asked whether traces
-  and tool calls should be persisted for error records, and whether such
-  material belongs in another repository. The agent's recommendation:
-  keep the boundary as it is for attempts and errors, since an error
-  record already cites the run or thread that shows it (Evidence I4), and
-  record a failed command as a run; if full transcripts are wanted, keep
-  them in a separate evidence store referenced from the log by sha256,
-  never as a source of rules or behaviour, so this repository stays small
-  enough to read (MNC) and the reference cannot drift. Not ruled; until
-  it is, no transcript is kept.
-- jev, which the operator proposed as a reader. What the agent found: a
-  decision-model service that returns a choice, a score and a confidence
-  from a bounded answer set, whose own page says it is unsuitable for
-  explanation tasks; also reachable through a Python adapter over an
-  LLM, and possibly through Vercel. The doctrine requires a reader's
-  finding to carry a reason and evidence (Finding I1) and a reading to be
-  written from the Lean alone, which a bounded-answer model does not
-  produce; so it cannot be a reader. It could be one more vote per pair,
-  recorded beside the reader's finding and trusted at level 0, entering
-  as a matter after the bootstrap once enough attempts exist to measure
-  whether its votes track the operator's rulings, which is an eval.
+Existing `threads/`, `runs/` and `errors/` records remain unchanged.
+Attempts 1–7 record failures. Attempt 8 is recorded as open at S4; its
+Q4 first input contained the prose in Lean comments. Telling the reader
+to ignore that prose did not meet the requirement to obtain a reading
+before exposing the sentence. Preserve the log as recorded; its pass
+is not evidence of a blind reading. The doctrine now explicitly requires
+removing sentence-revealing comments from the first input.
 
-## What the next agent may propose, after discussion
+No new attempt has been made. If one is run here, its number is 9 and
+it begins at S1 after the proposal is ready. The operator's earlier
+intention was to run the unit from scratch in the new repository; old
+passes cannot replace that run.
 
-Nothing below is done until the operator has discussed it (the ruling of
-2026-09-29, threads/2026-09-29-handoff-ruling-2.md). These are the
-candidates, in the order the agent would raise them:
+`check.sh` retains the earlier fix to stop on the first Lean failure.
+[runs/2026-09-28-checker-stop-on-failure.md](runs/2026-09-28-checker-stop-on-failure.md)
+records that wrapper test, not a new matter attempt. The wrapper has
+not been run on this prose-only draft, which has no Lean file. Axiom
+policy still requires inspection and no gate program exists.
 
-- PLAN.md item 0a as a `proposed` matter on an `m0002-` branch: the gate
-  as a Lean program performing C1 to C7 and checking that a matter's list
-  of statements agrees with its unit file; that check would have caught
-  the slips behind attempts 4 to 7. Every commit on that branch would
-  carry a `Matter: m0002` trailer.
-- The unit's fresh run in the new repository, beginning at S1, with
-  fresh readers and every prompt recorded in a new attempt log. Resolve
-  the reading procedure noted above before that run; the old recorded
-  passes do not carry it through any step.
-- Acting as the fresh verifier of an operator restatement (S5), when
-  asked, provided it took no part in authoring the matter.
-- PLAN.md items 0b and unit 0002 as `proposed` matters on `m000N-`
-  branches, each with statements, formal twins, readings and an attempt
-  log, once 0a is settled.
+## Decisions still open
 
-## What the next agent may not do
+- Examine the sample-frame formal representation and any ambiguity it
+  reveals, then decide its appropriate rung and evidence classification.
+  The old step theorem-classification questions no longer concern the
+  current unit. The general ladder and runtime-test requirements remain
+  to be considered where applicable; no level is claimed prematurely.
+- Before final bootstrap, review any remaining founding defaults not
+  explicitly resolved: readers per lens by blast radius, the bounded
+  rule for terms versus plain words, placement of attempt outcomes, and
+  the boundary between doctrine blocks and commentary. The current
+  doctrine states the defaults; this revision is not a blanket
+  ratification of all founding decisions.
+- Decide whether full agent transcripts beyond the required prompts,
+  reports and cited evidence are retained, and where. The existing
+  records and selected session exports are not full transcripts.
+- When declaring the bootstrap final, name its tag and decide which
+  runs and threads travel to the new repository. No port is authorized
+  by the current revision alone.
 
-- Take any action in the repository, including the candidates above,
-  without first discussing it with the operator (ruling of 2026-09-29).
-  Reading, and reporting what it reads, is not an action.
-- Ratify anything, or write `verified` / `ratified_*` fields without a
-  passing verification of an operator restatement.
-- Edit `threads/`, `runs/` or `errors/` after the fact.
-- Write a reading after seeing the sentence, or for a twin it wrote.
-- Record an attempt's outcome as a statement in a unit file.
-- Claim that a check catches a case without running the check on it
-  (errors/e0001).
-- Recommend behavior that contradicts a stated rule without identifying
-  the conflict and asking the operator to rule on it (errors/e0003).
-- Write several files from one script without verifying every edit
-  first, or run a commit in the same command as an edit that can fail
-  (errors/e0002).
-- Start a unit whose dependencies are not `executed`.
-- Raise a unit's level without the evidence the level names.
-- Cite any repository other than this one as a source of rules or
-  behaviour.
+The previous suggestions for a gate, CI, journal, additional units and
+jev are historical proposals, not authority to start them. Process
+candidates remain in [PLAN.md](PLAN.md); the immediate work is the first
+term's representation.
+
+## Guardrails for the next agent
+
+- Discuss new work before acting; apply the operator's current
+  authorization to the work actually agreed.
+- Do not ratify, supply the operator's L3 account, or write verification
+  and ratification fields without the required operator act and passing
+  fresh audit. A matter's author cannot act as its fresh verifier.
+- Preserve existing evidence; re-runs produce new records. Record exact
+  reader inputs, reports and supporting check evidence as required.
+- Obtain a formal reading before showing its reader L1. A reader cannot
+  read a twin it wrote as a fresh correspondence check.
+- Do not claim a check catches a case without running it on that case
+  (errors/e0001). Do not contradict a stated rule without identifying
+  the conflict for resolution (errors/e0003).
+- Verify edits before committing; do not combine a fallible edit and
+  a commit in one shell command (errors/e0002).
+- Start no dependent unit before its dependencies are executed, and
+  raise no evidence level without the evidence it requires.
+- External material may ground discussion under the fidelity doctrine;
+  adopted rules and behaviour remain specified in this repository.

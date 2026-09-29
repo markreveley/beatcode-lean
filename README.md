@@ -8,10 +8,9 @@ beatcode-lean is an offline, deterministic music compiler and renderer.
 beatcode-lean
   Def.  beatcode-lean is an offline, deterministic music compiler and renderer.
   Aim.  Every part is held by the highest level it can reach, and its statements say which.
-  Now.  One unit exists: the term *step*, with its definition, its formal twin, fresh
-        readers' readings of that twin, and the record of the act that accepted the
-        definition; its matter has passed every check and every lens and waits on the
-        operator's restatement. Nothing else exists. (2026-09-29)
+  Now.  One unit is being drafted: *sample frame*, with one proposed definition
+        agreed in discussion; its formal twin is unresolved and no attempt has run
+        on this revision. Earlier step attempts are bootstrap history. (2026-09-28)
 ```
 
 **Aspiration.** A plain-text score goes in: a tempo, a number of bars, and
@@ -24,13 +23,15 @@ that this can be verified. It runs with no network and no dependencies.
 
 ## How it is built
 
-Every part of the program enters this repository as **statements**: plain
-sentences, one claim each, typed and linked to what they rest on. Each
-definition or rule receives a **formal twin** in Lean where one is
-possible; the **checker** decides whether the twin holds, and a fresh
-**reader** writes down what the twin says. Each **unit** declares the
-**level** of evidence that holds it. Nothing enters without an act of the
-**operator**. Each bold term is defined below.
+Discussion develops **statements**: plain sentences, one claim each,
+typed and linked to what they rest on. These are the first specification
+offered for acceptance; the discussion is retained as **provenance**.
+Definitions and rules receive **formal twins** in Lean where possible;
+the **checker** checks the declarations, and fresh **readers** examine
+their correspondence to the statements. The **operator** writes an
+independent account of the final proposal, the **restatement**, whose
+audit precedes ratification. Each **unit** declares the **level** of
+evidence that holds it; an unfinished unit may record it as pending.
 
 ## How to read this document
 
@@ -84,25 +85,37 @@ Premise
 
 ```
 Layer
-  Def.  A layer is one of the three forms a part of the program takes on its way
-        from intention to checked code.
-  L1.   The operator's sentence: intent in the operator's own words.
-  L2.   Statements: the sentence decomposed into claims of one kind each, typed and
-        linked; the layer a human ratifies one claim at a time.
-  L3.   The formal twin: the Lean declaration the checker checks.
-  I1.   One assertion in L2 connects L2 to L3: "this twin says exactly what this
+  Def.  A layer is one of the three artifacts through which a proposal is specified,
+        formalized and accepted.
+  L1.   Statements: typed prose synthesized through discussion, the first
+        specification offered for acceptance.
+  L2.   Formal twins: the Lean definitions and theorems corresponding to L1.
+  L3.   Restatement: the operator's independent account of the final proposal at a
+        named commit, audited before ratification.
+  I1.   One assertion in L1 connects L1 to L2: "this twin says exactly what this
         sentence says". No deterministic check decides it; a reader reads for it; only
         the operator ratifies it.
   I2.   A unit is complete when all three layers exist and the connecting assertion
         is ratified.
+  I3.   Discussion is provenance, not a fourth layer or an additional specification;
+        L1 and L2 may be developed together during discussion.
+  I4.   Committing L1 or L2 does not ratify it, regardless of who authored it.
+  I5.   L3 records acceptance and adds no scope; a failed audit ends the attempt.
+  Ref.  doctrine/matters.md, Ratification act and Restatement audit.
 ```
 
-Unit 0001 walks the three layers. L1: "a whole number, counting from
-zero, naming a position in a sequence" (the operator's words). L2:
-`def_1` (that sentence as a definition), `ref_1` (the Lean file by hash),
-`attest_1` (the twin means the definition), `attest_2` and `attest_3`
-(the two decisions), `did_1` (the checker's run). L3: `abbrev Step := Nat`. The line that only the operator
-can ratify is `attest_1`.
+Unit 0001 currently contains only its proposed L1 definition: "A sample
+frame is one discrete update of the signal-processing system." The agent
+proposed the wording and the operator agreed to it in discussion. Its L2
+is unresolved and L3 has not been reached. The earlier Step/Nat example
+and its attempts remain historical evidence; their passes do not apply to
+this revision.
+
+The first reference is Wakefield and Taylor's *Generating Sound &
+Organizing Time*, Chapter 1, in the supplied archive of pages 2–18.
+Adopted commitments are stated here in full. The relation we seek to the
+book or gen~ is chosen per component under [fidelity](doctrine/fidelity.md);
+closer reproduction is not automatically better.
 
 ## Vocabulary
 
@@ -130,6 +143,24 @@ Agent
   I2.   An agent that reads a matter under a lens, or verifies a restatement, took no
         part in authoring the matter.
 
+Discussion
+  Def.  Discussion is the interactive work through which a proposal's meaning and
+        representation are developed before acceptance.
+  I1.   There is no separately authoritative initial natural-language specification;
+        commitments offered for acceptance must appear in L1.
+  I2.   Discussion may explore L1 and L2 together and must identify unresolved choices.
+  I3.   Agreement during drafting authorizes the agreed work but does not perform
+        the ratification act over a committed matter.
+
+Provenance
+  Def.  Provenance is the record of where a proposal's wording, reasoning and decisions
+        came from.
+  I1.   Threads preserve discussion and operator directions; their citation does not
+        adopt every remark as a program requirement.
+  I2.   Authorship and the operator's adoption of wording are recorded separately.
+  I3.   A difference between settled discussion and the proposed statements is
+        reported for resolution, never silently made into additional scope.
+
 Reader
   Def.  A reader is an agent, or the operator, who reads a matter under one lens.
   I1.   A reader is fresh when it shares no context with the matter's author (P2).
@@ -141,8 +172,8 @@ Statement
         the statements it lists), record (says something was done).
   I1.   A statement lists the statements it depends on.
   I2.   A statement is in exactly one state: proposed or ratified.
-  I3.   A statement written by the operator is ratified by being written.
-  I4.   A statement written by an agent is proposed until the matter carrying it is ratified.
+  I3.   A statement is proposed on entry, regardless of authorship.
+  I4.   A statement is ratified only through the ratification act for its matter.
   I5.   Every *term* used in a statement has a definition in scope.
   I6.   A statement is typed: its kind, id, dependencies, author and state are data the
         gate checks; its sentence is the only part written for a person.
@@ -162,6 +193,11 @@ Formal twin
   I5.   A twin is a check that runs against every future definition of the term.
   I6.   Every statement that names a twin carries a reading, and none is ratified before
         its correspondence reading exists.
+  I7.   A definition supplies meaning, structure or computation; a theorem states a
+        proposition and supplies its proof; both require correspondence reading.
+  I8.   A name, dependency link or accepted proof does not establish correspondence;
+        a twin can be true and still omit a commitment in its sentence.
+  Ref.  doctrine/statements.md, Formal twin, for how each declaration is presented.
 
 Reading
   Def.  A reading is a formal twin rendered into plain language from the Lean text alone.
@@ -186,13 +222,19 @@ Exclusion test
   I1.   A twin that rejects no wrong definition is empty, whatever the checker says of it.
 
 Restatement
-  Def.  A restatement is the operator's own account of a matter, written into the matter
-        naming the commit read.
+  Def.  A restatement is the operator's independent account of the final proposal,
+        written into the matter naming the commit read.
   I1.   A restatement covers every commitment in the matter and every reading it carries,
         and claims nothing the matter does not.
-  I2.   A restatement shows that the operator read the matter and is not a source of
-        truth; written in the operator's words, it cannot be satisfied by copying.
-  Ref.  doctrine/matters.md
+  I2.   A restatement is an acceptance record, not a source of additional requirements;
+        written in the operator's words, it cannot be satisfied by copying.
+  I3.   Its audit tests whether the understanding developed in discussion survived
+        through the committed L1 and L2 to final ratification.
+  I4.   The audit checks the expressed account, not private understanding, and does
+        not replace the correspondence reading or the checker's work.
+  I5.   Out-of-scope content fails the audit; it must be removed from the restatement
+        or pursued in a new matter, never added to the current ratification cycle.
+  Ref.  doctrine/matters.md, Restatement audit.
 
 Attempt
   Def.  An attempt is one pass of a matter through the check sequence, in order, at one
@@ -202,8 +244,8 @@ Attempt
         step passes.
   I3.   An attempt is recorded whether it passes or fails, as one file in runs/, and is
         never edited.
-  I4.   A failed attempt is answered by a revision of the matter and a new attempt from
-        the first step.
+  I4.   A failed attempt is answered by a correction and a new attempt from the first
+        step; extra scope requires a new matter and never enters through L3.
   I5.   An attempt whose reached steps all pass and whose next step is the operator's
         is open; it passes or fails when the operator acts.
   Ref.  doctrine/matters.md
@@ -253,8 +295,10 @@ Unit
   I4.   A unit is done when the matter that introduced it is executed.
   I5.   A unit is not started until every unit it depends on is done.
   I6.   A unit may be the subject of several matters over its life.
-  I7.   A unit declares its level (0–4) and is never labelled above what holds it.
-  Now.  One unit exists, 0001 (step); its matter m0001 is proposed.
+  I7.   A unit declares its level (0–4) and is never labelled above what holds it;
+        a proposed unit awaiting evidence records pending instead of a level.
+  Now.  One unit exists, 0001 (sample frame); its matter m0001 is proposed and its
+        formal twin, rung and level are pending. (2026-09-28)
 
 Matter
   Def.  A matter is an event: one proposed change to this repository.
@@ -319,7 +363,8 @@ Level
   Def.  A level is the strength of what holds a unit's behaviour in place.
   I1.   Levels are numbered 0–4 from the ground up; a higher level holds more strongly.
   I2.   Level 0 is the ground every other level rests on and is not a goal.
-  I3.   Every unit declares one level.
+  I3.   Each completed unit declares one level; an unfinished proposed unit may
+        record pending, which is not an evidence level.
   I4.   A unit at level 4 also keeps a test at level 2 or 3, because the proof is about
         the definition and something must run the built program.
   I5.   The aim is to raise every unit to the highest level it can reach and to leave
@@ -330,17 +375,29 @@ Level
 
 Trusted list
   Def.  The trusted list is what level 0 believes without a check: the three standard
-        assumptions, the checker, the Lean compiler and runtime, the operating system
-        and hardware, any library that arrives without proofs, and plain words.
+        assumptions, the checker, the Lean and C compilers, runtime and foreign-code
+        boundary, the operating system and hardware, any library that arrives without
+        proofs, and plain words.
   I1.   The trusted list is written down so that what is believed is visible.
+
+Compiled implementation
+  Def.  A compiled implementation is executable code produced from the definitions
+        whose behaviour a unit specifies.
+  I1.   Where a computational unit is proved in Lean, the intended implementation
+        is compiled from the same definitions the proof concerns.
+  I2.   The Lean compiler, C compiler, runtime and foreign-code boundary remain
+        explicit parts of the trusted list; a core proof does not verify its callers.
+  I3.   A separate implementation receives only the evidence connecting it to the
+        proved definitions; similarity of source text transfers no proof.
+  Now.  No computational core or Rust integration exists. (2026-09-28)
 ```
 
 **Level 0 — trusted.** Nothing checks it and no one reads it; it is believed.
 The trusted list is written down so that what is being believed is visible.
 Its tiers: the three standard mathematical assumptions every Lean proof
-rests on; the checker itself; the Lean compiler and runtime that turn a
-checked definition into a running program; the operating system and
-hardware; any library that arrives without proofs. Example: the
+rests on; the checker itself; the Lean and C compilers, runtime and
+foreign-code boundary involved in running a checked definition; the
+operating system and hardware; any library that arrives without proofs. Example: the
 arithmetic of whole numbers in Lean's standard library is proved and adds
 nothing to the list; a C audio library is not and adds itself.
 
@@ -389,11 +446,13 @@ Ladder
         definitions agree; the first point at which code can be replaced unread.
   R5.   A quantity that is not exact; the first unit that lands on level 3 instead
         of level 4.
-  Now.  Unit 0001 is on rung 1.
+  Now.  The earlier step-based ordering is under reconsideration; sample frame's
+        rung is pending while its formal representation is discussed. (2026-09-28)
 
 Rung
   Def.  A rung is one line of the ladder; a unit declares the rung of the newest
         obligation it introduces.
+  I1.   A proposed unit may record pending until that obligation is settled.
 ```
 
 ## Minimum necessary complexity
@@ -410,32 +469,27 @@ MNC
         process.
 ```
 
-## Unit 0001 — step
+## Unit 0001 — sample frame
 
-- [units/0001-step/statements.md](units/0001-step/statements.md): the
-  definition of *step*, written by the operator and therefore ratified;
-  three assertions (the formal twin means it; steps start at zero; steps
-  have no upper bound), proposed, each carrying its twin's reading; the
-  record of the checker's run; the readers' runs are in the attempt logs.
-- [units/0001-step/Step.lean](units/0001-step/Step.lean): the formal twin.
-- [matters/m0001-unit-0001-step.md](matters/m0001-unit-0001-step.md): the
-  matter, subject unit 0001, state **proposed**. Attempt 8
-  (runs/m0001-attempt-8.md) passed the gate, the checker and all four
-  lenses and is open at S4: the operator's restatement is the next step.
-- [runs/2026-09-28-unit-0001-kernel-check-revision-6.md](runs/2026-09-28-unit-0001-kernel-check-revision-6.md):
-  the checker accepted the twin; its two claims relied on no assumptions.
-- [runs/m0001-attempt-8.md](runs/m0001-attempt-8.md): the open attempt,
-  with every reader's prompt and report verbatim; attempts 1 to 7 are
-  beside it, each a fail answered by a revision.
-- [threads/2026-09-27-ratification-of-step.md](threads/2026-09-27-ratification-of-step.md):
-  the operator's words accepting the definition, before the process
-  existed.
+- [units/0001-sample-frame/statements.md](units/0001-sample-frame/statements.md):
+  one proposed definition, authored by the agent and agreed by the operator
+  in discussion. No Lean declaration has been selected for it.
+- [matters/m0001-unit-0001-sample-frame.md](matters/m0001-unit-0001-sample-frame.md):
+  the revised matter, state **proposed**, with the scope restricted to one
+  term and its meaning. No attempt has run on this revision.
+- [threads/2026-09-28-book-grounding-and-layers.md](threads/2026-09-28-book-grounding-and-layers.md):
+  provenance for the definition, the revised layers and the operator's
+  authorization for this bootstrap revision.
+- [runs/m0001-attempt-8.md](runs/m0001-attempt-8.md): historical evidence
+  about the earlier step proposal, recorded as open at S4. Its Q4 input
+  exposed the sentences in comments; HANDOFF.md records that limitation.
+  This and the other old logs are preserved, not carried forward as passes.
 
 ## Next
 
 [doctrine/round-trip.md](doctrine/round-trip.md) — one matter's whole path, step by
-step, with unit 0001 as the walk and a worked restatement.
-[PLAN.md](PLAN.md) — the matters not yet filed, in ladder order.
+step, with the current unit 0001 draft as the walk.
+[PLAN.md](PLAN.md) — the current priority and unfiled process candidates.
 [HANDOFF.md](HANDOFF.md) — what the next agent may and may not do.
 
 ## Running the check
@@ -444,6 +498,10 @@ step, with unit 0001 as the walk and a worked restatement.
 LEAN_BIN=/path/to/lean-4.34.1/bin ./check.sh
 ```
 
-Requires the Lean 4 toolchain named in `lean-toolchain`, nothing else. For
-every unit it prints the checker's verdict, the printed assumption list for
-each claim, and the content hash of the file.
+The wrapper requires the Lean toolchain named in `lean-toolchain` and its
+shell utilities (`timeout`, `bc`, `sha256sum`, `date`, `sed`, and `cut`). It
+prints each Lean file's exit status, assumption lists requested by that
+file, and content hash, stopping on the first Lean failure. Axiom-list
+policy is still applied by reading. The current sample-frame draft has no
+Lean file; no checker run is claimed for it, and the wrapper is not a test
+of a prose-only definition.

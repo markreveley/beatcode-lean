@@ -1,202 +1,148 @@
 # One round trip
 
-How one matter goes from the operator's sentence to a ratified unit, step
-by step, with unit 0001 as the walk. Every term is defined in
-[README.md](../README.md); the rules are in
-[matters.md](matters.md) and [statements.md](statements.md). This document
-is commentary: it binds nothing and repeats the rules only to show them
-in order.
+How discussion becomes a proposed specification and, after checks, an
+accepted unit. The current unit 0001 draft illustrates the starting
+point; it has not completed this path. Terms are defined in
+[README.md](../README.md), and the rules are in [matters.md](matters.md)
+and [statements.md](statements.md). This walkthrough is commentary.
 
 ## The cast
 
-- **The operator**: the one human. Writes the first sentence, rules on
-  findings, writes the restatement, and is the only one who ratifies.
-- **An agent**: a language-model program. Decomposes the sentence into
-  statements, writes the Lean, files the matter, runs the checks, records
-  everything. Never ratifies.
-- **A fresh reader**: an agent, or the operator, that shares no context
-  with whoever wrote the thing it reads. Reads under one lens and reports
-  findings or the word none.
-- **The checker**: Lean's kernel. Accepts or rejects a Lean file. Cannot be
-  argued with.
-- **The gate**: seven mechanical checks on the statements. Today performed
-  by an agent reading, since no program exists yet.
+- **The operator** develops the proposal in discussion, rules on
+  findings, and writes the independent account that can ratify it.
+- **An agent** drafts statements and formal twins, runs checks and
+  records evidence. Authorship confers no authority to ratify.
+- **A fresh reader** took no part in authoring the matter and receives
+  only the material for the assigned lens, without the author's context
+  or other readers' reports.
+- **The checker** checks the Lean declarations. Acceptance establishes
+  what the declarations express, not their correspondence to the prose.
+- **The gate** checks the statement structure. No gate program exists
+  yet; an agent must perform those checks and identify that limitation.
 
-## The files
+## Discussion and the first two layers
 
-- `units/0001-step/statements.md`: the statements, one per line, typed.
-- `units/0001-step/Step.lean`: the formal twins.
-- `matters/m0001-unit-0001-step.md`: the matter, with its state.
-- `runs/m0001-attempt-K.md`: one log per attempt, pass or fail, never
-  edited, citing the check records and readings it used.
-- `threads/`: the operator's words, verbatim. `errors/`: agent errors.
+There is no separately authoritative initial natural-language sentence.
+The thread preserves the discussion, including alternatives, decisions
+and the origin of wording. Only the commitments adopted into the
+proposal are offered for acceptance. Operator instructions in discussion
+still direct the work; agreeing to draft something does not ratify it.
 
-## Before the attempt: the three layers
+**L1 is the typed prose.** In
+[unit 0001](../units/0001-sample-frame/statements.md), the discussion has
+produced one proposed definition:
 
-**Layer 1, the operator's sentence.** The operator wrote, in a session
-exported to `threads/2026-09-27-ratification-of-step.md`:
+> A sample frame is one discrete update of the signal-processing system.
 
-> a whole number, counting from zero, naming a position in a sequence
+Its id is `def_1`. The agent proposed the wording and the operator agreed
+to it; authorship and adoption are recorded separately. Neither that
+agreement nor this commit makes the definition ratified. The
+[thread](../threads/2026-09-28-book-grounding-and-layers.md) is its
+provenance. The [matter](../matters/m0001-unit-0001-sample-frame.md)
+records the current scope and pins the unit file by hash.
 
-Written by the operator, so ratified on entry. Every other line in the
-unit is proposed until the matter is ratified.
+**L2 is the formal representation.** It is unresolved for this draft.
+The next discussion proposes and examines a Lean representation of the
+definition. L1 and L2 may be developed together; a representation can
+reveal an ambiguity that the sentence must resolve before an attempt.
+That does not call for additional mathematical claims merely to obtain
+proofs.
 
-**Layer 2, the statements.** An agent decomposed the intent into typed
-statements. Each has a kind, an id, dependencies in parentheses, an
-author and a state; the sentence is the only part written for a person.
+A defining declaration supplies meaning, structure or computation. Its
+body is part of what the operator reads: for `def` or `abbrev`, the text
+after `:=` is the definition, not a proof to omit. For a structure or
+inductive type, the fields or constructors matter. A theorem instead
+states a proposition and supplies a proof. The operator sees its full
+parameters, hypotheses, proposition, reading and assumption list; the
+proof remains available in the source and is checked by Lean.
 
-- `def_1`: *step*: the sentence above. Definition. Operator. Ratified.
-- `ref_1`: the file `Step.lean` by path and hash. Source. Model. Proposed.
-- `attest_1` (def_1, ref_1): the Lean declaration `Step` denotes exactly
-  *step*. Assertion. Model. Proposed. This is the bridge: the one line
-  only the operator can judge.
-- `attest_2` (def_1): the first *step* is step 0. Assertion. Model.
-  Proposed. Twin: `step_first`.
-- `attest_3` (def_1): a *step* has no upper bound: for every step there
-  is a later step. Assertion. Model. Proposed. Twin: `step_succ`.
-- `did_1` (ref_1): the record that the checker accepted the Lean file
-  and both theorems relied on no assumptions. Model. Proposed. Attempt
-  outcomes live in the matter and in runs/, not in the unit's statements.
+The choice follows the commitment being expressed. Merely attaching a
+true theorem about numbers to the sample-frame sentence would not
+establish their correspondence. A name or dependency link does not fill
+that gap. The eventual candidate needs a correspondence reading and an
+explicit connecting assertion; neither is claimed for this draft.
 
-Words in a sentence that are not marked *like this* are plain words:
-ordinary language, part of the trusted base. "Position" and "sequence"
-are plain words in def_1. They become terms only when a later statement
-needs their precise meaning.
+The book supplies conceptual grounding under [fidelity.md](fidelity.md).
+It adds no hidden requirements. Runtime or bitwise parity is not a
+requirement of the current definition.
 
-**Layer 3, the formal twins.** An agent wrote `Step.lean`. Three
-declarations. Each is shown with the part the operator reads, the
-statement before `:=`, and its reading in words:
+## One attempt, at one fixed proposal
 
-```lean
-abbrev Step := Nat
-```
-Reading: Step is another name for Nat, the whole numbers 0, 1, 2, and so on.
+After the required statements and formal twins are ready, fix the
+proposal, source hashes and doctrine version. Every attempt begins at
+S1, records the inputs, actors, evidence and findings in
+`runs/mNNNN-attempt-K.md`, and stops at its first failure. A failed log
+is retained; correcting the proposal or account starts a new attempt.
 
-```lean
-theorem step_first (s : Step) : 0 ≤ s
-```
-Reading: for every step s, zero is less than or equal to s.
+**S1 — gate.** Apply C1–C7 from statements.md: valid unique ids,
+resolving dependencies, defined terms, matching source hashes, a passing
+ratification act for any statement already marked ratified, the stated
+quantifier check for theorem twins, and flags for trivial proofs needing
+correspondence review. These are structural checks, not a proof of prose
+meaning. Record whether a program or an agent performed them.
 
-```lean
-theorem step_succ (s : Step) : ∃ t : Step, s < t
-```
-Reading: for every step s, there exists a step t such that s is less
-than t.
+**S2 — checker.** Run the Lean files and inspect their printed
+assumption lists under the declared evidence level. The wrapper stops
+on the first Lean failure; the axiom policy is still checked by reading.
+A unit missing its required formal representation cannot pass merely
+because there is no Lean file. The current unit is therefore not ready
+for an attempt, and no checker result is claimed for it.
 
-What follows `:=` in the file is the proof, offered to the checker. The
-operator never reads it; the checker is stricter than any reader, and
-prints the one fact about a proof that matters, the assumptions it used.
+**S3 — lenses.** Each fresh reader receives one question:
 
-**The matter.** An agent filed `m0001`: type spec, subject unit-0001,
-state proposed, listing the two unit files as its sources.
-
-## The attempt
-
-An attempt runs the five steps in order at one state of the files and
-stops at the first failure. Each step records pass, fail or not reached.
-The whole attempt is one file in `runs/`, committed whether it passes or
-fails. A failed attempt is answered by a revision of the matter and a new
-attempt from S1, the way a failed build is answered by a fix and a new
-build.
-
-**S1, the gate.** Seven mechanical checks on the statements: ids are well
-formed and unique; every dependency resolves; every *term* has a
-definition in scope; every source's hash matches its file; no
-model-authored line is marked ratified; a sentence that says every, any,
-all, each, no, always or never has a twin that binds a variable; a twin
-proved by nothing but "by definition" is flagged for the reader. Actor:
-a program once one exists, until then an agent reading. Unit 0001,
-attempt 1: pass.
-
-**S2, the checker.** `check.sh` runs Lean on every unit file and prints,
-per theorem, the list of assumptions the proof used. Pass when every file
-is accepted and every level-4 claim's list holds only the three standard
-assumptions. Unit 0001, attempt 1: pass; both lists empty.
-
-**S3, the lenses.** Four questions, each put to a fresh reader who
-receives the matter and the question and nothing else:
-
-- Q1: does the matter's plan do what the statements say?
+- Q1: does the matter accurately describe its sources and how L1
+  expresses the settled discussion?
 - Q2: is anything undefined?
 - Q3: is the blast radius as stated?
-- Q4: does every twin say what its sentence says?
+- Q4: does each twin say what its sentence says?
 
-Q4 runs in two parts, in that order. First the reader receives the Lean
-file alone and writes each declaration's reading, so the translation is
-made before the reader can be steered by the sentence. Then the reader
-receives the sentences, gives a verdict per pair, and runs the exclusion
-test: it names a wrong definition of the term that the sentence rules
-out, and checks whether the twin rejects it, using the checker where it
-can. The point of the test is that a twin is judged by what it excludes.
-A twin that rejects no wrong definition is empty, however true.
+For Q4, first provide only the complete relevant formal declarations
+and needed formal context, with sentence-revealing comments removed.
+Record that exact input and the reading before revealing the prose.
+Then provide L1 and record each pair's verdict and exclusion test: a
+wrong definition excluded by the sentence, and whether the twin also
+rejects it, with checker evidence where applicable. Agreement requires
+matching meaning, not just the absence of contradiction. Any unresolved
+finding fails S3.
 
-Unit 0001, attempt 1, Q4, in plain words. The reader's readings matched
-those above. Its verdicts were "not same" on all three pairs:
+## L3: the acceptance record
 
-1. `attest_1`: the sentence says the name denotes *step*; the Lean only
-   says Step is the whole numbers. No Lean text can say "position in a
-   sequence". The reader's wrong definition was "a count of things, not a
-   position"; the twin cannot tell them apart. Kept: this is the bridge,
-   and the finding states exactly what the operator's act carries.
-2. `attest_2`: the sentence then read "the first step is step 0, not step
-   1"; the Lean never mentions 1. The reader's wrong definitions were
-   "counting from one" and "the integers"; the twin rejects both. Fixed
-   by dropping "not step 1".
-3. `attest_3`: the sentence then read "every step has a next step"; the
-   Lean says a later step exists, not an immediate one. The reader's
-   wrong definition was "a whole number with a largest value", and it
-   chose 0 to 255 as the example cap; the twin rejects it (the claim is
-   false for that type, and the reader had the checker prove so). Fixed
-   by changing "a next step" to "a later step"; "whole number" in def_1
-   already carries that steps are discrete.
+**S4 — restatement.** Only after S1–S3 pass, the operator reads the fixed
+proposal at a named commit, its formal readings and correspondence
+records, with discussion provenance available. They write and commit
+their own account under the matter's `## Restatement`: what the proposal
+means, what each formal twin establishes, its limits, and what they
+accept. This is L3. It is an independent account, not independent
+discovery; its audit examines expressed understanding, not private
+cognition. This walkthrough supplies no candidate account for the
+operator to copy.
 
-Any finding fails S3. Attempt 1 failed here; the revisions above were
-made; attempt 2 began at S1.
+**S5 — audit.** A fresh agent applies the exact C1–C8 questions in
+[matters.md](matters.md), under Restatement audit. The questions cover
+version, commitment coverage, formal meaning, evidence calibration,
+correspondence, continuity from discussion, independent authorship, and
+acceptance without added scope. For each criterion the log records exact
+L3 passages, compared statements or sections, evidence locations and the
+reason for the verdict. Complete mappings run both from commitments to
+L3 and from L3 claims back to the fixed proposal. The log also traces
+settled discussion through L1 and L2 into L3.
 
-**S4, the restatement.** Reached only when S1 to S3 pass. The operator
-reads the matter at a named commit with each twin's reading beside its
-sentence, and writes, in their own words, what the matter changes, what
-it commits the repository to, what they are accepting, and what each twin
-says. The restatement is a check that a reading happened, not a source
-of truth: it cannot be satisfied by copying. Derived in this order: the
-Lean statement line, its reading, the sentence, the exclusion test, then
-what is accepted.
+The verifier stops at the first failure. Every criterion must pass;
+there is no averaged score or substitute general assurance. A failed
+audit closes the attempt. Extra scope must be removed from a later
+restatement or pursued as a new matter. It cannot be added to L1 or L2
+within this ratification cycle. A corrected account of the existing
+proposal starts a new attempt at S1, never a continuation at S4.
 
-A restatement for m0001 might read as follows. This is an example written
-by an agent to show the shape; it is not the operator's and binds nothing.
+On a pass, the recording agent records the verification and ratification
+pins as the result of the operator's act. The matter can then land under
+the repository's execution rules. A failed attempt does not itself move
+the matter to `rejected`; that is the operator's decision.
 
-> Read at commit <sha>. This matter enters one term, step, which I
-> defined as a whole number counting from zero that names a position in a
-> sequence. Beyond the definition it commits the repository to three
-> things. That the Lean name Step stands for step: the Lean itself only
-> says Step is the whole numbers, and I accept that "position in a
-> sequence" is carried by my definition and my act, not by the Lean. That
-> the first step is step 0: the Lean says zero is at or below every step,
-> and I read that as the same claim. That steps have no upper bound: the
-> Lean says for every step there is a later step, and I read that as the
-> same claim. I accept the checker's record that both theorems hold with
-> no assumptions. I accept the five bootstrap defaults listed in the
-> matter. Nothing else is claimed.
+## Where this draft stops
 
-**S5, the verification.** A fresh agent compares the restatement with the
-matter: every commitment present, every reading covered, nothing claimed
-that the matter does not. On a pass it records who verified and when, the
-commit named, and the hash of the ratified text, and moves the matter to
-ratified. On a fail the operator revises the restatement or the matter,
-and the attempt continues at S4.
-
-## After the attempt
-
-A ratified matter lands through a pull request merged as a merge commit,
-its commits carrying a `Matter: m0001` trailer; the matter moves to
-executed, its final section says what landed, and the unit is done. From
-then on other units may depend on *step*. Correcting it later is a new
-matter, never an edit.
-
-## What the operator reads, and only that
-
-For unit 0001: their own sentence; the three sentences of attest_1 to
-attest_3; the three readings; the findings of any failed attempt; the
-statement line of each theorem, the part before `:=`; and the checker's
-printed assumption lists. Not the proofs, not the prompts that produced
-the statements, not any agent's reasoning.
+Only the proposed L1 definition exists. L2, its reading and connecting
+assertion remain to be discussed; L3 has not been reached. Earlier step
+attempts remain unchanged in `runs/` and supply no passes for sample
+frame. The next attempt here would be number 9, beginning at S1. A fresh
+repository must run its own checks from the beginning.

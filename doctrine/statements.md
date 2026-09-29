@@ -1,6 +1,6 @@
 # Statements
 
-The rules for the plain-language layer. Terms are defined in
+The rules for L1, the typed prose synthesized through discussion. Terms are defined in
 [README.md](../README.md).
 
 ```
@@ -42,9 +42,12 @@ Authorship
   Def.  Authorship is who wrote a statement and which state it is in.
   I1.   Each statement records its author: operator or model.
   I2.   Each statement records its state: proposed or ratified.
-  I3.   An operator-authored statement is ratified on entry.
-  I4.   A model-authored statement is proposed until the matter carrying it is ratified.
+  I3.   Every statement is proposed on entry, regardless of authorship.
+  I4.   Only the ratification act for the carrying matter ratifies a statement;
+        agreement in discussion and a commit are not that act.
   I5.   Only the operator changes a state.
+  I6.   A model's wording adopted by the operator remains model-authored, with the
+        adoption recorded in its provenance.
 
 Formal twin
   Ref.  README.md, Formal twin.
@@ -53,6 +56,17 @@ Formal twin
   I3.   That assertion is what the operator is asked to ratify.
   I4.   A statement that names a twin carries the twin's reading, and names the correspondence reading in runs/ that produced it.
   I5.   The reading is written from the Lean text alone, before its writer sees the sentence, by a reader who took no part in writing the twin.
+  I6.   For a definition, present the complete defining declaration, including the
+        body after := or the fields and constructors that determine its meaning.
+  I7.   For a theorem, present its name, all parameters and hypotheses, proposition,
+        plain-language reading and printed assumption list; its proof stays in the
+        source for the checker and is available to the operator.
+  I8.   The body after := supplies the definition for def or abbrev and the proof
+        for theorem; the keyword alone does not establish prose correspondence.
+  I9.   A theorem must serve a stated L1 claim or a necessary proof obligation;
+        an L1 claim is not added merely to retain or increase the number of proofs.
+  I10.  A missing formal twin is recorded as unresolved, never as a passing reading;
+        a unit missing its required L2 is not ready for ratification.
 
 Unit file
   Def.  A unit file is the file that holds a unit's statements.
@@ -69,6 +83,8 @@ Unit file
   I5.   A unit file's records are the check runs its level rests on; the outcome of an
         attempt is recorded in the matter and in runs/, never as a statement in the
         unit file.
+  I6.   An unfinished unit may record pending for rung or level, with the reason;
+        pending makes no claim of verification or completeness.
 
 Gate
   Def.  The gate is the program that performs the checks below on a unit's statements.
@@ -76,8 +92,11 @@ Gate
   C2.   Every dependency resolves.
   C3.   Every *term* has a definition in scope.
   C4.   Every source carries a hash that matches the file.
-  C5.   No model-authored statement is marked ratified.
-  C6.   If a statement's sentence quantifies (every, any, all, each, no, always, never) and it names a twin, the twin's proposition, the part before :=, binds at least one variable.
+  C5.   Every statement marked ratified cites the passing ratification act for its
+        matter; authorship alone is never sufficient.
+  C6.   If a statement's sentence quantifies (every, any, all, each, no, always, never)
+        and names a theorem twin, the theorem's proposition, the part before :=,
+        binds at least one variable; a definition is read in full under Formal twin I6.
   C7.   A twin whose proof uses nothing but rfl and constructor applications is flagged for the correspondence reading, not rejected: such a proof is right for a specific computed value and empty for a rule.
   Now.  No gate program exists. The seven checks are performed by an agent that reads
         the statements, and the matter carrying the unit says so. Building the gate is
