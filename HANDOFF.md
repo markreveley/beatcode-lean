@@ -116,7 +116,10 @@ the boundary when discussed.
 Commit `339d68a` recorded the previous bootstrap revision: the revised
 layers and authorship rule, the explicit L3 audit, the fidelity doctrine,
 discussion provenance, and the sample-frame-only m0001; `eea63b4` recorded
-its publication. The baseline before that is
+its publication. The closing exchange of that publication is preserved in
+[threads/2026-09-29-publication-close.md](threads/2026-09-29-publication-close.md),
+which landed on `main` as `b86770e` while this revision was being drafted
+and is merged here. The baseline before that is
 `431709fcccaa12f2379f331cacbef8b4c07634be`, which retains the former
 `matters/m0001-unit-0001-step.md`, `units/0001-step/`, the old roadmap,
 and the longer handoff with the founding-session history. Replacing the
