@@ -3,6 +3,31 @@
 > Advisory, not normative. Verify repository state before acting; the
 > matters supply scope. Nothing `proposed` governs.
 
+## Completed revision and publication
+
+Commit `339d68a` records the agreed bootstrap revision: the revised
+layers and authorship rule, explicit L3 audit, fidelity doctrine,
+discussion provenance, and sample-frame-only m0001. It also updates the
+walkthrough and removes the old step-based sequence from the active plan.
+The working tree was clean after that commit.
+
+Document-maintenance checks passed before committing: all 27 local
+Markdown links in the ten current documents resolved; m0001's source
+hash matched its unit file; the unit contained exactly one proposed
+definition with no Lean file or ratification fields; all eight L3 audit
+criteria had record-template rows and explicit failure handling; and all
+25 pre-existing evidence files were byte-for-byte unchanged.
+`git diff --check` and the staged whitespace check also passed. These
+checks were not an m0001 attempt, correspondence reading or L3 audit.
+
+The operator then requested: "update handoff, commit, and push". This
+handoff update accompanies publication of both the revision and this
+follow-up commit to `origin/main` at
+`https://github.com/markreveley/beatcode-lean.git`. Verify local and remote
+Git state when resuming. The next substantive work remains discussion of
+the smallest suitable Lean representation; publication does not ratify
+m0001 or complete the bootstrap.
+
 ## Current direction
 
 The operator authorized this bootstrap revision after discussing book
