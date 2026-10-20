@@ -186,3 +186,7 @@ run on this prose-only draft, which has no Lean file.
   raise no evidence level without the evidence it requires.
 - External material may ground discussion under the fidelity doctrine;
   adopted rules and behaviour remain specified in this repository.
+- AGENTS.md at the repository root is what a fresh agent reads first; it
+  points here and states the discuss-before-acting rule. CLAUDE.md holds
+  only an import of it, so sessions that cannot read AGENTS.md directly
+  still load it (Claude Code docs, "How Claude remembers your project").
